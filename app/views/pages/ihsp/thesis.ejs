@@ -1,0 +1,88 @@
+<div class="card">
+    <div class="card-header">
+      Theses and Dissertations Module  <span class="badge badge-success"> <%= sser[0].total %>  as of today </span>
+    </div>
+    <div class="card-body">
+
+        <div class="mb-3">
+            <div>
+        
+            </div>
+            <div> 
+                <form action="/api/" method="POST">
+                    <div class="input-group">
+                        <input type="hidden"  name="type" value="theses"  >
+                        <input type="text" class="form-control" name="query"  id="myInput" autofocus >
+                        <span class="input-group-btn">
+                    <button class="btn btn-default btn-outline-secondary btn-block" type="submit">Submit!</button>
+                </span>
+                    </div>
+                </form>
+        
+            </div>
+        
+        </div>
+
+
+        <div>
+
+
+            
+            <div class="">
+                <%var cnt = data.length  %> 
+              
+             
+               
+              
+                <% if (cnt >= 1 ) { %>
+                <table class="table">
+                     <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Code &amp; Barcode </th>
+                                <th><button id="thesis" class="btn btn-outline-secondary btn-danger text-white" onclick="saveallIN_SS(this.id)">SUBMIT</button></th>
+                            </tr>
+                           </thead>
+                            <tbody>
+                              
+                                
+
+                               
+                                <% if (data.lenght  == 0 ) { %>
+                                    
+                                    data == null;
+                                <% } else { %>
+                                    <% for( let index = 0; index < data.length; index++ ) { %>
+                                        <tr>
+                                            <th scope="row"> <%= index %> </th>
+                                            <td><%= data[index].title  %> </td>
+                                            <td><%= data[index].author %> </td>
+                                            <td><%= data[index].call_number  %>  <%= data[index].barcode  %> </td>
+                                            <td><button id="<%= data[index].id %>" class=" btn fa fa-times" style="color: red" onclick="delbyID_SS('<%= data[index].id %>','thesis')"></button></td>
+                                        </tr>
+                                    <% } %>
+                                <% }  %>
+
+                                
+
+                               
+                                
+
+
+                            </tbody>                
+                </table>
+
+                <% } %>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+  </div>
+

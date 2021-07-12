@@ -1,0 +1,42 @@
+<001>Human resource management : an experiential approach
+<002>
+<003>
+<004>Bernardin, H. John
+<005>
+<006>
+<007>
+<008>
+<009>Boston
+<0010>McGraw Hill International
+<0011>2010
+<0012>5th ed.
+<0013>813 p
+<0014>ill
+<0015>28 cm.
+<0016>
+<0017>
+<0018>Includes index
+<0019>9780071267472
+<0020>Human resource management
+<0021>
+<0022>
+<0023>
+<0024>
+<0025>GC-HUR 658.3 B35h 2010
+<0026>MLIB00002398
+<0027>English
+<0028>GC-HUR - Reserve
+<0029>25927; 4,095.00
+<0030>1
+<0031>1
+<0032>0
+<0033>
+<0034>
+<0035>
+<0036>0
+<0037>
+<0038>
+<0039>Text
+<0040>Unmediated
+<0041>Volume
+<0042>

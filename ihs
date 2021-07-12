@@ -1,0 +1,1400 @@
+{ Error: Connection lost: The server closed the connection.
+    at Protocol.end (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:112:13)
+    at Socket.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:94:28)
+    at Socket.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:203:15)
+    at endReadableNT (_stream_readable.js:1145:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19) fatal: true, code: 'PROTOCOL_CONNECTION_LOST' }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ECONNREFUSED 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect ETIMEDOUT
+    at Connection._handleConnectTimeout (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:409:13)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at Socket._onTimeout (net.js:443:8)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true }
+{ Error: connect ETIMEDOUT
+    at Connection._handleConnectTimeout (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:409:13)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at Socket._onTimeout (net.js:443:8)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true }
+{ Error: connect ETIMEDOUT
+    at Connection._handleConnectTimeout (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:409:13)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at Socket._onTimeout (net.js:443:8)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true }
+{ Error: connect ETIMEDOUT
+    at Connection._handleConnectTimeout (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:409:13)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at Socket._onTimeout (net.js:443:8)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true }
+{ Error: connect ETIMEDOUT
+    at Connection._handleConnectTimeout (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:409:13)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at Socket._onTimeout (net.js:443:8)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }
+{ Error: connect EHOSTUNREACH 10.2.42.50:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+    --------------------
+    at Protocol._enqueue (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/home/stabook-kiosk/Desktop/IHS_v.2021/pv3_fine/app/config/db.js:22:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+  errno: 'EHOSTUNREACH',
+  code: 'EHOSTUNREACH',
+  syscall: 'connect',
+  address: '10.2.42.50',
+  port: 3306,
+  fatal: true }

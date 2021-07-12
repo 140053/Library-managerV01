@@ -1,0 +1,95 @@
+
+<% if (page == null) { %>
+ 
+
+<div class="row cardGroup m-3">
+    <div class="col-lg-3 col-xs-6 col-md-6 ">
+      <!-- small box -->
+      <div class="small-box bg-gray">
+        <div class="inner">
+          <h3><%=  patron %> </h3>
+
+          <p>User Registrations</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6 col-md-6 ">
+      <!-- small box -->
+      <div class="small-box bg-green">
+        <div class="inner">
+          <h3><%= book %> <sup style="font-size: 20px"></sup></h3>
+
+          <p>BOOKS</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-ios-book "></i>
+        </div>
+        <a href="/ihs/book"  class="small-box-footer">Add Record <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6 col-md-6 ">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <h3><%= thesis %> </h3>
+
+          <p>Theses And Dissertation</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-ios-paper"></i>
+        </div>
+        <a href="/ihs/thesis"  class="small-box-footer">Add Record <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6 col-md-6 ">
+      <!-- small box -->
+      <div class="small-box bg-red">
+        <div class="inner">
+          <h3> <%= serials %>   </h3>
+
+          <p>Serials</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-pie-graph"></i>
+        </div>
+        <a href="/ihs/serials"  class="small-box-footer">Add Record <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+  </div>
+
+  <% } %>
+
+  
+
+  <div class="m-5">
+<!--
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  -->
+    <% if(page == 'book'){ %>
+        <%- include('../pages/ihsp/book') %>
+    <% } else if ( page == 'thesis'){ %>
+        <%- include('../pages/ihsp/thesis') %>
+    <% } else if ( page == 'serials')  { %> 
+        <%- include('../pages/ihsp/serials') %>
+    <% } else if (page == 'patron') { %>
+      <%- include('../pages/ihsp/patron') %>
+    <% } %>
+    
+  </div>
+
+
+  
+
