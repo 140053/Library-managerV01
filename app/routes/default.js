@@ -2,6 +2,7 @@
 const express = require('express');
 const route = express.Router();
 const task = require('../controller/appController');
+const inventoryController = require('../controller/inventoryController');
 var middleware = require('../middleware/localvar');
 const Serials = require('../model/serials_model');
 
@@ -11,6 +12,14 @@ const Serials = require('../model/serials_model');
 
 route.use(middleware.set_var);
 route.use(middleware.set_counts);
+
+
+route.use(function(req, res, next){
+    if (req.session.Logged_status === false){
+        req.session.data = null
+    }
+    next();
+})
 
 route.get('/',task.index);
 
@@ -28,13 +37,32 @@ route.get('/ihs/thesis',task.ihs_theses);
 
 route.get('/ihs/serials',task.ihs_serials);
 
+//login
+route.get('/login', inventoryController.inv)
+
+//Logout
+route.get('/logout', (req, res)=>{
+    req.session.destroy();
+    res.redirect('/');
+})
 
 
+route.get('/inv', inventoryController.inv)
 
 
+route.post('/inv/request', middleware.checkAuth, inventoryController.getdataInventory )
 
+route.get('/inv/request/:what/:id/:name', middleware.checkAuth,inventoryController.getMyAccountableItems)
 
+route.post('/inv/ingest', middleware.checkAuth, inventoryController.saveMyaccountable)
+route.post('/add/photo', middleware.checkAuth, inventoryController.attachePhoto);
 
-
+route.get('/add', (req, res)=>{
+    console.log(req.session.fileinfo)
+    res.render('pages/inventory/auth/addphoto',{
+        LoggedU: null ,
+        metadata: req.session.fileinfo  
+    })
+})
 
 module.exports = route;

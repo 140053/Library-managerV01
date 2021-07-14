@@ -11,10 +11,14 @@ var Book = require('../model/book_model');
 
 
 exports.index = function(req, res) {
+
    
-    res.render('pages/index',{
+      res.render('pages/index',{
         LoggedU: null
-    })
+      })
+    
+   
+   
 };
 
 

@@ -1,0 +1,222 @@
+
+
+<div class="card text-white bg-dark mb-3 mt-3" >
+    <div class="card-header"> <%= metadata.name %>  </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= metadata.model %> &nbsp;  <%= metadata.SN %> &nbsp; <%= metadata.propertyNumber %> </h5>
+      <hr>
+    
+      <!-- ++++++++++++++++++++++++++++++++++++-->
+      <div class="">
+        <style>
+            #gallery .thumbnail{
+                width:150px;
+                height: 150px;
+                float:left;
+                margin:2px;
+                border-color: aliceblue;
+                border: 2cm;
+            }
+            #gallery .thumbnail img{
+                width: 150px;
+                height: 150px;
+            }
+
+            input[type="file"] {
+                display: block;
+              }
+              .imageThumb {
+                max-height: 75px;
+                border: 2px solid;
+                padding: 1px;
+                cursor: pointer;
+              }
+              .pip {
+                display: inline-block;
+                margin: 10px 10px 0 0;
+              }
+              .remove {
+                display: block;
+                background: #444;
+                border: 1px solid black;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+              }
+              .remove:hover {
+                background: white;
+                color: black;
+              }
+            
+     
+        </style>
+            <div id="page-wrapper">
+                
+                
+                <form action="/add/photo" method="POST" enctype="multipart/form-data">
+                    <div class="form-group ">  
+                        <div class="file">
+                            <input type="file" id="files" name="pile"  multiple="true"  />
+                        </div>                 
+                        
+                    </div>
+                    <div class="img-fluid d-flex justify-content-center" >
+                        <div class="card-group" id="gallery" ></div>
+                    </div>
+
+
+
+<br>
+<hr>
+                    <div class="form-group mt-2">
+                        <button type="submit" class="btn btn-block btn-secondary"> submit</button>
+                    </div>
+                </form>
+               
+
+
+                
+                
+            </div>
+        
+      </div>
+      
+        
+     
+
+      <!-- ++++++++++++++++++++++++++++++++++++-->
+    </div>
+  </div>
+
+
+<script type="text/javascript" src="/assets/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/assets/html2canvas/dist/html2canvas.js"></script>
+<!--script type="text/javascript" src="assets/js/jquery.plugin.html2canvas.js"></script-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
+
+
+<script>
+
+
+
+
+
+
+$(document).ready(function() {
+  if (window.File && window.FileList && window.FileReader) {
+    $("#files").on("change", function(e) {
+       
+      var files = e.target.files,
+        filesLength = files.length;
+        console.log(files)
+      for (var i = 0; i < filesLength; i++) {
+        var f = files[i]
+        var fileReader = new FileReader();
+        fileReader.onload = (function(e) {
+          var file = e.target;
+          $("<span class=\"pip\">" + "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+            "<br/><spam>"+f.name+"</spam><br><span class=\"remove\">Remove image</span>" +
+            "</span>").insertAfter("#files");
+          $(".remove").click(function(){
+            $(this).parent(".pip").remove();
+          });
+         // $('.fnamu-'+i).text(f.name);
+    
+          
+          // Old code here
+          /*$("<img></img>", {
+            class: "imageThumb",
+            src: e.target.result,
+            title: file.name + " | Click to remove"
+          }).insertAfter("#files").click(function(){$(this).remove();});*/
+          
+        });
+        fileReader.readAsDataURL(f);
+        //$('#fnamu-'+ i).text(files[i].name)
+       
+       // console.log('.fnamu-'+ i)
+        //console.log(files[0].name);
+      }
+
+     
+    });
+  } else {
+    alert("Your browser doesn't support to File API")
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+    var uploadfiles = document.querySelector('#fileinput');
+    uploadfiles.addEventListener('change', function () {
+        var files = this.files;
+        for(var i=0; i<files.length; i++){
+            previewImage(this.files[i], i);
+            console.log("name : " + this.files[i].name);
+            console.log("size : " + this.files[i].size);
+            console.log("type : " + this.files[i].type);
+            console.log("date : " + this.files[i].lastModified);
+        }
+        
+       
+    
+    }, false);
+    function previewImage(file, filelen) {
+        var galleryId = "gallery";
+        
+
+        var temcard = document.getElementById('tempcard')
+     
+        var gallery = document.getElementById(galleryId);
+        var imageType = /image.*/;
+     /**
+        if (!file.type.match(imageType)) {
+            throw "File Type must be an image";
+        }
+        
+        
+        var thumb = document.createElement("div");
+        thumb.classList.add('thumbnail'); // Add the class thumbnail to the created div3
+        thumb.classList.add('mb-3')
+
+        var fnamu = document.createElement("p")
+        fnamu.innerHTML = file.name
+     
+        var img = document.createElement("img");
+        img.classList.add('img-' + filelen)
+        img.file = file;
+        thumb.appendChild(img);
+        thumb.appendChild(fnamu);
+        gallery.appendChild(thumb);
+     
+        
+   
+    
+          
+
+        // Using FileReader to display the image content
+        var reader = new FileReader();
+        reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+        reader.readAsDataURL(file);
+    }
+
+    **/
+</script>
+
+
+
+

@@ -3,7 +3,7 @@ const express = require('express');
 const route = express.Router();
 const task = require('../controller/appController');
 var middleware = require('../middleware/localvar');
-
+const LoginLM = require('../controller/loginSystemController');
 
 
 
@@ -19,6 +19,8 @@ route.post('/del',middleware.DelbyID,(req,res)=>{
 })
 
 
+//login
+route.post('/login',LoginLM.LoginLM)
 
 
 module.exports = route;

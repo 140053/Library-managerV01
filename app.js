@@ -8,7 +8,7 @@ const port = process.env.PORT || 8000
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const path = require('path');
-
+const fileUpload = require('express-fileupload');
 
 
 
@@ -24,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+// default options
+app.use(fileUpload());
 
 
 

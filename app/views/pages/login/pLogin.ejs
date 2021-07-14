@@ -1,0 +1,413 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <META NAME = "Keywords" content="library information sytem, myrizal, platonixz, libro system">
+        <META NAME = "description" content="online library information system">  
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">       
+		<link href="/css/cbdb-search-form_entry.css" type="text/css" rel="stylesheet" media="screen" />	
+		<link rel="stylesheet" href="/css/styles.css">			
+		<style type=text/css>		
+			.navcontainer ul
+			{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			text-align: center;
+			width: 100%;	
+			float: left;			
+			}
+			.navcontainer ul li { display: inline; }
+
+			.navcontainer ul li a
+			{
+			width: 20em;	
+			padding: .2em 1em;			
+			text-decoration: none;
+			color: #fff;
+			background-color: purple;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			font-size: 100%;			
+			border-right: 1px solid white;
+			border-top-left-radius: 2em;
+			border-top-right-radius: 2em;			
+			}
+			.navcontainer ul li a:hover
+			{
+			color: #fff;
+			background-color: fuchsia;
+			}	
+			
+			input[type=checkbox]
+			{
+			padding: 0px;
+			text-align: left;
+			color: blue;
+			font-size: 90%;			
+			font-weight: normal;
+			cursor: pointer;		
+			}
+			
+			input[type=radio]
+			{
+			font-weight: normal;
+			cursor: pointer;	
+			padding: .2em 1em;			
+			text-decoration: none;
+			background-color: orange;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			font-size: 100%;			
+			border-right: 1px solid white;
+			color: blue;		
+			}
+
+			input[type=text]
+			{
+			font-weight: normal;			
+			cursor: pointer;		
+			font-family: Arial, Helvetica, sans-serif;		
+			color: blue;		
+			}			
+			
+		body {
+		background-color: #EAF2D3;
+		font-family: Calibri, Arial, Helvetica, sans-serif;	
+		color: ;			
+		
+		} 
+		
+		img.menu{
+			display:inline-block;
+			height:50px;
+			margin: 0 auto;
+		}	
+			
+		table, td, th {
+			border-collapse: collapse;
+		}
+		
+		th {
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			background-color: ;
+			color: black;
+			text-align: right;
+			padding: 5px;
+			border: ;			
+		}			
+		
+		th.display {
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			background-color: #A7C942;
+			color: Black;
+
+			text-align: center;
+			padding: 5px;
+			border: 1px solid green;			
+		}
+
+		th.display2 {
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			background-color: #A7C942;
+			color: Black;
+			width: 30%;			
+			text-align: center;
+			padding: 5px;
+			border: 1px solid green;			
+		}
+		
+		th.display3 {
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			background-color: #A7C942;
+			color: Black;
+	
+			text-align: center;
+			padding: 5px;
+			border: 1px solid green;			
+		}
+
+		th.columnheader {
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			background-color: ;
+			color: Black;
+			width: 20%;
+			text-align: right;
+			padding: 5px;
+			border: ;			
+		}			
+	
+		td {
+			font-family: Calibri, Arial, Helvetica, sans-serif;	
+			font-size: 100%;
+		}
+
+
+		td.display1 {
+			font-family: Calibri, Arial, Helvetica, sans-serif;	
+			font-size: 90%;
+			border: none;	
+			text-shadow: 0px 1px 0px #13506D;				
+		}	
+		
+
+		a.edit
+			{
+			width: 20em;	
+			padding: .2em 1em;			
+			text-decoration: none;
+			color: Gold;
+
+			background-color: purple;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			font-size: 100%;			
+			border-right: 1px solid white;
+			
+			border-top-left-radius: 2em;
+			border-top-right-radius: 2em;			
+			border-botttom-left-radius: 2em;
+			border-bottom-right-radius: 2em;		
+			}
+
+		a.edit:hover
+			{
+			color: blue;
+			background-color: fuchsia;
+			}	
+
+		a.footer
+			{
+			width: 20em;	
+			padding: .2em 1em;			
+			text-decoration: none;
+			color: blue;
+			background-color: silver;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			font-size: 75%;			
+			border-right: 1px solid white;
+			}
+
+		a.footer:hover
+			{
+			color: blue;
+			background-color: fuchsia;
+			}
+
+		a.card
+			{
+			width: 30em;	
+			padding: .2em 1em;			
+			text-decoration: none;
+			color: Gold;
+			background-color: teal;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			font-size: 100%;			
+			border-right: 1px solid white;
+			}
+
+		a.card:hover
+			{
+			color: blue;
+			background-color: fuchsia;}
+			
+		a {
+			text-decoration: none;
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			color: blue;}			
+			
+		a:hover
+			{
+			font-weight: bold;
+			color: orange;
+			background-color: transparent;
+			}	
+			
+			
+		h3 {
+			text-decoration: none;
+			font-family: Calibri, Arial, Helvetica, sans-serif;		
+			color: blue;	
+            /**color:#FF0000;	*/
+		}	
+
+	
+		ul {
+			float: left;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+			}	 
+	 
+		nav#navright {
+			line-height:25px;
+			background-color:;
+			height:1500px;
+			width:75px;
+			float:right;
+			padding:5px;	      
+			}
+		
+		a.menu {
+			float: left;
+			width: 5em;
+			text-decoration: none;
+			color: blue;
+			background-color: none;
+			padding: 0.1em 0.2em;
+			border-right: 1px solid white;
+			border-top-left-radius: 2em;
+			border-top-right-radius: 2em;			
+		</style>
+		
+	<script language="JavaScript" type="text/JavaScript">
+	
+		function checkscript() {
+			var x=document.mySearch.Keyword1.value;
+			if (x.indexOf(">")>=0 || x.indexOf("<")>=0 || x.indexOf("</")>=0) {
+				alert("HTML/Javascript/ASPscript character is not allowed in keyword.\n");
+				document.mySearch.Keyword1.focus();
+				return false;
+			}        
+			if (!document.mySearch.Keyword1.value) {
+				alert("The keyword textbox must not be blank. \n" + "* Please enter keyword(s) in the textbox. \n");
+				document.mySearch.Keyword1.focus();
+				return false;
+			}
+			return true;
+		}
+		
+    
+</script>
+</head>
+
+		
+</div>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Pagemaster V.5.0</title>
+	<style type=text/css>	
+			#search-form {
+				background: #e1e1e1; /* Fallback color for non-css3 browsers */
+				width: 365px;
+				
+				/* Gradients */
+				background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(243,243,243)), color-stop(1, rgb(225,225,225)));
+				background: -moz-linear-gradient( center top, rgb(243,243,243) 0%, rgb(225,225,225) 100%);
+				
+				/* Rounded Corners */
+				border-radius: 17px; 
+				-webkit-border-radius: 17px;
+				-moz-border-radius: 17px;
+				
+				/* Shadows */
+				box-shadow: 1px 1px 2px rgba(0,0,0,.3), 0 0 2px rgba(0,0,0,.3); 
+				-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.3), 0 0 2px rgba(0,0,0,.3);
+				-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.3), 0 0 2px rgba(0,0,0,.3);
+			}
+
+			/*** TEXT BOX ***/
+			input[type="text"]{
+				background: #fafafa; /* Fallback color for non-css3 browsers */
+				
+				/* Gradients */
+				background: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(250,250,250)), color-stop(1, rgb(230,230,230)));
+				background: -moz-linear-gradient( center top, rgb(250,250,250) 0%, rgb(230,230,230) 100%);
+				
+				border: 0;
+				border-bottom: 1px solid #fff;
+				border-right: 1px solid rgba(255,255,255,.8);
+				font-size: 16px;
+				margin: 4px;
+				padding: 5px;
+				width: 500px;
+				
+				border:1px solid green;
+				
+				/* Rounded Corners */
+				border-radius: 17px; 
+				-webkit-border-radius: 17px;
+				-moz-border-radius: 17px;
+				
+				/* Shadows */
+				box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
+				-webkit-box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
+				-moz-box-shadow: -1px -1px 2px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.2);
+			}
+
+			/*** USER IS FOCUSED ON TEXT BOX ***/
+			input[type="text"]:focus{
+				outline: none;
+				background: #fff; /* Fallback color for non-css3 browsers */
+				
+				/* Gradients */
+				background: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(255,255,255)), color-stop(1, rgb(235,235,235)));
+				background: -moz-linear-gradient( center top, rgb(255,255,255) 0%, rgb(235,235,235) 100%);
+			}	
+     
+            body {
+              
+                background-color: #EAF2D3;
+            }     	
+		</style>
+	</head>
+
+<body >
+
+<center> <!--a href="#"><input type="submit" value="ATTENDANCE MONITORING SYSTEM" name="btn_exit" title="Login System" style="width:200px; text-align: center;" ></a--></center>
+
+
+<form method="POST" action="/api/plogin">
+ <div style="text-align: right">
+
+    <table style="width: 100%; height:100%; text-align: center; border: 2px;">
+        <tr>
+            <td style="text-align: center">
+                <b><h1 style="color: rgb(27, 59, 5);" >ATTENDANCE MONITORING SYSTEM </h1></b>
+				<SELECT NAME="slocation" style="width: 20%; width:250px; height:30px; font-size:12pt;">
+				  <OPTION>College Library
+				  <!--OPTION>Learning Commons</OPTION-->			  
+				</SELECT>
+				<br/>
+                <b> <%= new Date().toLocaleString(); %>  </b>
+				<br/>
+	            <input type="text" name="keyword2" style="width: 25%; height:30px; font-size:18pt;" placeholder=""><br />
+                <IMG SRC="/img/nopix.png" style="border: 1px solid black; height: 375px; width: 400px"><br />
+            <td>
+	    </tr>
+   </table>
+</div>
+	  <br />
+    <div >
+    <table style="width: 90%; height:100%; text-align: center; border: 1px solid black; margin: 0px auto;">
+	      <tr style="text-align: center; border: 1px solid black">
+		    <th class="display">Name</th>
+		    <th class="display">ID number</th>
+		    <th class="display">Group</th>
+		    <th class="display">Description</th>
+		    <th class="display">Date/Time-in</th>
+		    <th class="display">Location</th>
+	      </tr>
+	      <tr style="width: 90%; text-align: center; border: 1px solid black">
+		    <td style="width: 20%"></td>
+		    <td style="width: 15%"></td>
+		    <td style="width: 15%"></td>
+		    <td style="width: 20%"></td>
+		    <td style="width: 15%"></td>
+		    <td style="width: 15%"></td>
+	      </tr>
+       </table> 
+    </div>
+    <input type=hidden name="ID" value="">
+</form>
+<script type="text/javascript">
+    // disable angle brackets as input characters
+
+				
+	// if(String.fromCharCode(e.keyCode).toLowerCase()=='a')
+
+</script>
+
+</body>
+</html>

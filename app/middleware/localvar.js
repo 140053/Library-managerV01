@@ -1,7 +1,7 @@
 
 
 const e = require('express');
-
+const url = require('url')
 var Serials = require('../model/serials_model');
 var Thesis = require('../model/thesis_model');
 var Book = require('../model/book_model');
@@ -17,12 +17,49 @@ exports.alert_notif = function(req,res,next){
 }
 
 
+exports.checkAuth = function( req, res , next){
+    if (req.session.Logged_status === false){
+        req.session.auth = null
+    }else{
+        req.session.auth = true
 
+    }
+    next();
+}
 
 
 exports.set_var = function(req,res,next){
     res.locals.apptitle = 'Home';
-    res.locals.title = 'Home';
+   
+    var pU = url.format({pathname: req.originalUrl})
+   //console.log(pU)
+   req.session.backpage = pU;
+
+    switch (pU) {
+        case '/inv':
+            res.locals.title = 'Library Inventory Manager';
+            res.locals.banner = 'inv2.jpg';
+            res.locals.cjs = '<script src="/js/inv.js"></script>';
+            res.locals.modal = "";
+            break;
+        case '/ihs':           
+            res.locals.title = 'Library In-House Utilization Manager';
+            res.locals.cjs = ' <script src="/js/custom.js"></script>';
+            res.locals.modal = '';
+            break;
+        case '/login':           
+            res.locals.title = 'Library Manager';
+            res.locals.banner = 'inv3.jpg';
+            res.locals.cjs = ' <script src="/js/custom.js"></script>';
+            res.locals.modal = '';
+            break;
+        default:
+            res.locals.title = 'Library Manager'; 
+            res.locals.cjs = '<script src="/js/custom.js"></script>';
+            res.locals.modal = '';
+            res.locals.cjs = '<script src="/js/inv.js"></script>';
+            break;
+    }
    
     
     next();
