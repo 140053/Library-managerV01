@@ -47,16 +47,18 @@ route.get('/logout', (req, res)=>{
 })
 
 
+
+
+
+
+
+
+// INVENTORY ROUTE
 route.get('/inv', inventoryController.inv)
-
-
 route.post('/inv/request', middleware.checkAuth, inventoryController.getdataInventory )
-
 route.get('/inv/request/:what/:id/:name', middleware.checkAuth,inventoryController.getMyAccountableItems)
-
 route.post('/inv/ingest', middleware.checkAuth, inventoryController.saveMyaccountable)
 route.post('/add/photo', middleware.checkAuth, inventoryController.attachePhoto);
-
 route.get('/add', (req, res)=>{
     console.log(req.session.fileinfo)
     res.render('pages/inventory/auth/addphoto',{
@@ -64,5 +66,16 @@ route.get('/add', (req, res)=>{
         metadata: req.session.fileinfo  
     })
 })
+
+route.post('/inv/add', middleware.checkAuth, inventoryController.addmanagerController);
+
+route.post('/inv/list', middleware.checkAuth, inventoryController.invListof);
+
+
+
+
+
+
+
 
 module.exports = route;

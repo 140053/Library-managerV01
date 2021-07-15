@@ -75,6 +75,36 @@ Task.insertMyAccountablePhoto = function(data,itemID, result){
 }
 
 
+//add office
+Task.insertinoffice = function(data, result){
+    knex('inv_office')
+        .insert({
+            name: data.name,
+            code: data.code
+        })
+        .then( function(res){
+            result(null, true);
+        })
+
+}
+
+//add Person
+
+Task.insertaccountableperson = function(data, result){
+    knex('inv_accountable')
+        .insert({
+            Name: data.name,
+            photo: data.photo,
+            office_id: data.office
+        })
+        .then( function(res){
+            result(null, true);
+        })
+}
+
+
+
+
 
 
 

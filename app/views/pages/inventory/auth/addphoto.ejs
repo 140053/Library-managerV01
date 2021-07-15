@@ -115,8 +115,8 @@ $(document).ready(function() {
         var fileReader = new FileReader();
         fileReader.onload = (function(e) {
           var file = e.target;
-          $("<span class=\"pip\">" + "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-            "<br/><spam>"+f.name+"</spam><br><span class=\"remove\">Remove image</span>" +
+          $("<span class=\"pip\">" + "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + f.name + "\"/>" +
+            "<br/><br><span class='remove' >"+f.name+"</span>" +
             "</span>").insertAfter("#files");
           $(".remove").click(function(){
             $(this).parent(".pip").remove();

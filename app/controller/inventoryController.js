@@ -15,9 +15,6 @@ var controller = function(task){
 
 
 controller.inv = async function(req, res){  
-    
- 
-   
     var cred =  req.session.data;
 
     if (req.session.data != null){
@@ -232,6 +229,122 @@ controller.attachePhoto = function( req, res){
       });
       */
 }
+
+
+
+
+
+
+
+
+
+//POST
+
+
+
+controller.addmanagerController = function(req, res){
+
+    var form = req.body.form;
+
+    if(form){
+        switch (form) {
+            case 'office':
+                var data = {
+                    name: req.body.name,
+                    code: req.body.code
+                }
+                inv.insertinoffice(data, function(err, result){
+                    res.redirect('/inv')
+                })
+                break;
+            case 'person':
+                var data = {
+                    name: req.body.name,
+                    photo: req.body.photo,
+                    office: req.body.officeid
+                }
+                inv.insertaccountableperson(data, function(err, result){
+                    res.redirect('/inv')
+                })
+                break;
+            case 'item':
+                var data = {
+                    acountableID: req.body.accountableID,
+                    name: req.body.name,
+                    location: req.body.location,
+                    amount: req.body.amount,
+                    SN: req.body.SN,
+                    dateAquired: req.body.dateaquired,
+                    propertynumber: req.body.propertynumber,
+                    unit: req.body.unit,
+                    model: req.body.model,
+                    typof: req.body.itemtype
+                }
+                inv.insertMyAccountableItems(data, function(err, result){
+                    res.redirect('/inv')
+                })
+                break;
+            default:
+                res.redirect('/inv')
+                break;
+        }
+    }else{
+        res.status('404').send('NUll')
+    }
+   
+}
+
+
+
+
+controller.invListof = function(req, res ){
+    var type = req.body.type
+
+    if (type){
+        switch (type) {
+            case 'office':
+                inv.List_office(function(err, result){
+                    res.send(result)
+                })                
+                break;
+            case 'person':
+                var officeid = req.body.id;
+                //if(officeid != ''){
+                    //console.log(officeid)
+                    inv.list_accountableByOffice( officeid, function(err, result){
+                        res.send(result)
+                        
+                    })
+               // }
+                break;
+            case 'items':
+                var personid = req.body.id;
+                
+                inv.list_myaccountableItems(personid, function(err, result){
+                    res.send(result)
+                   
+                })
+                break;
+            default:
+                res.send('{err: {err:error}}')
+                break;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
