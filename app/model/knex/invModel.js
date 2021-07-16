@@ -44,13 +44,15 @@ Task.insertMyAccountableItems = function(data, result){
    
     knex('inv_myaccountable')
         .insert({
+            paccnt: data.person,
+            office: data.office,
             accountable_id: data.acountableID,
             name: data.name,
             location: data.location,
             ammount: data.amount,
-            serialnumber: data.SN,
+            serialnumber:  data.SN ,
             daquired: data.dateAquired,
-            propertynumber: data.propertyNumber,
+            propertynumber:   data.propertynumber ,
             'typeof': data.unit,
             model: data.model,
             toequip: data.typof,

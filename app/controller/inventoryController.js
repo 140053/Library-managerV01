@@ -1,7 +1,8 @@
 const inv =  require('../model/knex/invModel')
 const fs  = require('@supercharge/fs')
 const ofs = require('fs')
-const path = require('path')
+const path = require('path');
+const { min } = require('lodash');
 
 
 //Task object constructor
@@ -70,17 +71,20 @@ controller.getMyAccountableItems = function( req, res){
     var cred =  req.session.data;
     var iid = req.params.id;
     var name = req.params.name;
+    var office = req.params.office;
+    console.log(name)
     inv.list_myaccountableItems(iid, function(err, result){   
         var datalent = Object.keys(result).length
         var dataraw = result;
+        
         if(datalent > 0){
             res.render('pages/inventory/auth/myaccountable',{
                 aid : iid,
+                office: office,
                 name: name,
                 datalen: datalent,
                 data: dataraw,
-                LoggedU: cred[0].username ,
-              
+                LoggedU: cred[0].username ,              
                 auth: 0,
                 namu: result[0].name
                 //accble: result
@@ -105,6 +109,8 @@ controller.getMyAccountableItems = function( req, res){
 controller.saveMyaccountable = function( req, res){
    
     var info = {
+        person: req.body.person,
+        office: req.body.office,
         acountableID: req.body.accountableId,
         name: req.body.name,
         model: req.body.model,
@@ -116,14 +122,36 @@ controller.saveMyaccountable = function( req, res){
         unit: req.body.unit,
         typof: req.body.typof
     }
-    
+   
     inv.insertMyAccountableItems(info, function(err, result){
         req.session.fileinfo = info
         //console.log(req.session.backpage)
         res.redirect('/add')
     })
+   
 
 }
+
+function mkdirpath(d1, d2){
+    var sts = ofs.existsSync(path.join(__dirname,'../public/picture', d1))
+            //console.log(sts)   
+        if(sts){
+            return {message: 'exist', status: true};
+        }else{
+            ofs.mkdir(path.join(__dirname,'../public/picture', d1), 
+            { recursive: true }, (err) => { 
+                if (err) { 
+                    return {message: 'err', status: false};
+                } 
+                
+                //console.log('Directory created successfully!'); 
+            }); 
+            return {message: 'created', status: false};
+        }
+}
+
+
+
 
 
 controller.attachePhoto = function( req, res){
@@ -141,25 +169,31 @@ controller.attachePhoto = function( req, res){
     if (f.name){
         var ext = f.name
         var newext = ext.split('.')    
-       // console.log('onfile')     
-        var chkpath = './app/public/picture/'+ minfo.name + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1];
-         if( fs.exists(chkpath) == true ){
-            ofs.unlink(chkpath, function(err){
-                if(err && err.code == 'ENOENT') {
-                    console.error("Error occurred while trying to remove file");
-                }else{
-                    console.info(`removed`);
-                    inv.insertMyAccountablePhoto( minfo.name + '-' + minfo.model + '-' + minfo.SN, minfo.SN + '.'+ newext[1] , function( err, result){
-                        f.mv('./app/public/picture/' +  minfo.name + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1] );
-                    })
-                   
-                }
-            })
-         }else{
-            inv.insertMyAccountablePhoto( minfo.name + '-' + minfo.model + '-' + minfo.SN, minfo.SN + '.'+ newext[1], function( err, result){
-                f.mv('./app/public/picture/' +  minfo.name + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1] );
-            })
-         }
+        var nname = minfo.person;
+        var newname = nname.replace(/\s+/g, '-')
+       // console.log('onfile') 
+        var chkpath = './app/public/picture/ ' + minfo.office+ '/'+  minfo.person + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1];
+        var chkpaths = './app/public/picture/ ' + minfo.office+ '/';
+        var msts =  mkdirpath(minfo.office)
+        if(msts.message == 'exist' || msts.message == 'created' ){
+           
+            if( fs.exists(chkpaths) == true ){
+                ofs.unlink(chkpath, function(err){
+                    if(err && err.code == 'ENOENT') {
+                        console.error("Error occurred while trying to remove file");
+                    }else{
+                        console.info(`removed`);
+                        inv.insertMyAccountablePhoto(   minfo.person + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1] , minfo.SN , function( err, result){
+                            f.mv('./app/public/picture/' + minfo.office+ '/' +  minfo.person + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1] );
+                        })
+                    }
+                })
+             }else{
+                inv.insertMyAccountablePhoto(  minfo.person + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1], minfo.SN , function( err, result){
+                    f.mv('./app/public/picture/'  + minfo.office +  '/'  + minfo.person + '-' + minfo.model + '-' + minfo.SN + '.'+ newext[1] );
+                })
+             }
+        }   
          req.session.fileinfo = null
          res.redirect('/inv')
     }else{
@@ -175,29 +209,36 @@ controller.attachePhoto = function( req, res){
             var ext = f[a].name
             
             var newext = ext.split('.')
-
-            var chkpath = './app/public/picture/'+  minfo.name + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.'+ newext[1];
-            if( fs.exists(chkpath) == true ){
-                ofs.unlink(chkpath, function(err){
-                    if(err && err.code == 'ENOENT') {
-                        console.error("Error occurred while trying to remove file");
-                        upstatus = false
-                    }else{
-                        console.info(`removed`);
-                       
-                            f[a].mv('./app/public/picture/' +  minfo.name + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.'+ newext[1] );
-                            upstatus = true
-
-                       
-                    }
-                })
+            var chkpath = './app/public/picture/'  + minfo.office +  '/' +  minfo.person + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.'+ newext[1];
+            var chkpaths = './app/public/picture/ ' + minfo.office+ '/';
+            var msts =  mkdirpath(minfo.office)
+            if(msts.message == 'exist' || msts.message == 'created' ){
+                if( fs.exists(chkpaths) == true ){
+                    ofs.unlink(chkpath, function(err){
+                        if(err && err.code == 'ENOENT') {
+                            console.error("Error occurred while trying to remove file");
+                            upstatus = false
+                        }else{
+                            console.info(`removed`);
+                           
+                                f[a].mv('./app/public/picture/'  + minfo.office + '/' +  minfo.person + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.'+ newext[1] );
+                                upstatus = true
+    
+                           
+                        }
+                    })
+                }else{
+                
+                        f[a].mv('./app/public/picture/'  + minfo.office+  '/' +  minfo.person + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.' + newext[1] );
+                        upstatus = true
+                }
+    
+              fnames.push( minfo.person + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.' + newext[1]);
             }else{
-            
-                    f[a].mv('./app/public/picture/' +  minfo.name + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.' + newext[1] );
-                    upstatus = true
+                upstatus = false
             }
-
-          fnames.push( minfo.name + '-' + minfo.model + '-' + minfo.SN + '-img-'+ a + '.' + newext[1]);
+          
+           
             
         }
         if(upstatus == true){
@@ -269,6 +310,8 @@ controller.addmanagerController = function(req, res){
                 break;
             case 'item':
                 var data = {
+                    office: req.body.office,
+                    person: req.body.person,
                     acountableID: req.body.accountableID,
                     name: req.body.name,
                     location: req.body.location,
@@ -280,11 +323,14 @@ controller.addmanagerController = function(req, res){
                     model: req.body.model,
                     typof: req.body.itemtype
                 }
+                //res.send(data)
+             
                 inv.insertMyAccountableItems(data, function(err, result){
                     req.session.fileinfo = data
                     //console.log(req.session.backpage)
                     res.redirect('/add')
                 })
+                
                 break;
             default:
                 res.redirect('/inv')

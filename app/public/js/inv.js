@@ -1,6 +1,6 @@
 
 
-function getAcountableByOffice(id){
+function getAcountableByOffice(id, office){
    
 
     $.post("/inv/request",{
@@ -13,7 +13,7 @@ function getAcountableByOffice(id){
             var acont = [];
             for (let index = 0; index < Object.keys(data).length; index++) {
                
-                var a = ' <a class="list-group-item list-group-item-action"  href="/inv/request/myaccountable/'+ data[index].id +'/'+ data[index].Name +' " id="'+ data[index].id +'" ><small> '+ data[index].Name +'</small></a>'
+                var a = ' <a class="list-group-item list-group-item-action"  href="/inv/request/myaccountable/'+ data[index].id +'/'+ data[index].Name +'/'+ office +' " id="'+ data[index].id +'" ><small> '+ data[index].Name +'</small></a>'
                 acont.push(a)
             }
             $('.acountable').html(acont)
@@ -268,6 +268,7 @@ $('#seloffice').on('mouseover', function(){
         }
       
     })
+
 })
 
 
@@ -290,6 +291,8 @@ $('#seloffice2').on('mouseover', function(){
         }
       
     })
+
+   
 })
 
 
@@ -317,6 +320,8 @@ $('#seloffice3').on('mouseover', function(){
         }
       
     })
+
+    
 })
 
 
@@ -325,6 +330,8 @@ $('#seloffice3').on('mouseover', function(){
 $('#selperson').on('mouseover',function(){
     var officeid = $('#seloffice2').val();
    // alert(officeid)
+ 
+   $('#foroffice').val($('#seloffice2').text())
 
 
     if (officeid != ''){
@@ -348,8 +355,18 @@ $('#selperson').on('mouseover',function(){
          })
 
 
+
+
     }else{
 
         alert('Please Select Office First!!')
     }
+    
+})
+
+
+
+$('#iA').on('click', function(){
+    var person = $('#selperson').text();
+    $('#forperson').val(person)
 })

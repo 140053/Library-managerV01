@@ -56,7 +56,7 @@ route.get('/logout', (req, res)=>{
 // INVENTORY ROUTE
 route.get('/inv', inventoryController.inv)
 route.post('/inv/request', middleware.checkAuth, inventoryController.getdataInventory )
-route.get('/inv/request/:what/:id/:name', middleware.checkAuth,inventoryController.getMyAccountableItems)
+route.get('/inv/request/:what/:id/:name/:office', middleware.checkAuth,inventoryController.getMyAccountableItems)
 route.post('/inv/ingest', middleware.checkAuth, inventoryController.saveMyaccountable)
 route.post('/add/photo', middleware.checkAuth, inventoryController.attachePhoto);
 route.get('/add', (req, res)=>{

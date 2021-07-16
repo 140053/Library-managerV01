@@ -42,11 +42,12 @@
                                 overflow: hidden;
                             }
                         </style>
-                            <button id="<%=data[index].id %>"  onclick="getAcountableByOffice(this.id)"  class=" accord accordion-<%= index %>   "  ><%= data[index].name %> 
+                            <button id="<%=data[index].id %>"  onclick="getAcountableByOffice(this.id, '<%= data[index].name %>')"  class=" accord accordion-<%= index %>   "  ><%= data[index].name %> 
                                
-                                &nbsp; 
+                                
                                 <span class="badge badge-pill badge-secondary  " data-toggle="tooltip" data-placement="top" title="">?</span> 
                             </button>
+
                              <div class="panel-<%= index %>">
                                  <div class="list-group acountable">
          
@@ -228,13 +229,16 @@
                     </select>
                   </div>
 
+                  <input type="hidden" name="office" id="foroffice" >
+                  
+
                   <div class="form-group">
                       <label for="selperson">Select Accountable Person</label>
                       <select class="form-control" id="selperson" name="accountableID" required>
                        
                       </select>
                   </div>
-
+                  <input type="hidden" name="person" id="forperson" >
                   <div class="form-group">
                     <label for="inputAddress">Name:</label>
                     <input type="text" class="form-control" id="iA" placeholder="Item Name" name="name" required>
