@@ -281,7 +281,9 @@ controller.addmanagerController = function(req, res){
                     typof: req.body.itemtype
                 }
                 inv.insertMyAccountableItems(data, function(err, result){
-                    res.redirect('/inv')
+                    req.session.fileinfo = data
+                    //console.log(req.session.backpage)
+                    res.redirect('/add')
                 })
                 break;
             default:
@@ -324,6 +326,31 @@ controller.invListof = function(req, res ){
                     res.send(result)
                    
                 })
+                break;
+            default:
+                res.send('{err: {err:error}}')
+                break;
+        }
+    }
+}
+
+
+
+controller.invDelete = function(req, res ){
+    var type = req.body.type
+    
+    if (type){
+        switch (type) {
+            case 'office':
+                inv.invDeleteOffice(req.body.id, function(err, result){
+                    res.send('del')
+                })          
+                break;
+            case 'person':
+                inv.invDeletePerson(req.body.id)
+                break;
+            case 'items':
+                inv.invDeleteItem(req.body.id)
                 break;
             default:
                 res.send('{err: {err:error}}')

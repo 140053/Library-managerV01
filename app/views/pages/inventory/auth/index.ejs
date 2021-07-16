@@ -11,41 +11,43 @@
 
              
                 <div class="">
-                    <style>
-                        .accord {
-                                                                   
-                            cursor: pointer;
-                            padding: 10px;
-                            width: 100%;
-                            border: none;
-                            text-align: left;
-                            outline: none;
-                            font-size: 9px;
-                            transition: 0.4s;
-                        }
-                        
-                        .accord:hover {
-                            background-color: #ccc; 
-                        }
-                        
-                        .panel {
-                            padding: 0 18px;
-                            display: none;
-                            background-color: white;
-                            overflow: hidden;
-                        }
-                    </style>
+                    
 
                        
                       
                     <div class="listoffice">
                         <% for( let index = 0; index < Object.keys(data).length; index++ ) { %>
-                            <button id= <%= data[index].id %>  onclick="getAcountableByOffice(this.id)"  class=" accord accordion-<%= index %> "  ><%= data[index].name %> 
+
+                          <style>
+                            .accordion-<%= index %> {
+                                                                       
+                                cursor: pointer;
+                                padding: 10px;
+                                width: 100%;
+                                border: none;
+                                text-align: left;
+                                outline: none;
+                                font-size: 9px;
+                                transition: 0.4s;
+                            }
+                            
+                            .accordion-<%= index %>:hover {
+                                background-color: #ccc; 
+                            }
+                            
+                            .panel-<%= index %> {
+                                padding: 0 18px;
+                                display: none;
+                                background-color: white;
+                                overflow: hidden;
+                            }
+                        </style>
+                            <button id="<%=data[index].id %>"  onclick="getAcountableByOffice(this.id)"  class=" accord accordion-<%= index %>   "  ><%= data[index].name %> 
                                
                                 &nbsp; 
                                 <span class="badge badge-pill badge-secondary  " data-toggle="tooltip" data-placement="top" title="">?</span> 
                             </button>
-                             <div class="panel">
+                             <div class="panel-<%= index %>">
                                  <div class="list-group acountable">
          
                                     
@@ -218,7 +220,7 @@
         <div class="modal-body">
   
           <div>
-           
+                  <input type="hidden" name="form" value="item">
                   <div class="form-group">
                     <label for="seloffice">Select Office</label>
                     <select class="form-control" id="seloffice2" name="officeid" required>
@@ -558,11 +560,21 @@
           </button>
         </div>
         <div class="modal-body">
-          Are You Sure You Wanted to delete?
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h5 class="display-5"> Are You Sure You Wanted to delete? </h5>
+              <h5 class="display-3  "><b class="nanamu"></b></h5>
+              <p class="d-none type"></p>
+              <p class="d-none idd"></p>
+              
+            </div>
+          </div>
+          
+           
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger">Yes</button>
+          <button onclick="finalDeleteModal()" type="button" class="btn btn-danger">Yes</button>
         </div>
       </div>
     </div>

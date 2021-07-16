@@ -71,7 +71,7 @@ route.post('/inv/add', middleware.checkAuth, inventoryController.addmanagerContr
 
 route.post('/inv/list', middleware.checkAuth, inventoryController.invListof);
 
-
+route.post('/inv/delete', middleware.checkAuth, inventoryController.invDelete);
 
 
 

@@ -60,7 +60,7 @@ function selectInvetoryListofitems(idofdst, type, personid  ){
        
      }, 
      function(data, status){
-        // console.log(data[0].name)
+        // console.log(data[0])
         // if(Array.isArray(data)){
              var acont = [];
              for (let index = 0; index < Object.keys(data).length; index++) {
@@ -83,11 +83,12 @@ function selectInvetoryListofitems(idofdst, type, personid  ){
 }
 
 //edit office
-function editModal(type){
+function editModal(type, id, name){
     if(type != null){
         switch (type) {
             case 'office':
                     $('#editofficemodal').modal('toggle');
+                   
                 break;
         
             default:
@@ -96,11 +97,14 @@ function editModal(type){
     }
 }
 
-function deleteModal(type){
+function deleteModal(type, id, name){
     if(type != null){
         switch (type) {
             case 'office':
                     $('#deleteofficemodal').modal('toggle');
+                    $('.nanamu').text(name)
+                    $('.type').text(type)
+                    $('.idd').text(id)
                 break;
         
             default:
@@ -110,8 +114,29 @@ function deleteModal(type){
 }
 
 
+function finalDeleteModal(){
+    var type = $('.type').html()
+    var id =  $('.idd').html()
+    var name = $('.nanamu').html();
+   // alert(type + ' ' + id + ' ' + name)
+
+    $.post("/inv/delete",{
+        type: type,
+         id: id
+       
+     }, 
+     function(data, status){
+       console.log(status)
+     })
+     $('#deleteofficemodal').modal('hide')
+     $('#manageofficemodal').modal('hide')
+     
+}
+
+
 //manage
-$('#manageofficebtn').on('mouseove', function(){
+$('#manageofficebtn').on('click', function(){
+   
     $('#manageofficemodal').modal('toggle')
     $.post("/inv/list",{
         type: 'office',
@@ -119,16 +144,17 @@ $('#manageofficebtn').on('mouseove', function(){
        
      }, 
      function(data, status){
-         //console.log(data[0].Name)
+         console.log(data)
          if(Array.isArray(data)){
              var acont = [];
              for (let index = 0; index < Object.keys(data).length; index++) {  
                  var btn = '<div class="btn-group" role="group">'+
                                 '<button onclick=editModal("office") class="btn btn-info">Edit</button>'+
-                                '<button onclick=deleteModal("office") type="button" class="btn btn-danger">Delete</button>'+                                
+                                '<button onclick=deleteModal("office","'+ data[index].id +'","'+ data[index].name +'") type="button" class="btn btn-danger">Delete</button>'+                                
                             '</div>'
-
-                 var aa = '<li class="list-group-item d-flex justify-content-between align-items-center"> '+ data[index].name + btn + ' </li>'
+               
+                    var aa = '<li id=" '+ data[index].name + '-'+ data[index].id +'" class="list-group-item d-flex justify-content-between align-items-center "> '+ data[index].name + btn + ' </li>'
+               
                  acont.push(aa)
              }
              $('.listoffice').html(acont)
@@ -146,17 +172,17 @@ $('#manageitembtn').on('click', function(){
     $('#manageitemmodal').modal('toggle')
 })
 
-$('#seloffice4').on('mouseove', function(){
+$('#seloffice4').on('mouseover', function(){
     selectInvetoryListof('#seloffice4', 'office' , 'null' );
 })
-$('#selperson4').on('mouseove', function(){
+$('#selperson4').on('mouseover', function(){
     var officeid = $('#seloffice4').val();
     selectInvetoryListof('#selperson4', 'person' , officeid );
 })
 
 
 //list
-$('#listaccountable').on('mouseove', function(){
+$('#listaccountable').on('mouseover', function(){
     var officeid = $('#seloffice3').val();
    
     if( officeid == null){
@@ -190,7 +216,8 @@ $('#listaccountable').on('mouseove', function(){
 
 
 //list item
-$('#listitembtn').on('mouseove', function(){
+$('#listitembtn').on('click', function(){
+    
     var personid = $('#selperson4').val();
     selectInvetoryListofitems('.listitem', 'items', personid);
 })
@@ -244,7 +271,7 @@ $('#seloffice').on('mouseover', function(){
 })
 
 
-$('#seloffice2').on('mouseove', function(){
+$('#seloffice2').on('mouseover', function(){
     $.post("/inv/list",{
        type: 'office',
         id: null
@@ -267,7 +294,8 @@ $('#seloffice2').on('mouseove', function(){
 
 
 
-$('#seloffice3').on('mouseove', function(){
+$('#seloffice3').on('mouseover', function(){
+  
     $.post("/inv/list",{
        type: 'office',
         id: null
@@ -294,7 +322,7 @@ $('#seloffice3').on('mouseove', function(){
 
 
 
-$('#selperson').on('mouseove',function(){
+$('#selperson').on('mouseover',function(){
     var officeid = $('#seloffice2').val();
    // alert(officeid)
 

@@ -103,6 +103,29 @@ Task.insertaccountableperson = function(data, result){
 }
 
 
+//delete
+Task.invDeleteOffice = function(fid, result){
+  
+    knex('inv_office')
+        .where('id', '=' , fid)
+        .del()
+        .then( function(res){
+            result(null, true);
+        })
+}
+
+Task.invDeletePerson = function(pid){
+    knex('inv_accountable')
+        .where(id, '=' , pid)
+        .del()
+}
+
+Task.invDeleteItem = function(iid){
+    knex('inv_myaccountable')
+        .where(id, '=' , iid)
+        .del()
+}
+
 
 
 
