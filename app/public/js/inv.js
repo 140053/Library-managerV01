@@ -1,5 +1,67 @@
 
 
+
+
+
+function saveallIN_SS(table) {
+    $.post("/api/save",
+    {
+        table: table
+
+    },
+    function(data, status){
+        if(status == 'success'){
+            //alert('success saving data');
+            window.location.href='/ihs';
+        }
+    });
+}
+
+
+
+function delbyID_SS(id,table) {
+    //alert(id + ' '  + table);
+
+    $.post("/api/del",
+    {
+        table: table,
+        id: id
+
+    },
+    function(data, status){
+        if(status == 'success'){
+           // alert('success  data');
+            window.location.href='/ihs/'+ table ;
+        }
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function getAcountableByOffice(id){
    
 
