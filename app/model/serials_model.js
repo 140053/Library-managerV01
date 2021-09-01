@@ -180,10 +180,10 @@ Task.CountonInTable =  function(table, result){
  
     var d = new Date();
     var a,b,c;
-    a= d.getFullYear;
-    b= d.getMonth;
-    c = d.getDay
-    var query = "SELECT count(*) as total FROM "+ table +" where reg_date between '2021-01-01' and '2021-01-31';"
+    a= d.getFullYear();
+    b= d.getMonth();
+    c = d.getDay();
+    var query = "SELECT count(*) as total FROM "+ table +" where reg_date between '" + a + "-" + b + "-1"  + "' and '" + a + "-" + b + "-31"  + "' ;"
 
     try{
         
