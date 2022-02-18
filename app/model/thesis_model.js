@@ -90,10 +90,7 @@ Task.get_td_metadata = async function(table,barcode , result) {
                 }else{
                     result(null, res[0].Maintext);
                 }
-                
-               
-                
-               
+
             }
         });
     }catch(err){

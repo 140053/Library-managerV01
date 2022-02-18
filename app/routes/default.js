@@ -27,15 +27,17 @@ route.get('/',task.index);
 
 
 route.get('/ihs',task.ihs);
-
-
-
 route.get('/ihs/book',task.ihs_book);
-
 route.get('/ihs/thesis',task.ihs_theses);
-
-
 route.get('/ihs/serials',task.ihs_serials);
+
+//statistics
+route.get('/statistics', task.statistics);
+
+
+
+
+
 
 //login
 route.get('/login', inventoryController.inv)

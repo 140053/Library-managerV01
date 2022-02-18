@@ -8,18 +8,26 @@ var Serials = require('../model/serials_model');
 var Thesis = require('../model/thesis_model');
 var pmaster = require('../model/pmaster');
 var Book = require('../model/book_model');
+var stat  = require('../model/statistics_model')
 
 
 exports.index = function(req, res) {
-
-   
       res.render('pages/index',{
         LoggedU: null
       })
-    
-   
-   
 };
+
+//statistics
+exports.statistics = function (req, res){
+  stat.getThesis('nun', function (err, result){
+
+    res.render('pages/ihsp/stat',{
+      LoggedU: null,
+      total: result
+    })
+  })
+}
+
 
 
 exports.ihs = function(req, res) {
@@ -82,7 +90,6 @@ exports.ihs = function(req, res) {
  
  
 };
-
 
 exports.ihs_book = function(req,res){
 
@@ -192,7 +199,6 @@ exports.ihs_theses = function(req,res){
   });
 }
 
-
 exports.ihs_serials = function(req,res){
 
   Serials.CountonInTable_m('SSIHS', function(err,result){
@@ -250,8 +256,6 @@ exports.ihs_serials = function(req,res){
  
 }
 
-
-
 exports.saveToMain = function(req,res){
   var table = req.body  
   console.log(table);
@@ -260,13 +264,6 @@ exports.saveToMain = function(req,res){
   res.redirect('/ihs/');
 
 }
-
-
-
-
-
-
-
 
 exports.api = function(req, res) {
   /**
@@ -505,6 +502,8 @@ exports.api = function(req, res) {
 
   
 };
+
+
 
 
 
