@@ -33,6 +33,8 @@ route.get('/ihs/serials',task.ihs_serials);
 
 //statistics
 route.get('/statistics', task.statistics);
+route.post('/statistics', task.postStat);
+
 
 
 

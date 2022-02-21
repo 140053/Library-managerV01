@@ -12,11 +12,30 @@ var Task = function(task){
 
 
 Task.getThesis = async  function(daterange ,result) {
-    var query = "SELECT count(*) as Total FROM webopacwihs.ihutd where reg_date between '021-8-18' and  '2021-8-19';";
+    var table = ''
+    switch(daterange.type) {
+        case 'books':
+            table = 'book';
+            break;
+        case 'thesis':
+            table = 'ihutd';
+            break;
+        case 'serials':
+            table = 'SSIHS';
+            break;
+        case 'patron':
+            table = '';
+            break;
+        default:
+            table = '';
+    }
+
+
+    var query = "SELECT count(*) as Total FROM webopacwihs."+ table +" where reg_date between '" + daterange.from + "' and  '" + daterange.to+ " ';";
     //var code1 = "%" + barcode +"%";
     try{
         //sql.connection.query(query,code, function(err,res){
-        sql.connection.query(query, function(err,res){
+        await  sql.connection.query(query, function(err,res){
             if(err){
                 result(true,null);
             }else{

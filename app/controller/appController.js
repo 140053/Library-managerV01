@@ -19,13 +19,31 @@ exports.index = function(req, res) {
 
 //statistics
 exports.statistics = function (req, res){
-  stat.getThesis('nun', function (err, result){
+ // stat.getThesis('nun', function (err, result){
 
     res.render('pages/ihsp/stat',{
       LoggedU: null,
-      total: result
+      total: '',
+      table:""
+    })
+ // })
+}
+
+exports.postStat = async function (req, res){
+ // res.send(req.body) {"type":"books","from":"2022-02-02","to":"2022-02-09"}
+  await stat.getThesis(req.body, function (err, result){
+
+    console.log(result[0])
+    var start = {'table': req.body.type }
+    var total = result[0]
+    res.render('pages/ihsp/stat',{
+      LoggedU: null,
+      total: total,
+      table:start
     })
   })
+
+  //res.send(req.body)
 }
 
 
