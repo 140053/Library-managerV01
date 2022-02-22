@@ -31,7 +31,7 @@ Task.getThesis = async  function(daterange ,result) {
     }
 
 
-    var query = "SELECT count(*) as Total FROM webopacwihs."+ table +" where reg_date between '" + daterange.from + "' and  '" + daterange.to+ " ';";
+    var query = "SELECT count(*) as Total FROM webopacwihs."+ table +" where reg_date between '" + daterange.from + "%' and  '" + daterange.to+ "% ';";
     //var code1 = "%" + barcode +"%";
     try{
         //sql.connection.query(query,code, function(err,res){
