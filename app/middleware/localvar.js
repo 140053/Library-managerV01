@@ -107,7 +107,7 @@ exports.SaveAllDataInTmp = async function(req,res,next){
     console.log(req.body.daterange + '++++++++++++++++++++++++')
 
     if(table == 'serials'){
-        Serials.save_to_main_table(table,function(err,result){
+        Serials.save_to_main_table(table,newdate, function(err,result){
             if(err == 'error'){
                 console.log('error saving');
             }else{

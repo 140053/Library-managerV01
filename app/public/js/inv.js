@@ -1,9 +1,13 @@
 
 function setdateCustom(){
-
     var date = $('.daterangeField').val();
     $('#thesis').val(date);
     $('#select_date').modal('toggle');
+}
+function setdateCustomSS(){
+    var date = $('.daterangeFieldSS').val();
+    $('.serials_save').val(date);
+    $('#select_date_serials').modal('toggle');
 
 }
 

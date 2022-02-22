@@ -157,12 +157,21 @@ Task.select_all_from = async function(table, result){
 
 //save to main table
 
-Task.save_to_main_table = async function( table, result){
-    var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession FROM serials;"
+Task.save_to_main_table = async function( table,date, result){
+    console.log('__________________________________________________' + date + '__________________________________________________________________')
+    var query = ''
+    if (date !== null){
+        var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession, reg_date) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession ,'" + date + " 10:00:00' FROM serials;"
+
+    }else {
+        var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession FROM serials;"
+
+    }
+
 
     try{
         sql.connection.query(query, function(err,res){
-            
+            console.log(err)
             if(err){
                 result('error',null);
             }else{

@@ -1,5 +1,6 @@
 <div class="card">
     <div class="card-header">
+        <button class="btn btn-outline-success" data-toggle="modal" data-target="#select_date_serials"><span class="fa fa-gear"></span></button>
       Serials Module 
       <span class="badge badge-success"> <%= sser[0].total %> as of today </span>
     </div>
@@ -40,7 +41,7 @@
                                 <th scope="col">Author</th>
                                 <th scope="col">Code &amp; Barcode </th>
 
-                                <th><button id="serials" class="btn btn-outline-secondary btn-danger text-white" onclick="saveallIN_SS(this.id)">SUBMIT</button></th>
+                                <th><button id="serials" value="" class="btn btn-outline-secondary btn-danger text-white serials_save" onclick="saveallIN_SS(this.id, this.value)">SUBMIT</button></th>
                             </tr>
                            </thead>
                             <tbody>
