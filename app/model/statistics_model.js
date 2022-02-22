@@ -12,6 +12,8 @@ var Task = function(task){
 
 
 Task.getThesis = async  function(daterange ,result) {
+    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+    console.log(daterange)
     var table = ''
     switch(daterange.type) {
         case 'books':
@@ -30,8 +32,8 @@ Task.getThesis = async  function(daterange ,result) {
             table = '';
     }
 
-
-    var query = "SELECT count(*) as Total FROM webopacwihs."+ table +" where reg_date between '" + daterange.from + "%' and  '" + daterange.to+ "% ';";
+    var query = "SELECT count(*) as Total FROM webopacwihs."+ table +" where reg_date like '" + daterange.from + "-%';";
+    //var query = "SELECT count(*) as Total FROM webopacwihs."+ table +" where reg_date between '" + daterange.from + "%' and  '" + daterange.to+ "% ';";
     //var code1 = "%" + barcode +"%";
     try{
         //sql.connection.query(query,code, function(err,res){
