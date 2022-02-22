@@ -1,12 +1,20 @@
 
+function setdateCustom(){
+
+    var date = $('.daterangeField').val();
+    $('#thesis').val(date);
+    $('#select_date').modal('toggle');
+
+}
 
 
+function saveallIN_SS(table, daterange) {
+    console.log(table + ' ' + daterange )
 
-
-function saveallIN_SS(table) {
     $.post("/api/save",
     {
-        table: table
+        table: table,
+        daterange: daterange
 
     },
     function(data, status){
@@ -15,6 +23,8 @@ function saveallIN_SS(table) {
             window.location.href='/ihs';
         }
     });
+
+
 }
 
 
