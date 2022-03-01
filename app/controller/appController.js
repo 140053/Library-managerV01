@@ -1,5 +1,4 @@
 'use strict'
-
 const e = require('cors');
 const { render } = require('ejs');
 const { result, isString, split } = require('lodash');
@@ -61,7 +60,9 @@ exports.ihs = function(req, res) {
         var thesis = res3[0].total;
         console.log(thesis);
         pmaster.get_Loggedin('clientlog',function(err,res4){
-          var patron = null;  // res4[0].patron;
+          var patron = null;  //
+          console.log(res4)
+          //var patron = res4[0].patron;
           res.render('pages/ihs',{
             page: null,
             LoggedU: null,

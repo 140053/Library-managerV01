@@ -15,7 +15,7 @@ var pmaster = mysql.createConnection({
     host     : '10.2.42.48',
     user     : 'root',
     password : 'DEVINE',
-    database : 'db_a274eb_cbsua'
+    database : 'db_a78e30_cbsuadb'
 });
 
 

@@ -1,4 +1,66 @@
 
+function myFunction() {
+
+
+    if ($('.tableID').html() == ''){
+        $('.detailbtn').addClass('d-none')
+    }else {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        getDetailedList($('.tableID').html());
+    }
+
+
+
+}
+
+//DISPLAY DETAILS IN STATISTICS
+
+function getDetailedList(table) {
+    $.post("/api/getstatdetails",
+        {
+            table: table
+
+        },
+        function(data, status){
+            if(status == 'success'){
+
+                //console.log(data)
+                var lenOfData = Object.keys(data).length;
+                $('.total_number').html(lenOfData + ' Total')
+                var acont = [];
+                for (let i = 0; i < lenOfData; i++) {
+                    //console.log(data[i])
+                    var add_column = '';
+                    if (table == 'thesis'){
+                        //var add_column = '<td></td>'
+                    }else if (table == 'serials'){
+                        add_column = '<td>' + data[i].title + '</td>\n'
+                    }
+
+                    var laog = '<tr>\n' +
+                                    '<th scope="row">'+ i +'</th>\n' +
+                                    '<td>' + data[i].kurso + '</td>\n' +
+                                     add_column +
+                                    '<td>' + data[i].cnt + '</td>\n' +
+                                '</tr>'
+
+                acont.push(laog)
+
+                }
+                $('.tablestat').html(acont)
+
+
+            }
+        });
+}
+
+
+
 function setdateCustom(){
     var date = $('.daterangeField').val();
     $('#thesis').val(date);

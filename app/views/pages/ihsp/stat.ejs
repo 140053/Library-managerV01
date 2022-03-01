@@ -47,7 +47,7 @@
                 <tr>
                     <th scope="row">1</th>
 
-                    <td>  <%= table.table %></td>
+                    <td class="tableID"><%= table.table %></td>
                     <td> <%= total.Total  %></td>
 
                 </tr>
@@ -56,5 +56,37 @@
             </table>
         </div>
 
+    </div>
+
+    <div class="row mt-5 ">
+        <div class="col-12">
+            <ul class="list-group">
+                <li class="list-group-item detailbtn " onclick="myFunction()" >Details
+                    <span class="badge badge-primary badge-pill total_number"></span>
+                </li>
+
+            </ul>
+
+
+            <div id="myDIV" style="display: none">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Course</th>
+                        <% if (table.table == 'serials'){  %>
+                            <th scope="col">Title</th>
+                        <% } %>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody class="tablestat">
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
 </div>

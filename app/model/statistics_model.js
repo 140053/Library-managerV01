@@ -12,8 +12,8 @@ var Task = function(task){
 
 
 Task.getThesis = async  function(daterange ,result) {
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    console.log(daterange)
+    //console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+    //console.log(daterange)
     var table = ''
     switch(daterange.type) {
         case 'books':
@@ -58,6 +58,49 @@ Task.getThesis = async  function(daterange ,result) {
 
 }
 
+
+Task.getAllFromTable  = async  function(table, result){
+    var query = '';
+    switch(table) {
+        case 'books':
+            query  = "SELECT kurso,  count(*) as cnt FROM ihubk group by kurso;"
+            break;
+        case 'thesis':
+            query  = "SELECT kurso,  count(*) as cnt FROM ihutd group by kurso;"
+            break;
+        case 'serials':
+            query  = "SELECT kode as kurso, title,  count(*) as cnt FROM SSIHS group by kode;"
+            break;
+        case 'patron':
+            table = '';
+            break;
+        default:
+            table = '';
+    }
+
+
+
+    try{
+        //sql.connection.query(query,code, function(err,res){
+        await  sql.connection.query(query, function(err,res){
+            if(err){
+                result(true,null);
+            }else{
+                // console.log(res );
+                if(res == ''){
+                    // console.log('empty')
+                    result(null, '');
+                }else{
+                    result(null, res);
+                }
+
+            }
+        });
+    }catch(err){
+        result(err,null);
+    }
+
+}
 
 
 module.exports= Task;

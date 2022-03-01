@@ -25,13 +25,14 @@ Task.get_Loggedin =  function(table, result){
    // var taon = d.getFullYear;
    //var bulan = d.getMonth;
     //var aldaw = d.getDay
-    var query = "SELECT count(*) as patron FROM `clientlog`  where Petsa between '" + a + "-" + b + "-1"  + "' and  '" + a + "-" + b + "-31"  + "' ;"
+    //var query = "SELECT count(*) as patron FROM `clientlog`  where Petsa like '" + a + "-" + b + "-%'  and Where branch like 'PILI%' ;"
+    var query = "SELECT count(*) as patron FROM `clientlog` where Petsa like '2022-02-%' and Where branch like 'PILI%' ;"
 
     //console.log(taon);
     try{
         
        sql.pmaster.query(query, function(err,res){
-            
+            console.log(res)
             if(err){
                 result('error',null);
             }else{
