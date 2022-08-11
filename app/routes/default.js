@@ -6,6 +6,8 @@ const inventoryController = require('../controller/inventoryController');
 var middleware = require('../middleware/localvar');
 const Serials = require('../model/serials_model');
 
+const Slogin = require('../controller/patronSystem')
+
 
 
 //middleware
@@ -77,7 +79,10 @@ route.post('/inv/list', middleware.checkAuth, inventoryController.invListof);
 
 
 
+// LOGIN SYSTEM
 
+route.get('/plogin', Slogin.index )
+route.post('/plogin',Slogin.post)
 
 
 

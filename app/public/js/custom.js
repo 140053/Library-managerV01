@@ -35,3 +35,4 @@ function delbyID_SS(id,table) {
     });
     
 }
+
