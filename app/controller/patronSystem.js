@@ -53,7 +53,7 @@ controller.post = async function (req, res){
             data = result[0]
             // check for login or logout
             ploginModel.checkLogin(req.body.keyword2, function (err, res1){
-                console.log(res1[0].mode)
+                //console.log(res1[0].mode)
                 var mode
                 if (Object.keys(res1).length == 1){
                     //means login
