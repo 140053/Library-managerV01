@@ -45,7 +45,21 @@ Task.GetStudentInfo = function (IDnum, result) {
 
 };
 
-Task.SaveRecord = function (data){
+Task.checkLogin = function (IDnum, result){
+
+    knexmain.select()
+        .from('patronlog')
+        //.where('mode', 'in')
+        .andWhere('IDnum',IDnum)
+        .orderBy('reg_date', "desc")
+        .limit(1)
+        .then(function (res){
+            result(null, res)
+        })
+
+}
+
+Task.SaveRecord = function (data, mode){
     //console.log(data)
     /**
     knexmain.insert([
@@ -59,8 +73,10 @@ Task.SaveRecord = function (data){
                     ])
             .into('patronlog')
     **/
-    knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + data.branch + "', '" + data.gender + "')")
-        .then(function(resp) { console.log(resp)});
+    knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender, mode) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + data.branch + "', '" + data.gender + "','"+ mode +"')")
+        .then(function(resp) {
+            //console.log(resp)
+        });
 
 
 

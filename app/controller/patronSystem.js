@@ -41,7 +41,26 @@ controller.post = async function (req, res){
         }else {
             Statuss = true;
             data = result[0]
-            ploginModel.SaveRecord(result[0])
+            // check for login or logout
+            ploginModel.checkLogin(req.body.keyword2, function (err, res1){
+                console.log(res1[0].mode)
+                var mode
+                if (Object.keys(res1).length == 1){
+                    //means login
+                    //do logout
+                    //mode = 'out';
+                    if (res1[0].mode == 'in'){
+                        mode = 'out'
+                    }else if (res1[0].mode == 'out'){
+                        mode = 'in'
+                    }
+                }else {
+                    mode = 'in';
+                }
+
+                ploginModel.SaveRecord(result[0], mode)
+            })
+
         }
         res.render('pages/PLogin/index',{
             layout: 'layouts/blank',
