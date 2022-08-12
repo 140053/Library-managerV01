@@ -111,6 +111,8 @@ controller.post2 = async function (req, res){
                         mode = 'out'
                     }else if (res1[0].mode == 'out'){
                         mode = 'in'
+                    }else if (res1[0].mode == null ){
+                        mode = 'in'
                     }
                 }else {
                     mode = 'in';
