@@ -81,9 +81,11 @@ route.post('/inv/list', middleware.checkAuth, inventoryController.invListof);
 
 // LOGIN SYSTEM
 
-route.get('/plogin', Slogin.index )
+route.get('/plogin', Slogin.index ) //general circulation
 route.post('/plogin',Slogin.post)
 
+route.get('/llogin', Slogin.index2 ) // learning commons
+route.post('/llogin',Slogin.post2)
 
 
 
