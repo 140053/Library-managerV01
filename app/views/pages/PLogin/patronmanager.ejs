@@ -1,0 +1,55 @@
+
+<div class="row ml-3 mr-3">
+    <div class="col-8">
+
+        <div class="mt-3">
+            <ul class="list-group mb-2">
+                <li class="list-group-item active">Patron Masterlist</li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"></label>
+                        <input <%= state  %> name="data" type="text" class="form-control" id="searchp" aria-describedby="emailHelp" placeholder="Enter keyword and pess enter">
+                        <small id="emailHelp" class="form-text text-muted">Type Keyword may include firstname lastname or Student ID</small>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-3">
+                <table class="table display cell-border stripe" id="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">ID Number</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody class="datahold">
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-4">
+        <div class="mt-3">
+            <ul class="list-group mb-2">
+                <li class="list-group-item active">Tools</li>
+                <li class="list-group-item ">
+                    <a id=""  href="/addpatron" class="btn btn-block btn-outline-success">Add Patron</a>
+                    <a id=""  href="/plogin" class="btn btn-block btn-outline-success">General Circulation Login </a>
+                    <a id=""  href="/Llogin" class="btn btn-block btn-outline-success">Learning Commons Login </a>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+
+</div>

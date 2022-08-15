@@ -4,7 +4,7 @@ const route = express.Router();
 const task = require('../controller/appController');
 var middleware = require('../middleware/localvar');
 const LoginLM = require('../controller/loginSystemController');
-
+const patron = require('../controller/patronSystem');
 
 
 //middleware
@@ -21,6 +21,18 @@ route.post('/del',middleware.DelbyID,(req,res)=>{
 
 //login
 route.post('/login',LoginLM.LoginLM)
+
+//get list of patron
+route.post('/getpatron', patron.api_get)
+// save ptron
+route.post('/ingestpatron', patron.ingestpatron)
+
+// get one patron
+route.post('/getOnepatron', patron.api_get_one)
+// delete patron
+route.get('/delpatron/:id', patron.delpatronbyID)
+// edit patron
+//route.post('/editpatron',)
 
 
 module.exports = route;

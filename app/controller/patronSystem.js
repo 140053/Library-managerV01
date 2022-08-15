@@ -16,6 +16,74 @@ function  gettimev2 (){
     return timestamp2;
 }
 
+controller.ingestpatron = async function (req, res){
+    if (req.session.data  != null ) {
+        var cred = req.session.data;
+
+        //console.log(req.body)
+
+        await ploginModel.ingestpatronmodel(req.body, function (err, result){
+            //console.log(result)
+            res.render('pages/message',{
+                layout: 'layouts/datatable',
+                LoggedU: cred[0].username,
+                auth: 0,
+                status: 'SAVE SUCCESSFULLY',
+                msgtitle: 'ADD PATRON',
+                msgbody: 'Patron Credintials save Successfully ',
+                msgbtn: 'Back',
+                msglink: '/patron'
+            })
+        })
+    }
+}
+controller.updatePatron = async function(err, result) {
+    if (req.session.data != null) {
+        var cred = req.session.data;
+
+    }
+}
+
+controller.addPatron =function (req, res){
+    if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/PLogin/tools/Add_Patron',{
+            layout: 'layouts/datatable',
+            LoggedU: cred[0].username,
+            auth: 0
+        })
+
+
+    }else {
+        res.render('pages/index',{
+            //layout: 'layouts/datatable',
+            LoggedU: null
+        })
+    }
+}
+
+
+
+controller.patron = function(req, res){
+    if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/PLogin/patronmanager',{
+            layout: 'layouts/datatable',
+            LoggedU: cred[0].username,
+            auth: 0,
+            state: ''
+        })
+
+
+    }else {
+        res.render('pages/PLogin/patronmanager',{
+            layout: 'layouts/datatable',
+            LoggedU: null,
+            state: 'disabled'
+        })
+    }
+}
+
 controller.index = function(req, res){  
 
     res.render('pages/PLogin/index',{
@@ -34,8 +102,6 @@ controller.index2 = function(req, res){
         Status: null
     })
 }
-
-
 
 controller.post = async function (req, res){
 
@@ -130,6 +196,43 @@ controller.post2 = async function (req, res){
             times: gettimev2()
         })
     })
+
+}
+
+controller.api_get = async function (req, res){
+    await ploginModel.getPatron(req.body.data,function (err, result){
+        res.send(result[0])
+    } )
+}
+
+controller.api_get_one = async function (req, res){
+    await ploginModel.getPatron_one(req.body.data,function (err, result){
+        res.send(result[0])
+    } )
+}
+
+controller.delpatronbyID = async function (req, res){
+    console.log(req.params) //{ id: '00-0000' }
+    if (req.session.data  != null ) {
+        var cred = req.session.data;
+        await ploginModel.delPatronByIDModel(req.params.id, function (err, result){
+            console.log(result)
+            res.render('pages/message',{
+                layout: 'layouts/datatable',
+                LoggedU: cred[0].username,
+                auth: 0,
+                status: 'DELETE SUCCESSFULLY',
+                msgtitle: 'DELETE PATRON',
+                msgbody: 'Patron Credintials Delete Successfully ',
+                msgbtn: 'Back',
+                msglink: '/patron'
+            })
+
+        })
+    }
+
+
+
 
 }
 

@@ -12,9 +12,22 @@ var stat  = require('../model/statistics_model')
 
 
 exports.index = function(req, res) {
-      res.render('pages/index',{
-        LoggedU: null
-      })
+      if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/index',{
+          layout: 'layouts/withchartjs',
+          LoggedU: cred[0].username,
+          auth: 0
+        })
+
+
+      }else {
+        res.render('pages/index',{
+          layout: 'layouts/withchartjs',
+          LoggedU: null
+        })
+      }
+
 };
 
 //statistics

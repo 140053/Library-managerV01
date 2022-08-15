@@ -81,6 +81,9 @@ route.post('/inv/list', middleware.checkAuth, inventoryController.invListof);
 
 // LOGIN SYSTEM
 
+route.get('/patron', Slogin.patron) // patron manager
+route.get('/addpatron', Slogin.addPatron) //addpatron page
+
 route.get('/plogin', Slogin.index ) //general circulation
 route.post('/plogin',Slogin.post)
 
