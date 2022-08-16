@@ -158,7 +158,7 @@ controller.post = async function (req, res){
                         mode = 'in';
                     }
 
-                    ploginModel.SaveRecord(result[0], mode)
+                    ploginModel.SaveRecord(result[0], mode, req.body.slocation)
                 })
 
             }
@@ -182,6 +182,7 @@ controller.post = async function (req, res){
 
 }
 controller.post2 = async function (req, res){
+   // console.log(req.body)
 
     if(req.body.keyword2 != '') {
         await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result) {
@@ -214,7 +215,7 @@ controller.post2 = async function (req, res){
                         mode = 'in';
                     }
 
-                    ploginModel.SaveRecord(result[0], mode)
+                    ploginModel.SaveRecord(result[0], mode, req.body.slocation)
                 })
 
             }
