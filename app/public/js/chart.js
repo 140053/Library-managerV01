@@ -6,7 +6,7 @@ function getmoth(){
     const d = new Date();
     $('.montholder').html(monthNames[d.getMonth()].toUpperCase())
 }
-getmoth()
+
 
 
 function makechart(docID, typeC){
@@ -48,7 +48,14 @@ function makechart(docID, typeC){
     });
 }
 
-makechart('myChart', 'bar')
 
+
+
+
+
+
+
+makechart('myChart', 'bar')
+getmoth()
 
 

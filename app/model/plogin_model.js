@@ -42,6 +42,14 @@ Task.ingestpatronmodel = async function (data ,result){
         });
 }
 
+Task.regesterpatronmodel = async function (data ,result){
+    await knex
+        .raw("INSERT INTO client ( Name, Degree_Course, IDnum, Address, Year_Level, User_class, branch, gender,telephone) VALUES ( '" + data.name + "','" + data.Kurso + "','" + data.IDnum + "','" + data.address + "','" + data.year + "','" + data.group + "','PILI Library','" + data.gender + "','" + data.phone + "' )")
+        .then(function(res1){
+            result(null, res1);
+        });
+}
+
 Task.updatePatronmodel = async  function(data, result){
     await knex.raw("UPDATE clients set Name = '" +data.name + "', Degree_Course = '" +data.Kurso + "', ")
         .then(function(res1){

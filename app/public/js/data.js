@@ -1,5 +1,8 @@
 
 $(document).ready( function () {
+
+
+
     $('#clickme').on('click', function (){
         alert('click work')
         console.log('sasa')

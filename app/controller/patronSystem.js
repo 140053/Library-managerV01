@@ -37,6 +37,23 @@ controller.ingestpatron = async function (req, res){
         })
     }
 }
+
+controller.regesterPatron = function (req,res){
+    //console.log(req.body)
+    ploginModel.regesterpatronmodel(req.body, function (err, result){
+        //console.log(result)
+        res.render('pages/PLogin/index',{
+            layout: 'layouts/blank',
+            data: '',
+            LoggedU: null,
+            Status: null,
+            alert: 'Congratiolation you successfully registerd! ' + req.body.IDnum
+        })
+    })
+}
+
+
+
 controller.updatePatron = async function(err, result) {
     if (req.session.data != null) {
         var cred = req.session.data;
@@ -71,7 +88,8 @@ controller.patron = function(req, res){
             layout: 'layouts/datatable',
             LoggedU: cred[0].username,
             auth: 0,
-            state: ''
+            state: '',
+            alert: null
         })
 
 
@@ -90,7 +108,8 @@ controller.index = function(req, res){
         layout: 'layouts/blank',
         data: '',
         LoggedU: null,
-        Status: null
+        Status: null,
+        alert: null
     })
 }
 controller.index2 = function(req, res){
@@ -99,104 +118,121 @@ controller.index2 = function(req, res){
         layout: 'layouts/blank',
         data: '',
         LoggedU: null,
-        Status: null
+        Status: null,
+        alert: null
     })
 }
 
 controller.post = async function (req, res){
 
+    if(req.body.keyword2 != ''){
+        await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result){
+            //console.log(result)
+            //console.log(Object.keys(result).length)
 
-    await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result){
-        //console.log(result)
-        //console.log(Object.keys(result).length)
+            var Statuss, data
+            if (Object.keys(result).length == 0){
+                Statuss = false;
+                data = null;
+            }else {
+                Statuss = true;
+                data = result[0]
+                // check for login or logout
+                ploginModel.checkLogin(req.body.keyword2, function (err, res1){
+                    //console.log(res1[0].mode)
+                    var mode
+                    if (Object.keys(res1).length == 1){
+                        //means login
+                        //do logout
+                        //mode = 'out';
 
-        var Statuss, data
-        if (Object.keys(result).length == 0){
-            Statuss = false;
-            data = null;
-        }else {
-            Statuss = true;
-            data = result[0]
-            // check for login or logout
-            ploginModel.checkLogin(req.body.keyword2, function (err, res1){
-                //console.log(res1[0].mode)
-                var mode
-                if (Object.keys(res1).length == 1){
-                    //means login
-                    //do logout
-                    //mode = 'out';
-
-                    if (res1[0].mode == 'in'){
-                        mode = 'out'
-                    }else if (res1[0].mode == 'out'){
-                        mode = 'in'
-                    }else if (res1[0].mode == null ){
-                        mode = 'in'
+                        if (res1[0].mode == 'in'){
+                            mode = 'out'
+                        }else if (res1[0].mode == 'out'){
+                            mode = 'in'
+                        }else if (res1[0].mode == null ){
+                            mode = 'in'
+                        }
+                    }else {
+                        mode = 'in';
                     }
-                }else {
-                    mode = 'in';
-                }
 
-                ploginModel.SaveRecord(result[0], mode)
+                    ploginModel.SaveRecord(result[0], mode)
+                })
+
+            }
+            var alert = null
+            if(data != null){
+                alert = 'Congratiolation you successfully Log In! ' + req.body.keyword2
+            }
+            res.render('pages/PLogin/index',{
+                layout: 'layouts/blank',
+                data: data,
+                LoggedU: null,
+                Status: Statuss,
+                times: gettimev2(),
+                alert: alert
             })
-
-        }
-        res.render('pages/PLogin/index',{
-            layout: 'layouts/blank',
-            data: data,
-            LoggedU: null,
-            Status: Statuss,
-            times: gettimev2()
         })
-    })
+    }else {
+        res.redirect('/plogin')
+    }
+
 
 }
 controller.post2 = async function (req, res){
 
+    if(req.body.keyword2 != '') {
+        await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result) {
+            //console.log(result)
+            //console.log(Object.keys(result).length)
 
-    await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result){
-        //console.log(result)
-        //console.log(Object.keys(result).length)
-
-        var Statuss, data
-        if (Object.keys(result).length == 0){
-            Statuss = false;
-            data = null;
-        }else {
-            Statuss = true;
-            data = result[0]
-            // check for login or logout
-            ploginModel.checkLogin(req.body.keyword2, function (err, res1){
-               // console.log(res1[0].mode)
-                var mode
-                if (Object.keys(res1).length == 1){
-                    //means login
-                    //do logout
-                    //mode = 'out';
-                    if (res1[0].mode == 'in'){
-                        mode = 'out'
-                    }else if (res1[0].mode == 'out'){
-                        mode = 'in'
-                    }else if (res1[0].mode == null ){
-                        mode = 'in'
+            var Statuss, data
+            if (Object.keys(result).length == 0) {
+                Statuss = false;
+                data = null;
+            } else {
+                Statuss = true;
+                data = result[0]
+                // check for login or logout
+                ploginModel.checkLogin(req.body.keyword2, function (err, res1) {
+                    // console.log(res1[0].mode)
+                    var mode
+                    if (Object.keys(res1).length == 1) {
+                        //means login
+                        //do logout
+                        //mode = 'out';
+                        if (res1[0].mode == 'in') {
+                            mode = 'out'
+                        } else if (res1[0].mode == 'out') {
+                            mode = 'in'
+                        } else if (res1[0].mode == null) {
+                            mode = 'in'
+                        }
+                    } else {
+                        mode = 'in';
                     }
-                }else {
-                    mode = 'in';
-                }
 
-                ploginModel.SaveRecord(result[0], mode)
+                    ploginModel.SaveRecord(result[0], mode)
+                })
+
+            }
+            var alert = null
+            if(data != null){
+                alert = 'Congratiolation you successfully Log In! ' + req.body.keyword2
+            }
+            res.render('pages/PLogin/learn', {
+                layout: 'layouts/blank',
+                data: data,
+                LoggedU: null,
+                Status: Statuss,
+                times: gettimev2(),
+                alert: alert
             })
-
-        }
-        res.render('pages/PLogin/learn',{
-            layout: 'layouts/blank',
-            data: data,
-            LoggedU: null,
-            Status: Statuss,
-            times: gettimev2()
         })
-    })
-
+    }else {
+        res.redirect('/Llogin')
+    }
 }
 
 controller.api_get = async function (req, res){

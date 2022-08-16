@@ -27,6 +27,9 @@ route.post('/getpatron', patron.api_get)
 // save ptron
 route.post('/ingestpatron', patron.ingestpatron)
 
+//patron register
+route.post('/regester', patron.regesterPatron)
+
 // get one patron
 route.post('/getOnepatron', patron.api_get_one)
 // delete patron

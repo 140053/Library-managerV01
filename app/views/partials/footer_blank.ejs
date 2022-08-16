@@ -49,4 +49,42 @@
  
   <%- locals.cjs %>
   
-  <script scr="/js/custom.js" ></script>  
+  <script scr="/js/custom.js" ></script>
+
+<% if (Status == false) { %>
+
+    <script>
+
+
+
+
+      if($('#notfound').is(':visible') == false){
+          $('#notfound').modal('show')
+
+              var timeleft = 5;
+              var downloadTimer = setInterval(function(){
+                  if(timeleft <= 0){
+                      clearInterval(downloadTimer);
+                      document.getElementById("countdown").innerHTML = "Finished";
+                      $('#notfound').modal('hide')
+                  } else {
+                      document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+                  }
+                  timeleft -= 1;
+              }, 1000);
+
+              $('.reg_modal').on('click', function (){
+                  clearInterval(downloadTimer);
+                  $('#notfound').modal('hide')
+                  $('.registerBOX').modal('show');
+              })
+
+      }else {
+
+      }
+
+
+
+    </script>
+
+<% }%>
