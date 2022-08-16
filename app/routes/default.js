@@ -6,6 +6,8 @@ const inventoryController = require('../controller/inventoryController');
 var middleware = require('../middleware/localvar');
 const Serials = require('../model/serials_model');
 
+const Slogin = require('../controller/patronSystem')
+
 
 
 //middleware
@@ -27,15 +29,19 @@ route.get('/',task.index);
 
 
 route.get('/ihs',task.ihs);
-
-
-
 route.get('/ihs/book',task.ihs_book);
-
 route.get('/ihs/thesis',task.ihs_theses);
-
-
 route.get('/ihs/serials',task.ihs_serials);
+
+//statistics
+route.get('/statistics', task.statistics);
+route.post('/statistics', task.postStat);
+
+
+
+
+
+
 
 //login
 route.get('/login', inventoryController.inv)
@@ -73,8 +79,16 @@ route.post('/inv/list', middleware.checkAuth, inventoryController.invListof);
 
 route.post('/inv/delete', middleware.checkAuth, inventoryController.invDelete);
 
+// LOGIN SYSTEM
 
+route.get('/patron', Slogin.patron) // patron manager
+route.get('/addpatron', Slogin.addPatron) //addpatron page
 
+route.get('/plogin', Slogin.index ) //general circulation
+route.post('/plogin',Slogin.post)
+
+route.get('/llogin', Slogin.index2 ) // learning commons
+route.post('/llogin',Slogin.post2)
 
 
 

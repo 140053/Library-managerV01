@@ -82,7 +82,7 @@ Task.get_td_metadata = async function(table,barcode , result) {
             if(err){
                 result(true,null);
             }else{
-                console.log(res );
+                //console.log(res );
 
                 if(res == ''){
                     console.log('empty')
@@ -90,10 +90,7 @@ Task.get_td_metadata = async function(table,barcode , result) {
                 }else{
                     result(null, res[0].Maintext);
                 }
-                
-               
-                
-               
+
             }
         });
     }catch(err){
@@ -297,16 +294,28 @@ Task.CountonInTable =  function(table, result){
 
 
 
-Task.save_to_main_table = async function( table, result){
-    var query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso,  reg_date FROM thesis;"
+Task.save_to_main_table = async function( table,date, result){
+    //date = { table: 'thesis', daterange: '2022-01-19' }
 
+
+    console.log('__________________________________________________' + date + '__________________________________________________________________')
+    var query = ''
+    if (date !== null){
+        console.log('__________________________________________________ date is not null__________________________________________________________________')
+       //query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, '2022-01-17 10:00:00' FROM thesis;"
+        query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, '" + date + " 10:00:00' FROM thesis;"
+    }else {
+        console.log('__________________________________________________ date is null__________________________________________________________________')
+        query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, reg_date FROM thesis;"
+    }
+// --------------------------- Working in this hahahaha
     try{
         sql.connection.query(query, function(err,res){
             console.log(err);
             
             if(err){
                 
-                result('error',null);
+               result('error',null);
             }else{
                 result(null, res);
             }
@@ -316,6 +325,27 @@ Task.save_to_main_table = async function( table, result){
         result(err,null);
     }
 
+}
+
+Task.updateDaterange = async function(daterange, table){
+    var query = "UPDATE webopacwihs."+ table + " set reg_date = "+ "'" + daterange+ "'";
+
+    try{
+       await sql.connection.query(query, function(err,res){
+            console.log(err);
+
+            if(err){
+                console.log('false');
+                //res('error',null);
+            }else{
+               // res(null, true);
+                console.log('true');
+            }
+
+        });
+    }catch(err){
+        //res(err,null);
+    }
 }
 
 

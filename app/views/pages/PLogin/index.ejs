@@ -1,0 +1,483 @@
+<div class="container-fluid bg-aqua-gradient ">
+
+    <% if ( alert != null ){%>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Information</strong> <%= alert %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    <% } %>
+    <% if (Status == false) { %>
+
+        <div class="modal fade" id="notfound" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">USER NOT FOUND</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card" >
+                            <img class="card-img-top img-fluid" src="/img/notfound.jpg" alt="Card image cap" alt="Responsive image">
+                            <div class="card-body">
+
+                                <p class="card-text">Sorry your Student Number is not found on our system if your are First Year or returnee you can register by clicking the register button below or inform the counter incharge Thank you!</p>
+
+                                <ul class="list-group">
+                                    <li id="countdown" class="list-group-item align-content-center"></li>
+                                </ul>
+                                &nbsp;
+                                <a class="btn btn-primary btn-block reg_modal">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info " data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <% } %>
+
+    <style>
+
+        .navcontainer ul
+                         {
+                             margin: 0;
+                             padding: 0;
+                             list-style-type: none;
+                             text-align: center;
+                             width: 100%;
+                             float: left;
+                         }
+        .navcontainer ul li { display: inline; }
+
+        .navcontainer ul li a
+        {
+            width: 20em;
+            padding: .2em 1em;
+            text-decoration: none;
+            color: #fff;
+            background-color: purple;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+            border-right: 1px solid white;
+            border-top-left-radius: 2em;
+            border-top-right-radius: 2em;
+        }
+        .navcontainer ul li a:hover
+        {
+            color: #fff;
+            background-color: fuchsia;
+        }
+
+        input[type=checkbox]
+        {
+            padding: 0px;
+            text-align: left;
+            color: blue;
+            font-size: 90%;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        input[type=radio]
+        {
+            font-weight: normal;
+            cursor: pointer;
+            padding: .2em 1em;
+            text-decoration: none;
+            background-color: orange;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+            border-right: 1px solid white;
+            color: blue;
+        }
+
+        input[type=text]
+        {
+            font-weight: normal;
+            cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
+            color: blue;
+        }
+
+        body {
+            background-color: #EAF2D3;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            color: ;
+
+        }
+
+        img.menu{
+            display:inline-block;
+            height:50px;
+            margin: 0 auto;
+        }
+
+        table, td, th {
+            border-collapse: collapse;
+        }
+
+        th {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            background-color: ;
+            color: black;
+            text-align: right;
+            padding: 5px;
+            border: ;
+        }
+
+        th.display {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            background-color: #A7C942;
+            color: Black;
+
+            text-align: center;
+            padding: 5px;
+            border: 1px solid green;
+        }
+
+        th.display2 {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            background-color: #A7C942;
+            color: Black;
+            width: 30%;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid green;
+        }
+
+        th.display3 {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            background-color: #A7C942;
+            color: Black;
+
+            text-align: center;
+            padding: 5px;
+            border: 1px solid green;
+        }
+
+        th.columnheader {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            background-color: ;
+            color: Black;
+            width: 20%;
+            text-align: right;
+            padding: 5px;
+            border: ;
+        }
+
+        td {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+        }
+
+
+        td.display1 {
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 90%;
+            border: none;
+            text-shadow: 0px 1px 0px #13506D;
+        }
+
+
+        a.edit
+        {
+            width: 20em;
+            padding: .2em 1em;
+            text-decoration: none;
+            color: Gold;
+
+            background-color: purple;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+            border-right: 1px solid white;
+
+            border-top-left-radius: 2em;
+            border-top-right-radius: 2em;
+            border-botttom-left-radius: 2em;
+            border-bottom-right-radius: 2em;
+        }
+
+        a.edit:hover
+        {
+            color: blue;
+            background-color: fuchsia;
+        }
+
+        a.footer
+        {
+            width: 20em;
+            padding: .2em 1em;
+            text-decoration: none;
+            color: blue;
+            background-color: silver;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 75%;
+            border-right: 1px solid white;
+        }
+
+        a.footer:hover
+        {
+            color: blue;
+            background-color: fuchsia;
+        }
+
+        a.card
+        {
+            width: 30em;
+            padding: .2em 1em;
+            text-decoration: none;
+            color: Gold;
+            background-color: teal;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+            border-right: 1px solid white;
+        }
+
+        a.card:hover
+        {
+            color: blue;
+            background-color: fuchsia;}
+
+        a {
+            text-decoration: none;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            color: blue;}
+
+        a:hover
+        {
+            font-weight: bold;
+            color: orange;
+            background-color: transparent;
+        }
+
+
+        h3 {
+            text-decoration: none;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            color: blue;
+            /**color:#FF0000;	*/
+        }
+
+
+        ul {
+            float: left;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        nav#navright {
+            line-height:25px;
+            background-color:;
+            height:1500px;
+            width:75px;
+            float:right;
+            padding:5px;
+        }
+
+        a.menu {
+            float: left;
+            width: 5em;
+            text-decoration: none;
+            color: blue;
+            background-color: none;
+            padding: 0.1em 0.2em;
+            border-right: 1px solid white;
+            border-top-left-radius: 2em;
+            border-top-right-radius: 2em;
+        }
+        .center-block {
+            margin: auto;
+            display: block;
+            text-align: center;
+        }
+
+    </style>
+
+
+    <div class="row">
+        <div class="col-sm mt-5">
+            <form method="POST" action="/plogin" >
+                <div style="text-align: right">
+
+                    <table style="width: 100%; height:100%; text-align: center; border: 2px;">
+                        <tbody>
+                            <tr>
+                                <div class="form-row">
+
+                                        <div class="form-group  align-content-center">
+                                            <td >
+                                                <b><h2>ATTENDANCE MONITORING SYSTEM (ENTRANCE)</h2></b>
+
+                                                <select class="form-control center-block " name="slocation" style="width: 250px; font-size: 12pt">
+                                                    <option value="General Circulation"> PILI Library</option>
+
+                                                </select>
+                                                <br>
+                                                <p>Date/Time: <span id="datetime"></span></p>
+
+                                                <script>
+                                                    var dt = new Date();
+                                                    document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +" "+ dt.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+                                                </script>
+
+
+
+                                                <br>
+                                                <input class="form-control center-block" type="text" name="keyword2"  style="width: 25%; font-size:18pt;" placeholder="" required > <br>
+                                                <img src="/img/nopix.png" style="border: 1px solid black; height: 375px; width: 400px"><br>
+                                            </td>
+                                        </div>
+
+
+
+                                </div>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <div>
+                    <table style="width: 90%; height:100%; text-align: center; border: 1px solid black; margin: 0px auto;">
+                        <tbody>
+                            <tr style="text-align: center; border: 1px solid black">
+                                <th class="display">Name</th>
+                                <th class="display">ID number</th>
+                                <th class="display">Group</th>
+                                <th class="display">Description</th>
+                                <th class="display">Date/Time-in</th>
+                                <th class="display">Location</th>
+                            </tr>
+                            <% if ( Status == true){ %>
+                                <tr style="width: 90%; text-align: center; border: 1px solid black">
+                                    <td style="width: 20%"><%= data.Name %></td>
+                                    <td style="width: 15%"><%= data.IDnum %></td>
+                                    <td style="width: 15%"><%= data.User_class %></td>
+                                    <td style="width: 20%"><%= data.Degree_Course %></td>
+                                    <td style="width: 15%"><%= times %> </td>
+                                    <td style="width: 15%"><%= data.branch %></td>
+                                </tr>
+                           <% } %>
+
+                            <!--tr style="width: 90%; text-align: center; border: 1px solid black">
+                                <td style="width: 20%"></td>
+                                <td style="width: 15%"></td>
+                                <td style="width: 15%"></td>
+                                <td style="width: 20%"></td>
+                                <td style="width: 15%"></td>
+                                <td style="width: 15%"></td>
+                            </tr-->
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade registerBOX" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mt-3 mb-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Register
+                                </div>
+                                <div class="card-body">
+                                    <form action="/api/regester" method="post">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Name</label>
+                                            <input name="name" type="text" class="form-control" id="pname" aria-describedby="" placeholder="DELA CRUZ, JUAN B." required>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Course</label>
+                                                <input name="Kurso" type="text" class="form-control" id="pKurso" placeholder="Abbreviation Only Example BSA " required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4"> ID number</label>
+                                                <input  name="IDnum" type="text" class="form-control" id="pIDnum" placeholder="PILI-**-****" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-5">
+                                                <label for="inputCity">Address</label>
+                                                <input name="address" type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputState">Year Level</label>
+                                                <select name="year" id="pyear" class="form-control" required>
+                                                    <option selected>Choose...</option>
+                                                    <option value="first" >First Year</option>
+                                                    <option value="second" >Second Year</option>
+                                                    <option value="third" >Third Year</option>
+                                                    <option value="fourth" >Fourth Year</option>
+                                                    <option value="fifth" >Fifth Year</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputclass">Group</label>
+                                                <select name="group" id="pgroup" class="form-control" required>
+                                                    <option selected>Choose...</option>
+                                                    <option value="Student" >Student</option>
+                                                    <option value="Faculty" >Faculty</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 col-xl-6 col-lg-6 col-sm-6">
+                                                <label for="inputclass">Phone Number:</label>
+                                                <input  name="phone" type="text" class="form-control"  placeholder="09*********" required>
+                                            </div>
+                                            <div class="form-group col-md-6 col-xl-6 col-lg-6 col-sm-6 ">
+                                                <label for="inputclass">Gender</label>
+                                                <select name="gender" id="pgender" class="form-control" required>
+                                                    <option selected>Choose...</option>
+                                                    <option value="Male" >Male</option>
+                                                    <option value="Female" >Female</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <button  type="submit" class="btn btn-primary btn-block  ">Register</button>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

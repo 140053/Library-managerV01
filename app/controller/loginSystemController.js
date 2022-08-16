@@ -32,7 +32,7 @@ controller.LoginLM = function(req, res){
                     req.session.data = result1;
                     req.session.Logged_status = true
                     //res.status(200).send('Loggin successfully')
-                    res.redirect('/inv')
+                    res.redirect('/')
                 }else{
                     res.status(404).send('Wrong password')
                 }

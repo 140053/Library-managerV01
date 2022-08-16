@@ -8,18 +8,57 @@ var Serials = require('../model/serials_model');
 var Thesis = require('../model/thesis_model');
 var pmaster = require('../model/pmaster');
 var Book = require('../model/book_model');
+var stat  = require('../model/statistics_model')
 
 
 exports.index = function(req, res) {
+      if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/index',{
+          layout: 'layouts/withchartjs',
+          LoggedU: cred[0].username,
+          auth: 0
+        })
 
-   
-      res.render('pages/index',{
-        LoggedU: null
-      })
-    
-   
-   
+
+      }else {
+        res.render('pages/index',{
+          layout: 'layouts/withchartjs',
+          LoggedU: null
+        })
+      }
+
 };
+
+//statistics
+exports.statistics = function (req, res){
+ // stat.getThesis('nun', function (err, result){
+
+    res.render('pages/ihsp/stat',{
+      LoggedU: null,
+      total: '',
+      table:""
+    })
+ // })
+}
+
+exports.postStat = async function (req, res){
+ // res.send(req.body) {"type":"books","from":"2022-02-02","to":"2022-02-09"}
+  await stat.getThesis(req.body, function (err, result){
+
+    console.log(result[0])
+    var start = {'table': req.body.type }
+    var total = result[0]
+    res.render('pages/ihsp/stat',{
+      LoggedU: null,
+      total: total,
+      table:start
+    })
+  })
+
+  //res.send(req.body)
+}
+
 
 
 exports.ihs = function(req, res) {
@@ -35,7 +74,7 @@ exports.ihs = function(req, res) {
         var thesis = res3[0].total;
         console.log(thesis);
         pmaster.get_Loggedin('clientlog',function(err,res4){
-          var patron = res4[0].patron;
+          var patron = null;  // res4[0].patron;
           res.render('pages/ihs',{
             page: null,
             LoggedU: null,
@@ -82,7 +121,6 @@ exports.ihs = function(req, res) {
  
  
 };
-
 
 exports.ihs_book = function(req,res){
 
@@ -192,7 +230,6 @@ exports.ihs_theses = function(req,res){
   });
 }
 
-
 exports.ihs_serials = function(req,res){
 
   Serials.CountonInTable_m('SSIHS', function(err,result){
@@ -250,8 +287,6 @@ exports.ihs_serials = function(req,res){
  
 }
 
-
-
 exports.saveToMain = function(req,res){
   var table = req.body  
   console.log(table);
@@ -260,13 +295,6 @@ exports.saveToMain = function(req,res){
   res.redirect('/ihs/');
 
 }
-
-
-
-
-
-
-
 
 exports.api = function(req, res) {
   /**
@@ -505,6 +533,8 @@ exports.api = function(req, res) {
 
   
 };
+
+
 
 
 

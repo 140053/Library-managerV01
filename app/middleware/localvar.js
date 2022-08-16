@@ -102,9 +102,12 @@ exports.get_all_in_serialsTmp = function(req,res,next){
 
 exports.SaveAllDataInTmp = async function(req,res,next){
     var table = req.body.table;
+    var newdate = req.body.daterange
     console.log('middleware ' + table)
+    console.log(req.body.daterange + '++++++++++++++++++++++++')
+
     if(table == 'serials'){
-        Serials.save_to_main_table(table,function(err,result){
+        Serials.save_to_main_table(table,newdate, function(err,result){
             if(err == 'error'){
                 console.log('error saving');
             }else{
@@ -127,7 +130,7 @@ exports.SaveAllDataInTmp = async function(req,res,next){
         next();
     }else if(table == 'thesis'){
         console.log(table + ' in middlware' )
-        Thesis.save_to_main_table(table,function(err,result){
+        Thesis.save_to_main_table(table,newdate ,function(err,result){
 
             console.log(result);
             if(err == 'error'){

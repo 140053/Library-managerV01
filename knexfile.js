@@ -28,7 +28,16 @@ module.exports = {
       database : process.env.DB_DATABASE_2
     },   
   },
- 
+
+  metadataholderV2: {
+    client: 'mysql',
+    connection: {
+      host : process.env.DB_HOST_2,
+      user : process.env.DB_USER_2,
+      password : process.env.DB_PASSWORD_2,
+      database : process.env.DB_DATABASE_3
+    },
+  },
 
   dsqlite: {
     client: 'sqlite3',

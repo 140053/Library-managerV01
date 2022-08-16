@@ -1,4 +1,80 @@
 
+function setdateCustom(){
+    var date = $('.daterangeField').val();
+    $('#thesis').val(date);
+    $('#select_date').modal('toggle');
+}
+function setdateCustomSS(){
+    var date = $('.daterangeFieldSS').val();
+    $('.serials_save').val(date);
+    $('#select_date_serials').modal('toggle');
+
+}
+
+
+function saveallIN_SS(table, daterange) {
+    console.log(table + ' ' + daterange )
+
+    $.post("/api/save",
+    {
+        table: table,
+        daterange: daterange
+
+    },
+    function(data, status){
+        if(status == 'success'){
+            //alert('success saving data');
+            window.location.href='/ihs';
+        }
+    });
+
+
+}
+
+
+
+function delbyID_SS(id,table) {
+    //alert(id + ' '  + table);
+
+    $.post("/api/del",
+    {
+        table: table,
+        id: id
+
+    },
+    function(data, status){
+        if(status == 'success'){
+           // alert('success  data');
+            window.location.href='/ihs/'+ table ;
+        }
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getAcountableByOffice(id, office){
    

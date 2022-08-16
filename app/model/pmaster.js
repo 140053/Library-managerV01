@@ -14,10 +14,18 @@ Task.get_Loggedin =  function(table, result){
  
     //var d = new Date();
     
+    var d = new Date();
+    var a,b,c;
+    a= d.getFullYear();
+    b= d.getMonth();
+    c = d.getDay();
+   //var query = "SELECT count(*) as total FROM "+ table +" where reg_date between '" + a + "-" + b + "-1"  + "' and '" + a + "-" + b + "-31"  + "' ;"
+
+
    // var taon = d.getFullYear;
    //var bulan = d.getMonth;
     //var aldaw = d.getDay
-    var query = "SELECT count(*) as patron FROM `clientlog`  where Petsa between '2021-01-01' and '2021-01-31';"
+    var query = "SELECT count(*) as patron FROM `clientlog`  where Petsa between '" + a + "-" + b + "-1"  + "' and  '" + a + "-" + b + "-31"  + "' ;"
 
     //console.log(taon);
     try{
