@@ -124,7 +124,7 @@ Task.checkLogin = function (IDnum, result){
 
 }
 
-Task.SaveRecord = function (data, mode){
+Task.SaveRecord = function (data, mode, location){
     //console.log(data)
     /**
     knexmain.insert([
@@ -138,7 +138,7 @@ Task.SaveRecord = function (data, mode){
                     ])
             .into('patronlog')
     **/
-    knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender, mode) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + data.branch + "', '" + data.gender + "','"+ mode +"')")
+    knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender, mode) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + location + "', '" + data.gender + "','"+ mode +"')")
         .then(function(resp) {
             //console.log(resp)
         });
