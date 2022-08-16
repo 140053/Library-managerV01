@@ -145,6 +145,7 @@ controller.post = async function (req, res){
                         //means login
                         //do logout
                         //mode = 'out';
+                        //lol
 
                         if (res1[0].mode == 'in'){
                             mode = 'out'
