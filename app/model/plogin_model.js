@@ -110,38 +110,55 @@ Task.GetStudentInfo = function (IDnum, result) {
 
 };
 
-Task.checkLogin = function (IDnum, result){
+Task.checkLogin = function (IDnum, location, result){
+    if (process.env.LOGIN_SYSTEM_MODE == 'inout') {
+        knexmain.select()
+            .from('patronlog')
+            .where('mode', 'in')
+            .andWhere('IDnum',IDnum)
+            .andWhere('branch', location)
+            //.orderBy('reg_date', "desc")
+            .limit(1)
+            .then(function (res){
+                result(null, res)
+                //console.log('checklogin')
+                //console.log(res)
+            })
+    }else if (process.env.LOGIN_SYSTEM_MODE == 'in'){
+        knexmain.select()
+            .from('patronlog')
+            //.where('mode', 'in')
+            .andWhere('IDnum',IDnum)
+            .orderBy('reg_date', "desc")
+            .limit(1)
+            .then(function (res){
+                result(null, res)
+            })
+    }
 
-    knexmain.select()
-        .from('patronlog')
-        //.where('mode', 'in')
-        .andWhere('IDnum',IDnum)
-        .orderBy('reg_date', "desc")
-        .limit(1)
-        .then(function (res){
-            result(null, res)
-        })
 
 }
 
 Task.SaveRecord = function (data, mode, location){
+
     //console.log(data)
-    /**
-    knexmain.insert([
-                        {Name: data.Name},
-                        {Degree_Course: data.Degree_Course},
-                        {User_class: data.User_class},
-                        {Year_Level: data.Year_Level},
-                        {IDnum: data.IDnum},
-                        {branch: data.branch},
-                        {gender: data.gender}
-                    ])
-            .into('patronlog')
-    **/
-    knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender, mode) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + location + "', '" + data.gender + "','"+ mode +"')")
-        .then(function(resp) {
-            //console.log(resp)
-        });
+    //console.log(mode)
+    //console.log(location)
+
+        if (mode == 'in'){
+            knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender, mode) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + location + "', '" + data.gender + "','"+ mode +"')")
+                .then(function(resp) {
+                    //console.log(resp)
+                });
+        }else if (mode == 'out') {
+            //console.log('confirm out ')
+            //console.log(data)
+
+            knexmain.raw("UPDATE patronlog SET `reg_out` = CURRENT_TIMESTAMP, modeout = 'out' WHERE id = '"+ data.id +"';")
+                .then(function(resp) {
+                    console.log(resp)
+                });
+        }
 
 
 

@@ -102,7 +102,8 @@ controller.patron = function(req, res){
     }
 }
 
-controller.index = function(req, res){  
+controller.index = function(req, res){
+
 
     res.render('pages/PLogin/index',{
         layout: 'layouts/blank',
@@ -138,27 +139,50 @@ controller.post = async function (req, res){
                 Statuss = true;
                 data = result[0]
                 // check for login or logout
-                ploginModel.checkLogin(req.body.keyword2, function (err, res1){
-                    //console.log(res1[0].mode)
-                    var mode
-                    if (Object.keys(res1).length == 1){
-                        //means login
-                        //do logout
-                        //mode = 'out';
-                        //lol
+                ploginModel.checkLogin(req.body.keyword2, req.body.slocation, function (err, res1){
+                   // console.log(Object.keys(res1).length)
 
-                        if (res1[0].mode == 'in'){
-                            mode = 'out'
-                        }else if (res1[0].mode == 'out'){
+                    var mode, cred
+
+
+                    if (process.env.LOGIN_SYSTEM_MODE == 'inout') {
+                        if (Object.keys(res1).length == 0){
+                            //means logout
+                            cred = result[0]
                             mode = 'in'
-                        }else if (res1[0].mode == null ){
-                            mode = 'in'
+                        }else {
+                            cred = res1[0]
+                            mode = 'out';
                         }
-                    }else {
-                        mode = 'in';
+                    }else if(process.env.LOGIN_SYSTEM_MODE == 'in')  {
+                        console.log(process.env.LOGIN_SYSTEM_MODE)
+
+                        if (Object.keys(res1).length == 1){
+
+                            if (res1[0].mode == 'in'){
+                                cred = result[0]
+                                mode = 'in'
+                            }else if (res1[0].mode == 'out'){
+                                cred = result[0]
+                                mode = 'in'
+                            }else if (res1[0].mode == null ){
+                                cred = result[0]
+                                mode = 'in'
+                            }
+                        }else if(Object.keys(res1).length == 0){
+
+                            //console.log('no first time login')
+                            cred = result[0]
+                            mode = 'in';
+                        }else{
+                           // console.log('nodata')
+                            cred = result[0]
+                            mode = 'in';
+                        }
                     }
 
-                    ploginModel.SaveRecord(result[0], mode, req.body.slocation)
+                    //console.log(cred)
+                    ploginModel.SaveRecord(cred, mode, req.body.slocation)
                 })
 
             }
@@ -197,25 +221,49 @@ controller.post2 = async function (req, res){
                 Statuss = true;
                 data = result[0]
                 // check for login or logout
-                ploginModel.checkLogin(req.body.keyword2, function (err, res1) {
+                ploginModel.checkLogin(req.body.keyword2, req.body.slocation, function (err, res1){
                     // console.log(res1[0].mode)
-                    var mode
-                    if (Object.keys(res1).length == 1) {
-                        //means login
-                        //do logout
-                        //mode = 'out';
-                        if (res1[0].mode == 'in') {
-                            mode = 'out'
-                        } else if (res1[0].mode == 'out') {
+                    var mode, cred
+
+
+                    if (process.env.LOGIN_SYSTEM_MODE == 'inout') {
+                        if (Object.keys(res1).length == 0){
+                            //means logout
+                            cred = result[0]
                             mode = 'in'
-                        } else if (res1[0].mode == null) {
-                            mode = 'in'
+                        }else {
+                            cred = res1[0]
+                            mode = 'out';
                         }
-                    } else {
-                        mode = 'in';
+                    }else if(process.env.LOGIN_SYSTEM_MODE == 'in')  {
+                        console.log(process.env.LOGIN_SYSTEM_MODE)
+
+                        if (Object.keys(res1).length == 1){
+
+                            if (res1[0].mode == 'in'){
+                                cred = result[0]
+                                mode = 'in'
+                            }else if (res1[0].mode == 'out'){
+                                cred = result[0]
+                                mode = 'in'
+                            }else if (res1[0].mode == null ){
+                                cred = result[0]
+                                mode = 'in'
+                            }
+                        }else if(Object.keys(res1).length == 0){
+
+                            //console.log('no first time login')
+                            cred = result[0]
+                            mode = 'in';
+                        }else{
+                            // console.log('nodata')
+                            cred = result[0]
+                            mode = 'in';
+                        }
                     }
 
-                    ploginModel.SaveRecord(result[0], mode, req.body.slocation)
+                    //console.log(cred)
+                    ploginModel.SaveRecord(cred, mode, req.body.slocation)
                 })
 
             }
