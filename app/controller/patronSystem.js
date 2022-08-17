@@ -39,10 +39,23 @@ controller.ingestpatron = async function (req, res){
 }
 
 controller.regesterPatron = function (req,res){
-    //console.log(req.body)
+
     ploginModel.regesterpatronmodel(req.body, function (err, result){
         //console.log(result)
         res.render('pages/PLogin/index',{
+            layout: 'layouts/blank',
+            data: '',
+            LoggedU: null,
+            Status: null,
+            alert: 'Congratiolation you successfully registerd! ' + req.body.IDnum
+        })
+    })
+}
+controller.regesterPatron_llogin = function (req,res){
+
+    ploginModel.regesterpatronmodel(req.body, function (err, result){
+        //console.log(result)
+        res.render('pages/PLogin/learn',{
             layout: 'layouts/blank',
             data: '',
             LoggedU: null,
@@ -103,7 +116,7 @@ controller.patron = function(req, res){
 }
 
 controller.index = function(req, res){
-
+    console.log(req.headers)
 
     res.render('pages/PLogin/index',{
         layout: 'layouts/blank',

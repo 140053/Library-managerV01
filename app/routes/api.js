@@ -29,6 +29,7 @@ route.post('/ingestpatron', patron.ingestpatron)
 
 //patron register
 route.post('/regester', patron.regesterPatron)
+route.post('/regesterl', patron.regesterPatron_llogin)
 
 // get one patron
 route.post('/getOnepatron', patron.api_get_one)
