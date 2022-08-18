@@ -116,7 +116,7 @@ controller.patron = function(req, res){
 }
 
 controller.index = function(req, res){
-    console.log(req.headers)
+    //console.log(req.headers)
 
     res.render('pages/PLogin/index',{
         layout: 'layouts/blank',
