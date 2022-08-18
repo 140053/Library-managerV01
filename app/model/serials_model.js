@@ -186,13 +186,10 @@ Task.save_to_main_table = async function( table,date, result){
 }
 
 Task.CountonInTable =  function(table, result){
- 
-    var d = new Date();
-    var a,b,c;
-    a= d.getFullYear();
-    b= d.getMonth();
-    c = d.getDay();
-    var query = "SELECT count(*) as total FROM "+ table +" where reg_date between '" + a + "-" + b + "-1"  + "' and '" + a + "-" + b + "-31"  + "' ;"
+
+    var dt = new Date();
+    var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    var query = "SELECT count(*) as total FROM "+ table +" where reg_date like '" + datemonth + "-%' ;"
 
     try{
         

@@ -13,19 +13,10 @@ var Task = function(task){
 Task.get_Loggedin =  function(table, result){
  
     //var d = new Date();
-    
-    var d = new Date();
-    var a,b,c;
-    a= d.getFullYear();
-    b= d.getMonth();
-    c = d.getDay();
-   //var query = "SELECT count(*) as total FROM "+ table +" where reg_date between '" + a + "-" + b + "-1"  + "' and '" + a + "-" + b + "-31"  + "' ;"
 
-
-   // var taon = d.getFullYear;
-   //var bulan = d.getMonth;
-    //var aldaw = d.getDay
-    var query = "SELECT count(*) as patron FROM `clientlog`  where Petsa between '" + a + "-" + b + "-1"  + "' and  '" + a + "-" + b + "-31"  + "' ;"
+    var dt = new Date();
+    var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    var query = "SELECT count(*) as patron FROM `clientlog`  where Petsa like '" +  datemonth  + "-%' ;"
 
     //console.log(taon);
     try{
