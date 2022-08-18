@@ -311,7 +311,7 @@ controller.api_get_one = async function (req, res){
 }
 
 controller.delpatronbyID = async function (req, res){
-    console.log(req.params) //{ id: '00-0000' }
+    //console.log(req.params) //{ id: '00-0000' }
     if (req.session.data  != null ) {
         var cred = req.session.data;
         await ploginModel.delPatronByIDModel(req.params.id, function (err, result){
@@ -329,11 +329,74 @@ controller.delpatronbyID = async function (req, res){
 
         })
     }
-
-
-
-
 }
+
+
+
+//STAT PATRON
+controller.getPatronLogBy = function (req, res){
+
+    ploginModel.getPatronlogBYCourse( '2022-08-18', req.body.location,function (err, result){
+        res.send(result[0])
+    })
+}
+
+//STAT INHOUSE
+
+controller.getInHouseLogBy = function (req, res){
+
+    ploginModel.getInHouseByType('book', function (err, book){
+        //res.send(book[0])
+        ploginModel.getInHouseByType('thesis', function (err, thesis){
+            //res.send(thesis[0])
+            ploginModel.getInHouseByType('serials', function (err, serials){
+               // res.send(serials[0])
+                ploginModel.getInHouseByType('patron', function (err, patron){
+                    //console.log(patron[0][0].patron)
+
+                    var data = []
+
+                    for (var key in book[0][0]) {
+                        var keys = key;
+                        var datas = book[0][0][key];
+
+                        data.push({table: keys, cnt: datas})
+
+                    }
+                    for (var key in thesis[0][0]) {
+                        var keys = key;
+                        var datas = thesis[0][0][key];
+
+                        data.push({table: keys, cnt: datas})
+
+                    }
+                    for (var key in serials[0][0]) {
+                        var keys = key;
+                        var datas = serials[0][0][key];
+
+                        data.push({table: keys, cnt: datas})
+
+                    }
+                    for (var key in patron[0][0]) {
+                        var keys = key;
+                        var datas = patron[0][0][key];
+
+                        data.push({table: keys, cnt: datas})
+
+                    }
+
+
+
+
+
+                    res.send(data)
+
+                })
+            })
+        })
+    })
+}
+
 
 
 

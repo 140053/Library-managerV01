@@ -9,16 +9,16 @@ function getmoth(){
 
 
 
-function makechart(docID, typeC){
+function makechart(docID, typeC, labels, data, datalabel){
     const ctx = document.getElementById(docID);
 
     const myChart = new Chart(ctx, {
         type: typeC,
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange','Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: labels,
             datasets: [{
-                label: '# of Students',
-                data: [12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3],
+                label: datalabel,
+                data: data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -39,6 +39,48 @@ function makechart(docID, typeC){
             }]
         },
         options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function makechart2(docID, typeC, labels, data, datalabel){
+    const ctx = document.getElementById(docID);
+
+    const myChart = new Chart(ctx, {
+        type: typeC,
+        data: {
+            labels: labels,
+            datasets: [{
+                label: datalabel,
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
             scales: {
                 y: {
                     beginAtZero: true
@@ -49,13 +91,76 @@ function makechart(docID, typeC){
 }
 
 
+async function getLoginByCourse(getdata, location){
+
+    if (getdata == 'PatronBYCourse'){
+        if( location == 'GCIR'){
+            await $.post("/api/getLogby",{
+                location: 'General Circulation'
+            }, function(data, status){
+                //console.log(data)
+                var newdata = prepData(data)
+                makechart('myChart', 'bar',newdata.Kurso, newdata.logged,'# of Students')
+            });
+        }else if (location == 'LCM'){
+            await $.post("/api/getLogby",{
+                location: 'Learning Commons'
+            }, function(data, status){
+                //console.log(data)
+                var newdata = prepData(data)
+                makechart('myChart1', 'bar',newdata.Kurso, newdata.logged,'# of Students')
+            });
+        }
+
+    }else if(getdata =='Resources'){
+
+        await $.post("/api/getinhouse",{
+            table: 'book'
+        }, function(data, status){
+            var newdata = prepdataInhouse(data)
+            //var newdata = prepData(data)
+           makechart2('myChart2', 'bar',newdata.label, newdata.cnt,'# of Record')
+        });
+    }
+
+}
+
+function prepData(data){
+    var datalen = Object.keys(data).length
+    var Kurso = []
+    var logged = []
+    for (let i = 0; i < datalen; i++) {
+        Kurso.push(data[i].Degree_Course)
+        logged.push(data[i].login)
+    }
+    var newdata = {Kurso, logged}
+    //console.log(newdata.Kurso)
+    return newdata;
+}
+
+function prepdataInhouse(data){
+    //console.log(data)
+    var datalen = Object.keys(data).length
+    var label = []
+    var cnt = []
+    for (let i = 0; i < datalen; i++) {
+        //console.log(data[i].table)
+        label.push(data[i].table)
+        cnt.push(data[i].cnt)
+    }
+    var newdata = {label, cnt}
+    return newdata;
+}
 
 
 
 
 
 
-makechart('myChart', 'bar')
+
+getLoginByCourse('PatronBYCourse','GCIR')
+getLoginByCourse('PatronBYCourse','LCM')
+getLoginByCourse('Resources','')
 getmoth()
 
 

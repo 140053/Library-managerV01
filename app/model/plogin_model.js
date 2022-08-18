@@ -140,11 +140,6 @@ Task.checkLogin = function (IDnum, location, result){
 }
 
 Task.SaveRecord = function (data, mode, location){
-
-    //console.log(data)
-    //console.log(mode)
-    //console.log(location)
-
         if (mode == 'in'){
             knexmain.raw("INSERT INTO patronlog (Name, Degree_Course, User_class, IDnum, branch, gender, mode) VALUES ( '" + data.Name + "' , '" + data.Degree_Course + "' , '" + data.User_class + "' ,  '" + data.IDnum + "', '" + location + "', '" + data.gender + "','"+ mode +"')")
                 .then(function(resp) {
@@ -159,11 +154,50 @@ Task.SaveRecord = function (data, mode, location){
                     console.log(resp)
                 });
         }
+}
 
+//PATRON LOG
+Task.getPatronlogBYCourse = function (curdate,location, result){
+    var dt = new Date();
+    var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    knexmain.raw("SELECT Degree_Course, count(*) as login FROM patronlog WHERE reg_date between '"+ datemonth +"-01%' and '"+ datemonth + "-31%" +"' and branch = '"+ location +"'  group by Degree_Course  ;")
+        .then(function(resp) {
+        result(null, resp)
+    });
+}
 
-
-
+//INHOUSE LOG
+Task.getInHouseByType = function (type, result){
+    var dt = new Date();
+    var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    switch (type){
+        case 'book':
+            knexmain.raw("SELECT count(*) as book FROM ihubk WHERE reg_date between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+                .then(function(resp) {
+                    result(null, resp)
+                });
+            break;
+        case 'thesis':
+            knexmain.raw("SELECT count(*) as thesis FROM ihutd WHERE reg_date  between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+                .then(function(resp) {
+                    result(null, resp)
+                });
+            break;
+        case 'serials':
+            knexmain.raw("SELECT count(*) as serials FROM SSIHS WHERE reg_date  between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+                .then(function(resp) {
+                    result(null, resp)
+                });
+            break;
+        case 'patron':
+            knexmain.raw("SELECT count(*) as patron FROM patronlog WHERE reg_date  between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+                .then(function(resp) {
+                    result(null, resp)
+                });
+            break;
+    }
 
 }
+
 
 module.exports= Task;

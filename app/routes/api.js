@@ -39,4 +39,10 @@ route.get('/delpatron/:id', patron.delpatronbyID)
 //route.post('/editpatron',)
 
 
+//PATRON STAT
+route.post('/getLogby', patron.getPatronLogBy)
+//RESOURCES STAT
+route.post('/getinhouse', patron.getInHouseLogBy)
+
+
 module.exports = route;
