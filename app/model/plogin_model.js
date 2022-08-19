@@ -158,12 +158,34 @@ Task.SaveRecord = function (data, mode, location){
 
 //PATRON LOG
 Task.getPatronlogBYCourse = function (curdate,location, result){
+
     var dt = new Date();
     var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
-    knexmain.raw("SELECT Degree_Course, count(*) as login FROM patronlog WHERE reg_date between '"+ datemonth +"-01%' and '"+ datemonth + "-31%" +"' and branch = '"+ location +"'  group by Degree_Course  ;")
-        .then(function(resp) {
-        result(null, resp)
-    });
+
+    if(location == 'Gender') {
+        knexmain.raw("SELECT gender, count(*) as cnt FROM patronlog where reg_date like '" + datemonth + "-%' group by gender ")
+            .then(function (resp) {
+                result(null, resp)
+            });
+    }else if (location == 'GROUP'){
+        knexmain.raw("SELECT User_Class as gender, count(*) as cnt FROM patronlog where reg_date like '" + datemonth + "-%' group by User_Class ")
+            .then(function (resp) {
+                result(null, resp)
+            });
+    }else if( location == 'LIBRARY'){
+        knexmain.raw("SELECT branch as gender, count(*) as cnt FROM patronlog where reg_date like '" + datemonth + "-%' group by branch ")
+            .then(function (resp) {
+                result(null, resp)
+            });
+
+    }else {
+        knexmain.raw("SELECT Degree_Course, count(*) as login FROM patronlog WHERE reg_date between '"+ datemonth +"-01%' and '"+ datemonth + "-31%" +"' and branch = '"+ location +"'  group by Degree_Course  ;")
+            .then(function(resp) {
+                result(null, resp)
+            });
+    }
+
+
 }
 
 //INHOUSE LOG

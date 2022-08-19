@@ -49,6 +49,42 @@ function makechart(docID, typeC, labels, data, datalabel){
     });
 }
 
+function makechartpie(docID, typeC, labels, data, datalabel){
+    const ctx = document.getElementById(docID);
+
+    const myChart = new Chart(ctx, {
+        type: typeC,
+        data: {
+            labels: labels,
+            datasets: [{
+                label: datalabel,
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+
+        }
+    });
+}
+
 function makechart2(docID, typeC, labels, data, datalabel){
     const ctx = document.getElementById(docID);
 
@@ -110,6 +146,30 @@ async function getLoginByCourse(getdata, location){
                 var newdata = prepData(data)
                 makechart('myChart1', 'bar',newdata.Kurso, newdata.logged,'# of Students')
             });
+        } else if (location == 'GENDER'){
+            await $.post("/api/getLogby",{
+                location: 'Gender'
+            }, function(data, status){
+                //console.log(data)
+                var newdata = prepdataGender(data)
+                makechartpie('myChart3', 'doughnut',newdata.label, newdata.cnt,'# of Gender')
+            });
+        }else if (location == 'GROUP') {
+            await $.post("/api/getLogby",{
+                location: 'GROUP'
+            }, function(data, status){
+                //console.log(data)
+                var newdata = prepdataGender(data)
+                makechartpie('myChart4', 'doughnut',newdata.label, newdata.cnt,'# of GROUP')
+            });
+        }else if(location == 'Library'){
+            await $.post("/api/getLogby",{
+                location: 'LIBRARY'
+            }, function(data, status){
+                //console.log(data)
+                var newdata = prepdataGender(data)
+                makechartpie('myChart5', 'doughnut',newdata.label, newdata.cnt,'# of GROUP')
+            });
         }
 
     }else if(getdata =='Resources'){
@@ -152,6 +212,20 @@ function prepdataInhouse(data){
     return newdata;
 }
 
+function prepdataGender(data){
+    //console.log(data)
+    var datalen = Object.keys(data).length
+    var label = []
+    var cnt = []
+    for (let i = 0; i < datalen; i++) {
+        //console.log(data[i].table)
+        label.push(data[i].gender)
+        cnt.push(data[i].cnt)
+    }
+    var newdata = {label, cnt}
+    return newdata;
+}
+
 
 
 
@@ -160,6 +234,9 @@ function prepdataInhouse(data){
 
 getLoginByCourse('PatronBYCourse','GCIR')
 getLoginByCourse('PatronBYCourse','LCM')
+getLoginByCourse('PatronBYCourse','GENDER')
+getLoginByCourse('PatronBYCourse','GROUP')
+getLoginByCourse('PatronBYCourse','Library')
 getLoginByCourse('Resources','')
 getmoth()
 
