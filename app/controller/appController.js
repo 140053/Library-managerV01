@@ -30,6 +30,8 @@ exports.index = function(req, res) {
 
 };
 
+
+
 //statistics
 exports.statistics = function (req, res){
  // stat.getThesis('nun', function (err, result){

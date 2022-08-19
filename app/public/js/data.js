@@ -1,6 +1,16 @@
 
 $(document).ready( function () {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print', 'pageLength'
+        ],
+        lengthMenu: [
+            [ 10, 25, 50, -1 ],
+            [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+        ],
 
+    } );
 
 
     $('#clickme').on('click', function (){

@@ -1,0 +1,61 @@
+
+<div class="row">
+    <div class="col-12">
+        <ul class="list-group">
+            <li class="list-group-item active"><a href="/" class="btn btn-info"> HOME </a> &nbsp; EXPORT DATA </li>
+            <li class="list-group-item">
+                <table id="example" class="table display nowrap" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>GROUP</th>
+                        <th>ID NUMBER</th>
+                        <th>SECTIONS</th>
+                        <th>Gender</th>
+                        <th>Date Logged</th>
+                        <th>Mode</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% var datalen =  Object.keys(data).length %>
+
+                        <% if (datalen != 0){ %>
+
+                            <% for (var i = 0; i < datalen; i++) { %>
+                                <tr>
+                                    <td><%= i %></td>
+                                    <td><%= data[i].Name %></td>
+                                    <td><%= data[i].Degree_Course %></td>
+                                    <td><%= data[i].User_Class %></td>
+                                    <td><%= data[i].IDnum %></td>
+                                    <td><%= data[i].branch %></td>
+                                    <td><%= data[i].gender %></td>
+                                    <td><%= data[i].reg_date %></td>
+                                    <td><%= data[i].mode %></td>
+                                </tr>
+                            <% } %>
+                        <%}%>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>GROUP</th>
+                        <th>ID NUMBER</th>
+                        <th>SECTIONS</th>
+                        <th>Gender</th>
+                        <th>Date Logged</th>
+                        <th>Mode</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </li>
+
+        </ul>
+
+    </div>
+</div>

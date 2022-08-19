@@ -50,6 +50,16 @@ Task.regesterpatronmodel = async function (data ,result){
         });
 }
 
+Task.getfrompatronlogbyDate = function (daterange, result){
+
+    knexmain.select()
+        .from('patronlog')
+        .whereBetween('reg_date', [daterange.datefrom + "%" , daterange.dateto + "%"])
+        .then(function(res1){
+            result(null, res1);
+        });
+}
+
 Task.updatePatronmodel = async  function(data, result){
     await knex.raw("UPDATE clients set Name = '" +data.name + "', Degree_Course = '" +data.Kurso + "', ")
         .then(function(res1){

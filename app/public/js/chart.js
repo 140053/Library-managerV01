@@ -232,6 +232,8 @@ function prepdataGender(data){
 
 
 
+
+
 getLoginByCourse('PatronBYCourse','GCIR')
 getLoginByCourse('PatronBYCourse','LCM')
 getLoginByCourse('PatronBYCourse','GENDER')

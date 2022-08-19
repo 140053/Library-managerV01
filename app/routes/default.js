@@ -90,6 +90,10 @@ route.post('/plogin',Slogin.post)
 route.get('/llogin', Slogin.index2 ) // learning commons
 route.post('/llogin',Slogin.post2)
 
+//export
+
+route.get('/exportLog', Slogin.dataexportPatron)
+
 
 
 module.exports = route;

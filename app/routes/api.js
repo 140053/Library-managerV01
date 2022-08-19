@@ -44,5 +44,8 @@ route.post('/getLogby', patron.getPatronLogBy)
 //RESOURCES STAT
 route.post('/getinhouse', patron.getInHouseLogBy)
 
+//EXPORT DATA
+route.post('/exportdata', patron.exportdataPatron )
+
 
 module.exports = route;

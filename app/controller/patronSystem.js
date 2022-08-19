@@ -16,6 +16,21 @@ function  gettimev2 (){
     return timestamp2;
 }
 
+controller.exportdataPatron = function (req, res){
+
+    ploginModel.getfrompatronlogbyDate(req.body, function (err, result){
+
+
+        res.render('pages/Plogin/tools/exportDATA',{
+            layout: 'layouts/blank_datatable',
+            LoggedU: null,
+            auth: null,
+            data: result
+        })
+    })
+
+}
+
 controller.ingestpatron = async function (req, res){
     if (req.session.data  != null ) {
         var cred = req.session.data;
@@ -353,50 +368,41 @@ controller.getInHouseLogBy = function (req, res){
                // res.send(serials[0])
                 ploginModel.getInHouseByType('patron', function (err, patron){
                     //console.log(patron[0][0].patron)
-
                     var data = []
-
                     for (var key in book[0][0]) {
                         var keys = key;
                         var datas = book[0][0][key];
-
                         data.push({table: keys, cnt: datas})
-
                     }
                     for (var key in thesis[0][0]) {
                         var keys = key;
                         var datas = thesis[0][0][key];
-
                         data.push({table: keys, cnt: datas})
-
                     }
                     for (var key in serials[0][0]) {
                         var keys = key;
                         var datas = serials[0][0][key];
-
                         data.push({table: keys, cnt: datas})
-
                     }
                     for (var key in patron[0][0]) {
                         var keys = key;
                         var datas = patron[0][0][key];
-
                         data.push({table: keys, cnt: datas})
-
                     }
-
-
-
-
-
                     res.send(data)
-
                 })
             })
         })
     })
 }
 
+controller.dataexportPatron = function (req, res){
+    res.render('pages/Plogin/tools/exportDATA',{
+        layout: 'layouts/blank_datatable',
+        LoggedU: null,
+        auth: null
+    })
+}
 
 
 

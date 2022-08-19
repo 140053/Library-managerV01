@@ -41,7 +41,33 @@
                                         </div>
                                         <canvas id="myChart5" width="100%" height="15%" ></canvas>
                                     </div>
+
                                 </div>
+                                <div class="card m-2"  >
+                                    <div class="card-header">
+                                        EXPORT DATA FOR PATRON
+                                    </div>
+                                    <form action="/api/exportdata" method="post">
+                                        <div class="form-row m-2">
+                                            <div class="form-group col-md-6 col-xl-6 col-lg-6 col-sm-6">
+                                                <label class="">FROM:</label>
+                                                <input class="form-control" name="datefrom" type="date" required>
+                                            </div>
+                                            <div class="form-group col-md-6 col-xl-6 col-lg-6 col-sm-6">
+                                                <label class="">TO:</label>
+                                                <input class="form-control" name="dateto" type="date" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row m-2">
+                                            <div class="form-group col-md-12 col-xl-12 col-lg-12 col-sm-12 ">
+                                                <button type="submit" class="btn btn-block btn-info">EXPORT DATA</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
                             </li>
 
                         </ul>
