@@ -21,7 +21,7 @@ controller.exportdataPatron = function (req, res){
     ploginModel.getfrompatronlogbyDate(req.body, function (err, result){
 
 
-        res.render('pages/Plogin/tools/exportDATA',{
+        res.render('pages/PLogin/tools/exportDATA',{
             layout: 'layouts/blank_datatable',
             LoggedU: null,
             auth: null,
