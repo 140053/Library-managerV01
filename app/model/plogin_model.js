@@ -171,6 +171,7 @@ Task.getPatronlogBYCourse = function (curdate,location, result){
 
     var dt = new Date();
     var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    var datemonth2 = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  +"-"+ (("0"+dt.getDate()).slice(-2))
 
     if(location == 'Gender') {
         knexmain.raw("SELECT gender, count(*) as cnt FROM patronlog where reg_date like '" + datemonth + "-%' group by gender ")
@@ -189,7 +190,9 @@ Task.getPatronlogBYCourse = function (curdate,location, result){
             });
 
     }else {
-        knexmain.raw("SELECT Degree_Course, count(*) as login FROM patronlog WHERE reg_date between '"+ datemonth +"-01%' and '"+ datemonth + "-31%" +"' and branch = '"+ location +"'  group by Degree_Course  ;")
+        //console.log(datemonth2)
+        //knexmain.raw("SELECT Degree_Course, count(*) as login FROM patronlog WHERE reg_date between '"+ datemonth +"-01%' and '"+ datemonth + "-31%" +"' and branch = '"+ location +"'  group by Degree_Course  ;")
+        knexmain.raw("SELECT Degree_Course, count(*) as login FROM patronlog WHERE reg_date like '"+ datemonth2 +"%' and branch = '"+ location +"'  group by Degree_Course  ;")
             .then(function(resp) {
                 result(null, resp)
             });
