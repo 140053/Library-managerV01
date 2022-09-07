@@ -47,5 +47,9 @@ route.post('/getinhouse', patron.getInHouseLogBy)
 //EXPORT DATA
 route.post('/exportdata', patron.exportdataPatron )
 
+//getrandom id 1
+route.post('/getrandID', patron.getpatronrandom)
+
+
 
 module.exports = route;

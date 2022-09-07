@@ -19,8 +19,7 @@ function  gettimev2 (){
 controller.exportdataPatron = function (req, res){
 
     ploginModel.getfrompatronlogbyDate(req.body, function (err, result){
-
-
+       // console.log(result)
         res.render('pages/PLogin/tools/exportDATA',{
             layout: 'layouts/blank_datatable',
             LoggedU: null,
@@ -29,6 +28,12 @@ controller.exportdataPatron = function (req, res){
         })
     })
 
+}
+
+controller.getpatronrandom = async function (req, res){
+    await ploginModel.getRandomID(function (err, result){
+        res.send(result)
+    })
 }
 
 controller.ingestpatron = async function (req, res){
@@ -234,7 +239,7 @@ controller.post = async function (req, res){
 
 }
 controller.post2 = async function (req, res){
-   // console.log(req.body)
+    //console.log(req.body)
 
     if(req.body.keyword2 != '') {
         await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result) {
@@ -401,6 +406,15 @@ controller.dataexportPatron = function (req, res){
         layout: 'layouts/blank_datatable',
         LoggedU: null,
         auth: null
+    })
+}
+
+controller.autolog = function (req, res){
+    res.render('pages/Plogin/tools/addLog.ejs',{
+        layout: 'layouts/cheat',
+        LoggedU: null,
+        auth: null,
+        state: ''
     })
 }
 

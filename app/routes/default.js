@@ -94,6 +94,9 @@ route.post('/llogin',Slogin.post2)
 
 route.get('/exportLog', Slogin.dataexportPatron)
 
+//cheat
+route.get('/autolog',Slogin.autolog)
+
 
 
 module.exports = route;

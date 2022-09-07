@@ -60,6 +60,14 @@ Task.getfrompatronlogbyDate = function (daterange, result){
         });
 }
 
+Task.getRandomID = function (result){
+    knex.raw("SELECT  IDnum FROM db_a78e30_cbsuadb.client where Degree_Course is not null order by rand() Limit 1;")
+        .then(function(res1){
+            //console.log(res1[0])
+            result(null, res1[0]);
+        });
+}
+
 Task.updatePatronmodel = async  function(data, result){
     await knex.raw("UPDATE clients set Name = '" +data.name + "', Degree_Course = '" +data.Kurso + "', ")
         .then(function(res1){

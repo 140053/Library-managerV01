@@ -32,7 +32,14 @@
                                     <td><%= data[i].IDnum %></td>
                                     <td><%= data[i].branch %></td>
                                     <td><%= data[i].gender %></td>
-                                    <td><%= data[i].reg_date %></td>
+                                    <td>
+                                        <script type="text/javascript">
+                                            document.write(
+                                                new Date("<%= data[i].reg_date.toISOString() %>").toLocaleDateString()
+                                            );
+                                        </script>
+                                    </td>
+                                    <!--td><%= data[i].reg_date %></td-->
                                     <td><%= data[i].mode %></td>
                                 </tr>
                             <% } %>
