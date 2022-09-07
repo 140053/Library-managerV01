@@ -205,27 +205,33 @@ Task.getPatronlogBYCourse = function (curdate,location, result){
 Task.getInHouseByType = function (type, result){
     var dt = new Date();
     var datemontha = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    //console.log(datemontha)
     switch (type){
         case 'book':
-            knexmain.raw("SELECT count(*) as book FROM ihubk WHERE reg_date between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+            //knexmain.raw("SELECT count(*) as book FROM webopacwihs.ihubk WHERE reg_date like '" + datemontha + "';")
+            knexmain.raw("SELECT count(*) as book FROM webopacwihs.ihubk where reg_date like '" + datemontha + "-%';")
                 .then(function(resp) {
+                   // console.log(resp)
                     result(null, resp)
                 });
             break;
         case 'thesis':
-            knexmain.raw("SELECT count(*) as thesis FROM ihutd WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+            //knexmain.raw("SELECT count(*) as thesis FROM webopacwihs.ihutd WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as thesis FROM webopacwihs.ihutd where reg_date like '" + datemontha + "-%';")
                 .then(function(resp) {
                     result(null, resp)
                 });
             break;
         case 'serials':
-            knexmain.raw("SELECT count(*) as serials FROM SSIHS WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+           // knexmain.raw("SELECT count(*) as serials FROM webopacwihs.SSIHS WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as serials FROM webopacwihs.SSIHS where reg_date like '" + datemontha + "-%';")
                 .then(function(resp) {
                     result(null, resp)
                 });
             break;
         case 'patron':
-            knexmain.raw("SELECT count(*) as patron FROM patronlog WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+            //knexmain.raw("SELECT count(*) as patron FROM webopacwihs.patronlog WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as patron FROM webopacwihs.patronlog where reg_date like '" + datemontha + "-%';")
                 .then(function(resp) {
                     result(null, resp)
                 });
