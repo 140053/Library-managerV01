@@ -204,28 +204,28 @@ Task.getPatronlogBYCourse = function (curdate,location, result){
 //INHOUSE LOG
 Task.getInHouseByType = function (type, result){
     var dt = new Date();
-    var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    var datemontha = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
     switch (type){
         case 'book':
-            knexmain.raw("SELECT count(*) as book FROM ihubk WHERE reg_date between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as book FROM ihubk WHERE reg_date between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
                 .then(function(resp) {
                     result(null, resp)
                 });
             break;
         case 'thesis':
-            knexmain.raw("SELECT count(*) as thesis FROM ihutd WHERE reg_date  between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as thesis FROM ihutd WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
                 .then(function(resp) {
                     result(null, resp)
                 });
             break;
         case 'serials':
-            knexmain.raw("SELECT count(*) as serials FROM SSIHS WHERE reg_date  between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as serials FROM SSIHS WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
                 .then(function(resp) {
                     result(null, resp)
                 });
             break;
         case 'patron':
-            knexmain.raw("SELECT count(*) as patron FROM patronlog WHERE reg_date  between '" + datemonth + '-01%' + "' and '" + datemonth + '-31%' + "';")
+            knexmain.raw("SELECT count(*) as patron FROM patronlog WHERE reg_date  between '" + datemontha + '-01%' + "' and '" + datemontha + '-31%' + "';")
                 .then(function(resp) {
                     result(null, resp)
                 });

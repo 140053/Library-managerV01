@@ -4,25 +4,25 @@ var mysql = require('mysql');
 
 //local mysql db connection
 var connection = mysql.createConnection({
-    host     : '10.2.42.50',
-    user     : 'root',
-    password : '140053',
-    database : 'webopacwihs'
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE
 });
 
 
 var pmaster = mysql.createConnection({
-    host     : '10.2.42.48',
-    user     : 'root',
-    password : 'DEVINE',
-    database : 'db_a274eb_cbsua'
+    host     : process.env.DB_HOST_2,
+    user     : process.env.DB_USER_2,
+    password : process.env.DB_PASSWORD_2,
+    database : process.env.DB_DATABASE_2,
 });
 
 var pmasterv2 = mysql.createConnection({
-    host     : '10.2.42.48',
-    user     : 'root',
-    password : 'DEVINE',
-    database : 'db_a78e30_cbsuadb'
+    host     : process.env.DB_HOST_2,
+    user     : process.env.DB_USER_2,
+    password : process.env.DB_PASSWORD_2,
+    database : process.env.DB_DATABASE_3,
 });
 
 
