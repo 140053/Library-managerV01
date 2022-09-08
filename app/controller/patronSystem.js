@@ -410,7 +410,7 @@ controller.dataexportPatron = function (req, res){
 }
 
 controller.autolog = function (req, res){
-    res.render('pages/Plogin/tools/addLog.ejs',{
+    res.render('pages/Plogin/tools/addlog.ejs',{
         layout: 'layouts/cheat',
         LoggedU: null,
         auth: null,
