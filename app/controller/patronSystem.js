@@ -158,6 +158,7 @@ controller.index2 = function(req, res){
 }
 
 controller.post = async function (req, res){
+    console.log([req.body.keyword2 , req.body.slocation])
 
     if(req.body.keyword2 != ''){
         await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result){
@@ -188,7 +189,7 @@ controller.post = async function (req, res){
                             mode = 'out';
                         }
                     }else if(process.env.LOGIN_SYSTEM_MODE == 'in')  {
-                        console.log(process.env.LOGIN_SYSTEM_MODE)
+                        //console.log(process.env.LOGIN_SYSTEM_MODE)
 
                         if (Object.keys(res1).length == 1){
 
@@ -222,6 +223,7 @@ controller.post = async function (req, res){
             var alert = null
             if(data != null){
                 alert = 'Congratiolation you successfully Log In! ' + req.body.keyword2
+                
             }
             res.render('pages/PLogin/index',{
                 layout: 'layouts/blank',
@@ -240,6 +242,7 @@ controller.post = async function (req, res){
 }
 controller.post2 = async function (req, res){
     //console.log(req.body)
+    console.log([req.body.keyword2 , req.body.slocation])
 
     if(req.body.keyword2 != '') {
         await ploginModel.GetStudentInfo(req.body.keyword2, function (err, result) {
@@ -269,7 +272,7 @@ controller.post2 = async function (req, res){
                             mode = 'out';
                         }
                     }else if(process.env.LOGIN_SYSTEM_MODE == 'in')  {
-                        console.log(process.env.LOGIN_SYSTEM_MODE)
+                        //console.log(process.env.LOGIN_SYSTEM_MODE)
 
                         if (Object.keys(res1).length == 1){
 
@@ -410,7 +413,7 @@ controller.dataexportPatron = function (req, res){
 }
 
 controller.autolog = function (req, res){
-    res.render('pages/Plogin/tools/addlog.ejs',{
+    res.render('pages/addlog',{
         layout: 'layouts/cheat',
         LoggedU: null,
         auth: null,
