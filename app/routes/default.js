@@ -98,5 +98,10 @@ route.get('/exportLog', Slogin.dataexportPatron)
 route.get('/autolog',Slogin.autolog)
 
 
+route.get('/close', function(req, res){
+    res.send('CLOSE')
+})
+
+
 
 module.exports = route;
