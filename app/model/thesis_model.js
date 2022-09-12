@@ -1,5 +1,5 @@
 //'user strict';
-const { isString } = require('lodash');
+const { isString, isNull } = require('lodash');
 //const { result } = require('lodash');
 var sql = require('../config/db');
 
@@ -29,7 +29,7 @@ Task.check_if_exist_td = async  function(table ,result) {
 
 
 Task.create_table= async  function(table ,result) {
-    var query = "CREATE TABLE "+ table +" (  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, `title` VARCHAR(225) NOT NULL, `author` VARCHAR(225)  NULL, `lokayon` VARCHAR(255)  NULL, `info` VARCHAR(255)  NULL, `call_number` VARCHAR(255)  NULL, `katers` VARCHAR(255)  NULL, `taon` VARCHAR(255)  NULL, `barcode` VARCHAR(255)  NULL, `abstract` TEXT , `kurso` VARCHAR(255)  NULL, `institution` VARCHAR(255)  NULL, `accession_number` VARCHAR(255)  NULL,`subjek` VARCHAR(255)  NULL, `reg_date` TIMESTAMP  NULL, PRIMARY KEY(`id`) )ENGINE = InnoDB;";
+    var query = "CREATE TABLE "+ table +" (  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, `title` VARCHAR(225) NOT NULL, `author` VARCHAR(225)  NULL, `lokayon` VARCHAR(255)  NULL, `info` VARCHAR(255)  NULL, `call_number` VARCHAR(255)  NULL, `katers` VARCHAR(255)  NULL, `taon` VARCHAR(255)  NULL, `barcode` VARCHAR(255)  NULL, `abstract` TEXT , `kurso` VARCHAR(255)  NULL, `institution` VARCHAR(255)  NULL, `accession_number` VARCHAR(255)  NULL,`subjek` VARCHAR(255)  NULL, `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY(`id`) )ENGINE = InnoDB;";
       
         //console.log(query);
     try{
@@ -299,11 +299,21 @@ Task.save_to_main_table = async function( table,date, result){
 
 
     console.log('__________________________________________________' + date + '__________________________________________________________________')
+   
     var query = ''
     if (date !== null){
-        console.log('__________________________________________________ date is not null__________________________________________________________________')
-       //query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, '2022-01-17 10:00:00' FROM thesis;"
-        query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, '" + date + " 10:00:00' FROM thesis;"
+        if(date == ''){
+            console.log('__________________________________________________ date is null__________________________________________________________________')
+            query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, reg_date FROM thesis;"
+        }else{
+            console.log('__________________________________________________ date is not null__________________________________________________________________')
+            //query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, '2022-01-17 10:00:00' FROM thesis;"
+             query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, '" + date + " 10:00:00' FROM thesis;"
+        }
+        
+    }else if(date == ''){
+        console.log('__________________________________________________ date is null__________________________________________________________________')
+        query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, reg_date FROM thesis;"
     }else {
         console.log('__________________________________________________ date is null__________________________________________________________________')
         query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, reg_date FROM thesis;"
