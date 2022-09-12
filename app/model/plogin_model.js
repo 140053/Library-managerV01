@@ -61,7 +61,7 @@ Task.getfrompatronlogbyDate = function (daterange, result){
 }
 
 Task.getRandomID = function (result){
-    knex.raw("SELECT  IDnum FROM db_a78e30_cbsuadb.client where Degree_Course is not null order by rand() Limit 1;")
+    knex.raw("SELECT  IDnum FROM db_a78e30_cbsuadb.client where Degree_Course is not null and Degree_Course not like 'PH%' and Degree_Course not like 'PH%' order by rand() Limit 1;")
         .then(function(res1){
             //console.log(res1[0])
             result(null, res1[0]);
