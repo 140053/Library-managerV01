@@ -102,6 +102,10 @@ route.get('/close', function(req, res){
     res.send('CLOSE')
 })
 
+route.get('/redir', function (req, res ){
+    res.redirect('/ihs/serials')
+})
+
 
 
 module.exports = route;

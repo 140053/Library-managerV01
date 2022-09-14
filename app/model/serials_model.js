@@ -29,7 +29,7 @@ Task.check_if_exist = async  function(table ,result) {
 }
 
 Task.create_table= async  function(table ,result) {
-    var query = "CREATE TABLE "+ table +" (`id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,`date_year` VARCHAR(45) NULL, `copy` VARCHAR(45)  NULL,`kode` VARCHAR(45) NULL,`Date_recieved` VARCHAR(45)  NULL,`title` VARCHAR(255) NULL,`issn` VARCHAR(45)  NULL, `frequ` VARCHAR(45)  NULL, `agent` VARCHAR(45)  NULL, `focus` VARCHAR(45)  NULL,  `subject` VARCHAR(45)  NULL,  `remark` VARCHAR(45)  NULL,     `volume` VARCHAR(45)  NULL,    `accession` VARCHAR(45) NULL,     `reg_date` TIMESTAMP NOT NULL,PRIMARY KEY(`id`))ENGINE = InnoDB;";
+    var query = "CREATE TABLE "+ table +" (`id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,`date_year` VARCHAR(45) NULL, `copy` VARCHAR(45)  NULL,`kode` VARCHAR(45) NULL,`Date_recieved` VARCHAR(45)  NULL,`title` VARCHAR(255) NULL,`issn` VARCHAR(45)  NULL, `frequ` VARCHAR(45)  NULL, `agent` VARCHAR(45)  NULL, `focus` VARCHAR(45)  NULL,  `subject` VARCHAR(45)  NULL,  `remark` VARCHAR(45)  NULL,     `volume` VARCHAR(45)  NULL,    `accession` VARCHAR(45) NULL,     `reg_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  ,PRIMARY KEY(`id`))ENGINE = InnoDB;";
     
     try{
         sql.connection.query(query, function(err,res){
@@ -121,10 +121,11 @@ Task.insertToTemp =async function(data, table ,result){
     
     try{
         
-        sql.connection.query(query,[ data[0].Date_Year,data[0].Volume, data[0].Code, data[0].accession, data[0].Serial_Title, data[0].ISSN, data[0].Agent, data[0].Subject ],  function(err,res){
+        var sqll = sql.connection.query(query,[ data[0].Date_Year,data[0].Volume, data[0].Code, data[0].accession, data[0].Serial_Title, data[0].ISSN, data[0].Agent, data[0].Subject ],  function(err,res){
             if(err){
                 result('error',null);
             }
+            //console.log(sqll)
             result(null, 'success');
         });
     }catch(err){
@@ -160,9 +161,15 @@ Task.select_all_from = async function(table, result){
 Task.save_to_main_table = async function( table,date, result){
     console.log('__________________________________________________' + date + '__________________________________________________________________')
     var query = ''
-    if (date !== null){
-        var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession, reg_date) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession ,'" + date + " 10:00:00' FROM serials;"
 
+
+    if (date !== null){
+        if (date == ''){
+            var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession FROM serials;"
+
+        }else {
+            var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession, reg_date) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession ,'" + date + " 10:00:00' FROM serials;"
+        }
     }else {
         var query = "INSERT INTO SSIHS (date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession) SELECT date_year, copy,kode,Date_recieved,title,issn,frequ,agent,focus,subject,remark,volume,accession FROM serials;"
 

@@ -309,22 +309,25 @@ exports.api = function(req, res) {
   var data = req.body;
   if( !data.query == ''){
     if(data.type == 'serials'){
-      console.log(data);
+      //console.log(data);
       Serials.check_if_exist('serials',function(err,exist){
-        console.log(exist);
+        //console.log(exist);
         if(exist[0].exist == 1){
-          console.log('exist')
+         // console.log('exist')
           Serials.getserialsinfo(data.query ,function(err,ress){
-            console.log(ress);
-            if(ress != ''){
+            console.log();
+            if(Object.keys(ress).length == 1){
               Serials.insertToTemp(ress,'serials',function(err,status){
-                console.log(err+' '+status + ' ' + 'exist table');
-                res.redirect('/ihs/serials');
+               // console.log(err+' '+status + ' ' + 'exist table');
+                if (status == 'success'){
+                 // res.send('done')
+                  res.redirect('/redir')
+                }
               })
-            }else{
-              res.redirect('/ihs/serials');
+            }else {
+              res.send('No Record Found')
             }
-              
+
               
           })
         }else{
@@ -333,17 +336,18 @@ exports.api = function(req, res) {
             console.log(status);
             Serials.getserialsinfo(data.query ,function(err,ress){
              // console.log(res);            
-             if(ress != ''){
-              Serials.insertToTemp(ress,'serials',function(err,status){
-                console.log(err+' '+status + ' ' + 'exist table');
-                res.redirect('/ihs/serials');
-              })
-            }else{
-              req.session.error = 'invalid barcode';
-              res.redirect('/ihs/serials');
-            }
-                
-                
+              if(Object.keys(ress).length == 1){
+                Serials.insertToTemp(ress,'serials',function(err,status){
+                  // console.log(err+' '+status + ' ' + 'exist table');
+                  if (status == 'success'){
+                    // res.send('done')
+                    res.redirect('/redir')
+                  }
+                })
+              }else {
+                res.send('No Record Found')
+              }
+
             })
           })
         }
@@ -371,8 +375,6 @@ exports.api = function(req, res) {
                     res.redirect('/ihs/thesis');
                   }else{
                     //console.log(resultc);
-                   
-
                     res.redirect('/ihs/thesis');
                   }
                 })
