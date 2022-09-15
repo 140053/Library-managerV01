@@ -55,6 +55,9 @@
 
     <script>
 
+       // console.log(window.location.href)
+
+
 
 
 
@@ -67,6 +70,7 @@
                       clearInterval(downloadTimer);
                       document.getElementById("countdown").innerHTML = "Finished";
                       $('#notfound').modal('hide')
+                      window.location.href = window.location.href;
                   } else {
                       document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
                   }
