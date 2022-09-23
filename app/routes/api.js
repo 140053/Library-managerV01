@@ -38,9 +38,23 @@ route.get('/delpatron/:id', patron.delpatronbyID)
 // edit patron
 //route.post('/editpatron',)
 
+//search login by id
+route.post('/getpatronbyID', patron.getpatronInLoggedByID )
+
+route.post('/listpatronToday', patron.listpatronInLoggedByID)
+
+route.post('/boresv', patron.borres)
+
+route.post('/getlender', patron.getlender )
+route.post('/returnlender', patron.returnlender)
+
+
 
 //PATRON STAT
 route.post('/getLogby', patron.getPatronLogBy)
+
+
+
 //RESOURCES STAT
 route.post('/getinhouse', patron.getInHouseLogBy)
 
@@ -49,6 +63,7 @@ route.post('/exportdata', patron.exportdataPatron )
 
 //getrandom id 1
 route.post('/getrandID', patron.getpatronrandom)
+
 
 
 

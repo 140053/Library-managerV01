@@ -157,6 +157,58 @@ controller.index2 = function(req, res){
     })
 }
 
+controller.listlogl = function (req, res){
+
+    if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/PLogin/tools/lclogin',{
+            layout: 'layouts/datatable',
+            LoggedU: cred[0].username,
+            auth: 0,
+            Status: null,
+            alert: null
+        })
+
+
+    }else {
+        res.render('pages/PLogin/tools/lclogin',{
+            layout: 'layouts/datatable',
+            data: '',
+            LoggedU: null,
+            Status: null,
+            alert: null
+        })
+    }
+
+
+
+}
+controller.lender = function (req, res){
+
+    if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/lender',{
+            layout: 'layouts/datatable',
+            data: '',
+            LoggedU: cred[0].username,
+            auth: 0,
+            Status: null,
+            alert: null
+        })
+
+    }else {
+        res.render('pages/lender',{
+            layout: 'layouts/datatable',
+            data: '',
+            LoggedU: null,
+            auth: null,
+            Status: null,
+            alert: null
+        })
+    }
+
+}
+
 controller.post = async function (req, res){
     console.log([req.body.keyword2 , req.body.slocation])
 
@@ -363,6 +415,73 @@ controller.getPatronLogBy = function (req, res){
         res.send(result[0])
     })
 }
+
+
+controller.getpatronInLoggedByID = function (req, res){
+    var idnum = req.body.id
+    ploginModel.getpatronbyIDTotaday(idnum, function (err, result){
+        res.send(result)
+    })
+}
+controller.listpatronInLoggedByID = function (req, res){
+    var idnum = req.body.id
+    ploginModel.ListPatronToday( function (err, result){
+        res.send(result)
+    })
+}
+
+//borrow and reserved
+
+controller.borres = function (req, res){
+    var data = req.body;
+    ploginModel.ingestLendingMater(data, function (err, result){
+        console.log(Object.keys(result[0]).length)
+        console.log(result[0]['insertId'])
+        res.send(result[0])
+    })
+}
+
+controller.getlender = function (req, res){
+    var category = req.body.category;
+
+    ploginModel.getlenderbycategory(category, function (err, result){
+        res.send(result)
+    })
+
+}
+
+controller.returnlender = function (req, res){
+    var data = req.body;
+
+    if(data.Barcode != ''){
+        ploginModel.returnLenderbyCategory(data, function(err, result){
+            res.send(result)
+        })
+    }else {
+        res.send('lol')
+    }
+    /*
+    ploginModel.returnLenderbyCategory(data, function(err, result){
+        res.send(result)
+    })
+
+     */
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //STAT INHOUSE
 

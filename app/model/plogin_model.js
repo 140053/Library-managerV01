@@ -205,9 +205,101 @@ Task.getPatronlogBYCourse = function (curdate,location, result){
                 result(null, resp)
             });
     }
+}
+
+//getpatron
+Task.getpatronbyIDTotaday = function (id, result){
+    var dt = new Date();
+    var datemonth2 = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  +"-"+ (("0"+dt.getDate()).slice(-2)) + '%'
+
+    knexmain.select()
+        .from('patronlog')
+        .where('IDnum',id)
+        .andWhere('reg_date', 'like', datemonth2)
+        .limit(1)
+        .then(function(resp) {
+            result(null, resp)
+
+        });
+
+}
+
+Task.ListPatronToday = function(result){
+    var dt = new Date();
+    var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    var datemonth2 = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  +"-"+ (("0"+dt.getDate()).slice(-2)) + '%'
+
+
+    knexmain.select()
+        .from('patronlog')
+        .where('reg_date', 'like', datemonth2)
+
+        .limit(20)
+        .then(function(resp) {
+            result(null, resp)
+        });
+}
+
+
+Task.ingestLendingMater = function (data, result){
+    var ches = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`boardorequip`,`boardgames`,`boardgamesbcode`)VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'"+ data.action +"', '"+ data.boardorequip +"','"+data.boardgames+"','"+data.boardgamesbcode+"')"
+    var equip = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`boardorequip`,`eqipname`) VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'"+ data.action +"','"+ data.boardorequip +"', '"+ data.eqipname +"')"
+    var room = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`rooms`,`dateforreserv`, `refrom`, `reto`, `people`) VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'"+ data.action +"', '"+ data.rooms +"','"+data.dateforreserv+"','"+data.refrom+"','"+data.reto +"','"+ data.people +"')"
+    if(data.action === 'borrow'){
+        var sql
+        if(data.boardorequip == 'equipment'){
+            sql = equip
+        }
+        if(data.boardorequip == 'boardgames'){
+            sql = ches
+        }
+        knexmain.raw(sql)
+            .then(function(resp) {
+                result(null, resp)
+            });
+    }else if(data.action === 'reserve'){
+        knexmain.raw(room)
+            .then(function(resp) {
+                result(null, resp)
+            });
+    }else {
+        result(null, 'null')
+    }
+}
+
+
+Task.getlenderbycategory = function (category, result){
+    var ches = "SELECT * FROM webopacwihs.lending_mater where boardorequip = 'boardgames' and status is null;"
+    var equip = "SELECT * FROM webopacwihs.lending_mater where boardorequip = 'equipment';"
+    var room = "SELECT * FROM webopacwihs.lending_mater where action = 'reserve';"
+    var sql ;
+    if (category == 'board'){
+        //console.log('board')
+        knexmain.raw(ches)
+            .then(function(resp) {
+                result(null, resp)
+            });
+    }
 
 
 }
+
+Task.returnLenderbyCategory = function (data, result){
+    var ches = "UPDATE webopacwihs.lending_mater SET status = 'return' Where id = '"+data.IDnum+"' and boardgamesbcode ='"+ data.Barcode +"'";
+
+    if (data.Barcode != ''){
+        knexmain.raw(ches)
+            .then(function(resp) {
+                result(null, resp)
+            });
+    }
+
+}
+
+
+
+
+
 
 //INHOUSE LOG
 Task.getInHouseByType = function (type, result){

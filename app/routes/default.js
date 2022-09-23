@@ -90,6 +90,12 @@ route.post('/plogin',Slogin.post)
 route.get('/llogin', Slogin.index2 ) // learning commons
 route.post('/llogin',Slogin.post2)
 
+//Login list
+route.get('/listlogl',Slogin.listlogl)
+
+//lenders dashboard
+route.get('/lender', Slogin.lender)
+
 //export
 
 route.get('/exportLog', Slogin.dataexportPatron)

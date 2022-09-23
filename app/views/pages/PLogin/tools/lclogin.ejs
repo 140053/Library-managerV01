@@ -1,0 +1,175 @@
+<div class="mt-3">
+    <div class="card">
+        <div class="card-header">
+           Learning Commons Students
+        </div>
+        <div class="card-body">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-info btn-outline-success" onclick="listAllLoggedToday()">Load login </button>
+                                </div>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Enter The User ID:</span>
+                                </div>
+                                <input type="text" class="form-control searchlog" id="basic-url" aria-describedby="basic-addon3">
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <style >
+                .wrapper {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 10px;
+                }
+            </style>
+            <div class=" wrapper datalog">
+
+            </div>
+            <div class="  dataalert">
+
+            </div>
+            <div class=" mt-3 wrapper listlogged">
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade brmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-header">
+                   Borrow/Reserved
+                </div>
+                <div class="card-body">
+                    <form action="/api/boresv" method="post">
+                        <div class="card">
+                            <h5 class="card-header">Clients Info</h5>
+                            <div class="card-body">
+                                <h5 id="sname" class="card-title"></h5>
+                                <p id="sdesc" class="card-text"></p>
+
+                            </div>
+                        </div>
+                        <input id="snamei" name="sname" type="hidden">
+                        <input id="idnum" name="idnum" type="hidden">
+                        <input id="course" name="course" type="hidden">
+                        <div class="form-group">
+                            <label for="borroworreserved">Action:</label>
+                            <select class="form-control" id="borroworreserved" required name="action">
+                                <option selected >Choose ...</option>
+                                <option value="borrow">Borrow</option>
+                                <option value="reserve">Reserved Room</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label id="labelforitem" for="item" style="display: none;">Materials</label>
+                            <select class="form-control itemlist" id="item" style="display: none;" name="boardorequip">
+                                <option selected >Choose ...</option>
+                                <option value="boardgames">Board Games</option>
+                                <option value="equipment">Equipments</option>
+                            </select>
+                            <select class="form-control" id="room" style="display: none;" name="rooms">
+                                <option selected >Choose ...</option>
+                                <option value="avr">Audio Visual Room</option>
+                                <option value="lecture">Lecture Room</option>
+                                <option value="discussion">Discussion Room</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label id="labelforboardgames" for="items" style="display: none;">Board Games</label>
+                            <select  class="form-control listforboardgames" id="items" style="display: none;" name="boardgames">
+                                <option selected >Choose ...</option>
+                                <option value="chess">Chess Board</option>
+                                <option value="gog">Game of General</option>
+                                <option value="scrabble">Scrabble</option>
+                            </select>
+                        </div>
+
+                        <div class="forbarcode" style="display: none">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Barcode:</span>
+                                </div>
+                                <input type="text" class="form-control" aria-describedby="basic-addon1" name="boardgamesbcode">
+                            </div>
+                        </div>
+                        <div class="form-group fofequipments" style="display: none">
+                            <label id="forequipment" for="equip">Equipment</label>
+                            <input class="form-control listofequipments" id="equip" type="text"  list="eqip" name="eqipname">
+                            <datalist id="eqip">
+                                <option value="Projector">
+                                <option value="SoundSystem">
+                            </datalist>
+                        </div>
+
+
+
+
+
+
+                        <!-- rooms reservation -->
+                        <div class="forreservation" style="display: none;" >
+                            <div >
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Date: </div>
+                                    </div>
+                                    <input type="date" class="form-control" id="" name="dateforreserv" >
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">From:</div>
+                                        </div>
+                                        <input type="time" class="form-control" id="" name="refrom">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">To:</div>
+                                        </div>
+                                        <input type="time" class="form-control" id="" name="reto">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="people" class="sr-only">People</label>
+                                <input type="text" class="form-control" id="people" placeholder="Number of Student:" name="people">
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
