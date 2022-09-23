@@ -242,6 +242,24 @@ controller.roombooking = function(req, res){
     })
 }
 
+controller.roombookingPOST =function (req, res){
+    var data = req.body
+    //{"sname":"kenneth Roman","idnum":"00-0000","course":"BSA-AN SCI","rooms":"avr","dateforreserv":"2022-09-24","refrom":"16:00","reto":"17:00","people":"21"}
+    ploginModel.SaveLenderRoom(data, function (err, result){
+        res.send(result)
+    })
+}
+
+controller.successbooking = function (req, res){
+    res.render('pages/room/booksuccess',{
+        layout: 'layouts/booking',
+        data: '',
+        LoggedU: null,
+        Status: null,
+        alert: null
+    })
+}
+
 
 
 
@@ -517,12 +535,7 @@ controller.returnlender = function (req, res){
     }else {
         res.send('lol')
     }
-    /*
-    ploginModel.returnLenderbyCategory(data, function(err, result){
-        res.send(result)
-    })
 
-     */
 
 
 }

@@ -1,43 +1,4 @@
-<style>
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: gray;
-    color: white;
-    text-align: center;
-  }
-  </style>
 
-
-
-
-
-
-
-
-
-
-<div class="footer">
-    <div class=" ">
-      
-      <!-- Footer -->
-      <footer class="page-footer font-small ">
-      
-          <!-- Copyright
-          <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="/"> ☺ </a> 
-          </div>
-           Copyright -->
-        
-        </footer>
-        <!-- Footer -->
-        
-      
-  </div>
-  </div>
-  
   
   
   <script src="/assets/jquery/dist/jquery.js"></script>
@@ -46,49 +7,5 @@
   
   <script src="/assets/@popperjs/core/dist/umd/popper.js"></script>
   <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
- 
-  <%- locals.cjs %>
-  
-  <script scr="/js/custom.js" ></script>
 
-<% if (Status == false) { %>
-
-    <script>
-
-       // console.log(window.location.href)
-
-
-
-
-
-      if($('#notfound').is(':visible') == false){
-          $('#notfound').modal('show')
-
-              var timeleft = 5;
-              var downloadTimer = setInterval(function(){
-                  if(timeleft <= 0){
-                      clearInterval(downloadTimer);
-                      document.getElementById("countdown").innerHTML = "Finished";
-                      $('#notfound').modal('hide')
-                      window.location.href = window.location.href;
-                  } else {
-                      document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
-                  }
-                  timeleft -= 1;
-              }, 1000);
-
-              $('.reg_modal').on('click', function (){
-                  clearInterval(downloadTimer);
-                  $('#notfound').modal('hide')
-                  $('.registerBOX').modal('show');
-              })
-
-      }else {
-
-      }
-
-
-
-    </script>
-
-<% }%>
+  <script src="/js/booking.js"></script>

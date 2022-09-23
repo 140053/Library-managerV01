@@ -101,6 +101,10 @@ route.get('/room', Slogin.roomlender)
 //room booking 
 route.get('/bookroom', Slogin.roombooking)
 
+route.post('/bookroom', Slogin.roombookingPOST )
+
+route.get('/successbooking', Slogin.successbooking )
+
 //export
 
 route.get('/exportLog', Slogin.dataexportPatron)

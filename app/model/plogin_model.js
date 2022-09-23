@@ -284,17 +284,41 @@ Task.getlenderbycategory = function (category, result){
 
 }
 
-Task.returnLenderbyCategory = function (data, result){
-    var ches = "UPDATE webopacwihs.lending_mater SET status = 'return' Where id = '"+data.IDnum+"' and boardgamesbcode ='"+ data.Barcode +"'";
+Task.returnLenderbyCategory = function (data, result) {
+    var ches = "UPDATE webopacwihs.lending_mater SET status = 'return' Where id = '" + data.IDnum + "' and boardgamesbcode ='" + data.Barcode + "'";
 
-    if (data.Barcode != ''){
+    if (data.Barcode != '') {
         knexmain.raw(ches)
-            .then(function(resp) {
+            .then(function (resp) {
                 result(null, resp)
             });
     }
 
+
 }
+
+
+
+    //Can change 7 to 2 for longer results.
+
+
+    Task.SaveLenderRoom = function(data, result){
+        let r = (Math.random() + 1).toString(36).substring(7);
+        var room = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`rooms`,`dateforreserv`, `refrom`, `reto`, `people`,`purpose`, `keycode`) VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'reserve', '"+ data.rooms +"','"+data.dateforreserv+"','"+data.refrom+"','"+data.reto +"','"+ data.people +"','" + data.purpose + "','"+ r +"')"
+        result(null, room)
+        /*
+            knexmain.raw(room)
+                .then(function(resp) {
+                    result(null, resp)
+                });
+         */
+    }
+
+
+
+
+
+
 
 
 
