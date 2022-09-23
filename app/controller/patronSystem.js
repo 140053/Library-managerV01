@@ -147,7 +147,6 @@ controller.index = function(req, res){
     })
 }
 controller.index2 = function(req, res){
-
     res.render('pages/PLogin/learn',{
         layout: 'layouts/blank',
         data: '',
@@ -208,6 +207,67 @@ controller.lender = function (req, res){
     }
 
 }
+
+//room lender
+controller.roomlender = function (req, res){
+    if (req.session.data  != null ){
+        var cred =  req.session.data;
+        res.render('pages/room/room',{
+            layout: 'layouts/blank',
+            LoggedU: cred[0].username,
+            auth: 0,
+            Status: null,
+            alert: null
+        })
+    }else {
+        res.render('pages/room/room',{
+            layout: 'layouts/blank',
+            data: '',
+            LoggedU: null,
+            Status: null,
+            alert: null
+        })
+    }
+}
+
+
+//room booking 
+controller.roombooking = function(req, res){
+    res.render('pages/room/booking',{
+        layout: 'layouts/booking',
+        data: '',
+        LoggedU: null,
+        Status: null,
+        alert: null
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 controller.post = async function (req, res){
     console.log([req.body.keyword2 , req.body.slocation])
@@ -435,15 +495,12 @@ controller.listpatronInLoggedByID = function (req, res){
 controller.borres = function (req, res){
     var data = req.body;
     ploginModel.ingestLendingMater(data, function (err, result){
-        console.log(Object.keys(result[0]).length)
-        console.log(result[0]['insertId'])
-        res.send(result[0])
+        res.redirect('/lender')
     })
 }
 
 controller.getlender = function (req, res){
     var category = req.body.category;
-
     ploginModel.getlenderbycategory(category, function (err, result){
         res.send(result)
     })
@@ -455,7 +512,7 @@ controller.returnlender = function (req, res){
 
     if(data.Barcode != ''){
         ploginModel.returnLenderbyCategory(data, function(err, result){
-            res.send(result)
+            res.redirect('/lender')
         })
     }else {
         res.send('lol')

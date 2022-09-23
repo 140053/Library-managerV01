@@ -1,0 +1,96 @@
+<style>
+    body{
+        background-color: rgb(119, 133, 119) ;"
+    }
+
+
+    
+</style>
+<div class=" container  mt-3"  >
+    <div class="row" >
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+            <div class="card">
+                <h5 class="card-header">Reserve A Room Now</h5>
+                <div class="card-body">
+                    <div class="">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">STUDENT/EMPLOYEE NUMBER</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                          </div>
+                          
+                    </div>
+                 
+                  
+                    <form action="" method="post">
+                        <div class="card">
+                            <h5 class="card-header">Clients Info</h5>
+                            <div class="card-body">
+                                <h5 id="sname" class="card-title">Dansico, Ma. Danica Durante</h5>
+                                <p id="sdesc" class="card-text">Course: BEED Student Number: 19-0518</p>
+
+                            </div>
+                        </div>
+                        <input id="snamei" name="sname" type="hidden" value="Dansico, Ma. Danica Durante">
+                        <input id="idnum" name="idnum" type="hidden" value="19-0518">
+                        <input id="course" name="course" type="hidden" value="BEED">
+                        
+                        <div class="form-group">
+                            <label id="labelforitem" for="item" >Rooms</label>
+                            <select class="form-control itemlist" id="item" style="display: none;" name="boardorequip">
+                                <option selected="">Choose ...</option>
+                                <option value="boardgames">Board Games</option>
+                                <option value="equipment">Equipments</option>
+                            </select>
+                            <select class="form-control" id="room"  name="rooms">
+                                <option selected="">Choose ...</option>
+                                <option value="avr">Audio Visual Room</option>
+                                <option value="lecture">Lecture Room</option>
+                                <option value="discussion">Discussion Room</option>
+                            </select>
+                        </div>
+                        
+                        <!-- rooms reservation -->
+                        <div class="forreservation" >
+                            <div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Date: </div>
+                                    </div>
+                                    <input type="date" class="form-control" id="" name="dateforreserv">
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">From:</div>
+                                        </div>
+                                        <input type="time" class="form-control" id="" name="refrom">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">To:</div>
+                                        </div>
+                                        <input type="time" class="form-control" id="" name="reto">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="people" class="sr-only">People</label>
+                                <input type="text" class="form-control" id="people" placeholder="Number of Student:" name="people">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+              </div>
+        </div>
+    </div>
+   
+</div>

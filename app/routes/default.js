@@ -96,6 +96,11 @@ route.get('/listlogl',Slogin.listlogl)
 //lenders dashboard
 route.get('/lender', Slogin.lender)
 
+//room reservation
+route.get('/room', Slogin.roomlender)
+//room booking 
+route.get('/bookroom', Slogin.roombooking)
+
 //export
 
 route.get('/exportLog', Slogin.dataexportPatron)
