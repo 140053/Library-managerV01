@@ -103,6 +103,29 @@ Task.delPatronByIDModel = function (ID, result){
 
 }
 
+//lenders password
+
+Task.getCountLendMaterials = function (result){
+
+    var dt = new Date();
+    //var datemonth = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  //+"- "+ (("0"+dt.getDate()).slice(-2))
+    var datemonth2 = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  +"-"+ (("0"+dt.getDate()).slice(-2))
+
+
+
+    knexmain.raw("SELECT boardorequip, count(*) as cnt FROM webopacwihs.lending_mater where reg_date like '" + datemonth2 + "%';")
+        .then(function (board){
+            result(null, board[0]);
+        })
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -293,8 +316,6 @@ Task.returnLenderbyCategory = function (data, result) {
                 result(null, resp)
             });
     }
-
-
 }
 
 
@@ -303,15 +324,52 @@ Task.returnLenderbyCategory = function (data, result) {
 
 
     Task.SaveLenderRoom = function(data, result){
+
         let r = (Math.random() + 1).toString(36).substring(7);
-        var room = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`rooms`,`dateforreserv`, `refrom`, `reto`, `people`,`purpose`, `keycode`) VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'reserve', '"+ data.rooms +"','"+data.dateforreserv+"','"+data.refrom+"','"+data.reto +"','"+ data.people +"','" + data.purpose + "','"+ r +"')"
-        result(null, room)
-        /*
+        var room = 'INSERT INTO `webopacwihs`.`lending_mater` (`sname`,`IDnum`,`course`,`action`,`rooms`,`dateforreserv`, `refrom`, `reto`, `people`,`purpose`, `keycode`, `email`) VALUES ("' + data.sname + '","' + data.idnum  + '","' +  data.course + '" , "reserve" , "' +  data.rooms + '" , "' + data.dateforreserv + '" , "' + data.refrom + '" , "' + data.reto + '" , "' + data.people + '" , "' + data.purpose + '" , "' + r + '" , "' + data.email + '")';
+
+        //result(null, room)
+
             knexmain.raw(room)
                 .then(function(resp) {
                     result(null, resp)
                 });
-         */
+
+    }
+
+    Task.getAllRoomresDiscussion = function (result){
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+            .from('lending_mater')
+            .where('action', '=', 'reserve')
+            .andWhere('rooms', 'discussion')
+            .orderBy('dateforreserv', "desc")
+            .then(function(resp) {
+                result(null, resp)
+            });
+
+    }
+
+    Task.getAllRoomresAVR = function (result){
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+            .from('lending_mater')
+            .where('action', '=', 'reserve')
+            .andWhere('rooms', 'avr')
+            .orderBy('dateforreserv', "desc")
+            .then(function(resp) {
+                result(null, resp)
+            });
+
+    }
+    Task.getAllRoomresLecture = function (result){
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+            .from('lending_mater')
+            .where('action', '=', 'reserve')
+            .andWhere('rooms', 'lecture')
+            .orderBy('dateforreserv', "desc")
+            .then(function(resp) {
+                result(null, resp)
+            });
+
     }
 
 

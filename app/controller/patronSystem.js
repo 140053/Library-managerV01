@@ -182,29 +182,32 @@ controller.listlogl = function (req, res){
 
 
 }
-controller.lender = function (req, res){
+controller.lender =  function (req, res){
 
-    if (req.session.data  != null ){
-        var cred =  req.session.data;
-        res.render('pages/lender',{
-            layout: 'layouts/datatable',
-            data: '',
-            LoggedU: cred[0].username,
-            auth: 0,
-            Status: null,
-            alert: null
-        })
+        if (req.session.data  != null ){
+            var cred =  req.session.data;
+            res.render('pages/lender',{
+                layout: 'layouts/datatable',
+                data: '',
+                LoggedU: cred[0].username,
+                auth: 0,
+                Status: null,
+                alert: null
+            })
 
-    }else {
-        res.render('pages/lender',{
-            layout: 'layouts/datatable',
-            data: '',
-            LoggedU: null,
-            auth: null,
-            Status: null,
-            alert: null
-        })
-    }
+        }else {
+            res.render('pages/lender',{
+                layout: 'layouts/datatable',
+                data: '',
+                LoggedU: null,
+                auth: null,
+                Status: null,
+                alert: null
+            })
+        }
+
+
+
 
 }
 
@@ -230,6 +233,44 @@ controller.roomlender = function (req, res){
     }
 }
 
+controller.reservationlist = function (req, res){
+
+    ploginModel.getAllRoomresDiscussion(function (err, result){
+        ploginModel.getAllRoomresAVR(function (err, res1){
+            ploginModel.getAllRoomresLecture(function (err, res2){
+                //console.log(result)
+                if (req.session.data  != null ){
+                    var cred =  req.session.data;
+                    res.render('pages/room/reservation',{
+                        layout: 'layouts/booking',
+                        LoggedU: cred[0].username,
+                        auth: 0,
+                        Status: null,
+                        alert: null,
+                        rev: result,
+                        avr: res1,
+                        lect: res2
+                    })
+                }else {
+                    res.render('pages/room/reservation',{
+                        layout: 'layouts/booking',
+                        data: '',
+                        LoggedU: null,
+                        Status: null,
+                        alert: null,
+                        rev: result,
+                        avr: res1,
+                        lect: res2
+                    })
+                }
+            })
+        })
+
+    })
+
+
+}
+
 
 //room booking 
 controller.roombooking = function(req, res){
@@ -244,9 +285,11 @@ controller.roombooking = function(req, res){
 
 controller.roombookingPOST =function (req, res){
     var data = req.body
+
+
     //{"sname":"kenneth Roman","idnum":"00-0000","course":"BSA-AN SCI","rooms":"avr","dateforreserv":"2022-09-24","refrom":"16:00","reto":"17:00","people":"21"}
     ploginModel.SaveLenderRoom(data, function (err, result){
-        res.send(result)
+        res.redirect('/successbooking')
     })
 }
 

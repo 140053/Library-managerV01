@@ -26,7 +26,7 @@
                     </div>
                  
                   
-                    <form action="/bookroom" method="post">
+                    <form action="/bookroom" method="post" id="bookingform">
                         <div class="card">
                             <h5 class="card-header">Clients Info</h5>
                             <div class="card-body">
@@ -42,9 +42,13 @@
 
                         <div class="forreservation"  style="display: none">
                             <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control" name="email" type="email" required >
+                            </div>
+                            <div class="form-group">
                                 <label id="labelforitem" for="item" >Rooms</label>
 
-                                <select class="form-control" id="room"  name="rooms">
+                                <select class="form-control" id="room"  name="rooms" required>
                                     <option selected="">Choose ...</option>
                                     <option value="avr">Audio Visual Room</option>
                                     <option value="lecture">Lecture Room</option>
@@ -59,7 +63,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">Date: </div>
                                     </div>
-                                    <input type="date" class="form-control" id="" name="dateforreserv">
+                                    <input type="date" class="form-control" id="" name="dateforreserv" required>
                                 </div>
                             </div>
 
@@ -69,7 +73,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">From:</div>
                                         </div>
-                                        <input type="time" class="form-control" id="" name="refrom">
+                                        <input type="time" class="form-control" id="" name="refrom" min="08:00" max="17:00">
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -77,13 +81,13 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">To:</div>
                                         </div>
-                                        <input type="time" class="form-control" id="" name="reto">
+                                        <input type="time" class="form-control" id="" name="reto" min="09:00" max="17:00" >
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label for="people" class="sr-only">People</label>
-                                        <input type="text" class="form-control" id="people" placeholder="Number of Student:" name="people">
+                                        <input type="text" class="form-control" id="people" placeholder="Number of Student:" name="people" required>
                                     </div>
                                 </div>
 
@@ -93,27 +97,78 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Purpose:</span>
                                 </div>
-                                <textarea name="purpose" class="form-control" aria-label="With textarea" placeholder="Describe yourself here..."></textarea>
+                                <textarea name="purpose" class="form-control" aria-label="With textarea" placeholder="" required></textarea>
                             </div>
 
-                            <div class="avr">
+                            <div class="avr" style="display:none">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
+                                    <input name="policy" class="form-check-input avrip" type="checkbox" value="" id="defaultCheck1"  >
                                     <label class="form-check-label" for="defaultCheck1">
-                                        <p><b>Note!:</b>In Audio Visual Room a student capacity of 30-40 students only. Materials and equipment can be requested in this room are Sound System and Audio Visual Material if available.
+                                        <p><b>Note!:</b>In Audio Visual Room with a student capacity of 30-40 students only. Materials and equipment can be requested in this room are Sound System and Audio Visual Material if available.
                                             And all material brought inside this room should be your responsibility. To maintain cleanliness, all garbage accumulated within the hour of your accommodation is your responsibility.
                                             <b>For Strict Compliance!</b>
                                         </p>
                                     </label>
                                 </div>
                             </div>
-                            <button id="btnres" type="submit" class="btn btn-outline-success btn-block" disabled>Reserved</button>
+                            <div class="lecture" style="display: none">
+                                <div class="form-check">
+                                    <input name="policy" class="form-check-input lectureip" type="checkbox" value="" id="defaultCheck1"  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        <p><b>Note!:</b>In Lecture Room a student capacity of 30-40 students only. Materials and equipment can be requested in this room are Sound System if available.
+                                            And all material brought inside this room should be your responsibility. To maintain cleanliness, all garbage accumulated within the hour of your accommodation is your responsibility.
+                                            <b>For Strict Compliance!</b>
+                                        </p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="discussion" style="display: none">
+                                <div class="form-check">
+                                    <input name="policy" class="form-check-input discussionip" type="checkbox" value="" id="defaultCheck1"  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        <p><b>Note!:</b>In Discussion/Studio Room a student capacity of 5-10 students only. Materials and equipment can be requested in this room are Sound System, Portable Projector and Ring lights if available.
+                                            And all material brought inside this room should be your responsibility. To maintain cleanliness, all garbage accumulated within the hour of your accommodation is your responsibility.
+                                            <b>For Strict Compliance!</b>
+                                        </p>
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
 
                     </form>
+
+                    <button id="btnres"  class="btn btn-outline-success btn-block" disabled>Reserved</button>
                 </div>
               </div>
         </div>
     </div>
    
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="submitbooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm Reservation?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="jumbotron">
+                    <h1 class="display-4">Hello!</h1>
+                    <p class="lead">All input information will be recorded and reservation will be On Queue a confirmation email will be sent to your email keep in touch for update.Thank You☺!</p>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="booknow btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -98,6 +98,8 @@ route.get('/lender', Slogin.lender)
 
 //room reservation
 route.get('/room', Slogin.roomlender)
+
+route.get('/reservation', Slogin.reservationlist )
 //room booking 
 route.get('/bookroom', Slogin.roombooking)
 
