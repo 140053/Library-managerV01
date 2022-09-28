@@ -75,6 +75,11 @@ $(document).ready(function(){
     }
 
 
+    $('.openres').on('click', function (){
+        $('.reservation').modal('toggle')
+    })
+
+
 
 
 
@@ -100,7 +105,5 @@ function AcceptReservation(id){
     },function(data, status){
         console.log(status)
     })
-
-
-
 }
+

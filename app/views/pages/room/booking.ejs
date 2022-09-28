@@ -15,7 +15,7 @@
                     <div class="">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">STUDENT NUMBER</span>
+                              <span class="input-group-text" id="basic-addon1">ID #</span>
                             </div>
                             <input id="locateSidval" type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                             <div class="input-group-append">
@@ -45,6 +45,10 @@
                                 <label for="email">Email</label>
                                 <input class="form-control" name="email" type="email" required >
                             </div>
+
+                            <div class="">
+                                <a class="btn btn-info btn-block openres"   >Check Room Reservation</a>
+                            </div>
                             <div class="form-group">
                                 <label id="labelforitem" for="item" >Rooms</label>
 
@@ -68,7 +72,7 @@
                             </div>
 
                             <div class="row mb-2">
-                                <div class="col-4">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">From:</div>
@@ -76,7 +80,7 @@
                                         <input type="time" class="form-control" id="" name="refrom" min="08:00" max="17:00">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">To:</div>
@@ -84,7 +88,7 @@
                                         <input type="time" class="form-control" id="" name="reto" min="09:00" max="17:00" >
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="people" class="sr-only">People</label>
                                         <input type="text" class="form-control" id="people" placeholder="Number of Student:" name="people" required>
@@ -168,6 +172,43 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="booknow btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade " id="reservation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Reservation List</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <iframe src="/reservation/"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade reservation" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="height: 20cm;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <iframe src="/reservation/" class="iframe-mode-fullscreen" style="height: 16cm; width: 100%;"></iframe>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
