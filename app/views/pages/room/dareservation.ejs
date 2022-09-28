@@ -1,0 +1,171 @@
+
+
+
+
+<div class="mt-3">
+    <div class="card">
+        <div class="card-header">
+           Dashboard Room & Facilities Reservation List
+        </div>
+        <div class="card-body" style="background-color: rgb(119, 133, 119) ;">
+            <div class="">
+                <style>
+                    .accordion {
+
+                        cursor: pointer;
+                        padding: 18px;
+                        width: 100%;
+                        border: none;
+                        text-align: left;
+                        outline: none;
+                        font-size: 15px;
+                        transition: 0.4s;
+                    }
+
+                    .accordion:hover {
+                        background-color: #ccc;
+                    }
+
+                    .panel {
+                        padding: 0 18px;
+                        display: none;
+                        background-color: white;
+                        overflow: hidden;
+                    }
+                    .wrapper {
+                        display: grid;
+                        grid-template-columns: repeat(6, 1fr);
+                        gap: 10px;
+                    }
+                </style>
+
+
+                <button class="accordion">DISCUSSION / STUDIO ROOM
+                    <span class="badge badge-warning"></span>
+                    &nbsp;
+                    <span class="badge badge-pill badge-secondary  " data-toggle="tooltip" data-placement="top" title="Discussin / Studio Room Reservation list">?</span>
+                </button>
+
+
+                <div class="panel" style="display: none;">
+                    <div class="container-fluid">
+
+                        <div class="wrapper mt-2 mb-2">
+                            <% function formatTime(timeString) { %>
+                                <%   const [hourString, minute] = timeString.split(":"); %>
+                                <%   const hour = +hourString % 24; %>
+                                <%   return (hour % 12 || 12) + ":" + minute + " " + (hour < 12 ? "AM" : "PM"); %>
+                            <% } %>
+
+                                <% if (Object.keys(rev).length != 0) {%>
+                                    <% for (var i = 0; i < Object.keys(rev).length; i++) { %>
+
+                                        <% var datenunyan =  rev[i].dateforreserv.split("-") %>
+                                        <ul class="list-group ">
+                                            <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+                                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                                <%= monthNames[Number(datenunyan[1])-1] %>&nbsp;<%= datenunyan[2] %>,&nbsp;<%= datenunyan[0] %>
+                                                <% if (rev[i].status != 'accept') { %>
+                                                    <button id="<%= rev[i].id  %>" class="btn btn-info" onclick="AcceptReservation(this.id)">Accept</button>
+                                                <% } else { %>
+                                                    <button id="<%= rev[i].id  %>" class="btn btn-success" >Approved</button>
+                                                <% } %>
+                                            </li>
+                                            <li class="list-group-item ">
+                                                <%= formatTime(rev[i].refrom) %> - <%= formatTime(rev[i].reto) %>
+                                                <hr>
+                                                Requested By: <%= rev[i].sname%>
+                                            </li>
+                                        </ul>
+                                    <% } %>
+                                <% } %>
+
+                        </div>
+                        <br>
+
+                    </div>
+
+
+                </div>
+
+                <button class="accordion active">AUDIO VISUAL ROOM
+                    <span class="badge badge-success"></span>
+                    &nbsp;
+                    <span class="badge badge-pill badge-secondary  " data-toggle="tooltip" data-placement="top" title="Audio Visual Room Reservation list">?</span>
+                </button>
+
+
+                <div class="panel" style="display: none;">
+                    <div class="wrapper mt-2 mb-2">
+                        <% if (Object.keys(avr).length != 0) {%>
+                            <% for (var i = 0; i < Object.keys(avr).length; i++) { %>
+
+                                <% var datenunyanav =  avr[i].dateforreserv.split("-") %>
+                                <ul class="list-group ">
+                                    <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+                                    <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                        <%= monthNames[Number(datenunyanav[1])-1] %>&nbsp;<%= datenunyanav[2] %>,&nbsp;<%= datenunyanav[0] %>
+                                        <button id="group" class="btn btn-success">accept</button>
+                                    </li>
+                                    <li class="list-group-item ">
+                                        <%= formatTime(avr[i].refrom) %> - <%= formatTime(avr[i].reto) %>
+                                        <hr>
+                                        Requested By: <%= avr[i].sname%>
+                                    </li>
+                                </ul>
+                            <% } %>
+                        <% } %>
+
+                    </div>
+                </div>
+
+                <button class="accordion active">LECTURE ROOM
+                    <span class="badge badge-danger"></span>
+                    &nbsp;
+                    <span class="badge badge-pill badge-secondary  " data-toggle="tooltip" data-placement="top" title="Lecture Room Reservation list">?</span>
+                </button>
+
+
+                <div class="panel" style="display: none;">
+                    <div class="wrapper mt-2 mb-2">
+                        <% if (Object.keys(lect).length != 0) {%>
+                            <% for (var i = 0; i < Object.keys(lect).length; i++) { %>
+
+                                <% var datenunyanlect =  lect[i].dateforreserv.split("-") %>
+                                <ul class="list-group ">
+                                    <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+                                    <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                        <%= monthNames[Number(datenunyanlect[1])-1] %>&nbsp;<%= datenunyanlect[2] %>,&nbsp;<%= datenunyanlect[0] %>
+                                        <button id="group" class="btn btn-success">accept</button>
+                                    </li>
+                                    <li class="list-group-item ">
+                                        <%= formatTime(lect[i].refrom) %> - <%= formatTime(lect[i].reto) %>
+                                        <hr>
+                                        Requested By: <%= lect[i].sname%>
+                                    </li>
+                                </ul>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+
+                <script>
+                    var acc = document.getElementsByClassName("accordion");
+                    var i;
+
+                    for (i = 0; i < acc.length; i++) {
+                        acc[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.display === "block") {
+                                panel.style.display = "none";
+                            } else {
+                                panel.style.display = "block";
+                            }
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

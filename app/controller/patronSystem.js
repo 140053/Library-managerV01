@@ -234,7 +234,6 @@ controller.roomlender = function (req, res){
 }
 
 controller.reservationlist = function (req, res){
-
     ploginModel.getAllRoomresDiscussion(function (err, result){
         ploginModel.getAllRoomresAVR(function (err, res1){
             ploginModel.getAllRoomresLecture(function (err, res2){
@@ -267,10 +266,43 @@ controller.reservationlist = function (req, res){
         })
 
     })
-
-
 }
 
+controller.denyapprovereservation = function (req, res){
+    ploginModel.getAllRoomresDiscussion_ad(function (err, result){
+        ploginModel.getAllRoomresAVR_ad(function (err, res1){
+            ploginModel.getAllRoomresLecture_ad(function (err, res2){
+                //console.log(result)
+                if (req.session.data  != null ){
+                    var cred =  req.session.data;
+                    res.render('pages/room/dareservation',{
+                        layout: 'layouts/booking',
+                        LoggedU: cred[0].username,
+                        auth: 0,
+                        Status: null,
+                        alert: null,
+                        rev: result,
+                        avr: res1,
+                        lect: res2
+                    })
+                }else {
+                   //res.redirect('/')
+                    res.render('pages/room/dareservation',{
+                        layout: 'layouts/booking',
+                        LoggedU: '',
+                        auth: 0,
+                        Status: null,
+                        alert: null,
+                        rev: result,
+                        avr: res1,
+                        lect: res2
+                    })
+                }
+            })
+        })
+
+    })
+}
 
 //room booking 
 controller.roombooking = function(req, res){
@@ -579,7 +611,14 @@ controller.returnlender = function (req, res){
         res.send('lol')
     }
 
+}
 
+// room approve
+controller.approvedenyroom = function (req, res){
+    var id = req.body.id;
+    ploginModel.approvedeny_room(id, function (err, result){
+        res.redirect('/roomdashboard')
+    })
 
 }
 

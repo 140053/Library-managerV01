@@ -48,6 +48,9 @@ route.post('/boresv', patron.borres)
 route.post('/getlender', patron.getlender )
 route.post('/returnlender', patron.returnlender)
 
+//room reservation accept
+route.post('/room', patron.approvedenyroom)
+
 
 
 //PATRON STAT

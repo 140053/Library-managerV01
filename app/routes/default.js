@@ -100,6 +100,7 @@ route.get('/lender', Slogin.lender)
 route.get('/room', Slogin.roomlender)
 
 route.get('/reservation', Slogin.reservationlist )
+route.get('/roomdashboard', Slogin.denyapprovereservation )
 //room booking 
 route.get('/bookroom', Slogin.roombooking)
 

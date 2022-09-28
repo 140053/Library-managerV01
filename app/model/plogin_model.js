@@ -319,6 +319,15 @@ Task.returnLenderbyCategory = function (data, result) {
 }
 
 
+Task.approvedeny_room = function (id, result){
+    knexmain.raw("UPDATE webopacwihs.lending_mater SET status = 'accept' WHERE id = ?", id)
+        .then(function (resp) {
+            result(null, resp)
+        });
+
+}
+
+
 
     //Can change 7 to 2 for longer results.
 
@@ -342,6 +351,18 @@ Task.returnLenderbyCategory = function (data, result) {
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'discussion')
+            .andWhere('status', 'accept')
+            .orderBy('dateforreserv', "asc")
+            .then(function(resp) {
+                result(null, resp)
+            });
+
+    }
+    Task.getAllRoomresDiscussion_ad = function (result){
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms', 'status' )
+            .from('lending_mater')
+            .where('action', '=', 'reserve')
+            .andWhere('rooms', 'discussion')
             .orderBy('dateforreserv', "desc")
             .then(function(resp) {
                 result(null, resp)
@@ -354,6 +375,19 @@ Task.returnLenderbyCategory = function (data, result) {
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'avr')
+            .andWhere('status', 'accept')
+            .orderBy('dateforreserv', "desc")
+            .then(function(resp) {
+                result(null, resp)
+            });
+
+    }
+    Task.getAllRoomresAVR_ad = function (result){
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+            .from('lending_mater')
+            .where('action', '=', 'reserve')
+            .andWhere('rooms', 'avr')
+
             .orderBy('dateforreserv', "desc")
             .then(function(resp) {
                 result(null, resp)
@@ -365,6 +399,19 @@ Task.returnLenderbyCategory = function (data, result) {
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'lecture')
+            .andWhere('status', 'accept')
+            .orderBy('dateforreserv', "desc")
+            .then(function(resp) {
+                result(null, resp)
+            });
+
+    }
+    Task.getAllRoomresLecture_ad = function (result){
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+            .from('lending_mater')
+            .where('action', '=', 'reserve')
+            .andWhere('rooms', 'lecture')
+            .andWhere('status', 'accept')
             .orderBy('dateforreserv', "desc")
             .then(function(resp) {
                 result(null, resp)
