@@ -96,7 +96,7 @@ route.get('/listlogl',Slogin.listlogl)
 //lenders dashboard
 route.get('/lender', Slogin.lender)
 //lender v2
-route.get('/lenderV2', Slogin.lenderV2)
+route.get('/lenderv2', Slogin.lenderV2)
 
 //room reservation
 route.get('/room', Slogin.roomlender)
