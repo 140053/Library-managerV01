@@ -1,0 +1,80 @@
+<style>
+    body{
+        background-color: #444444;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+</style>
+<div class="container">
+    <div class="mt-3">
+        <div class="card">
+            <div class="card-header">
+                Lender V2
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+
+                <div class="card text-center flex-fill">
+                    <div class="card-body">
+                            <div >
+
+                                <form method="post" action="/api/lenderv2">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">ID Number</span>
+                                        </div>
+                                        <input name="id" type="text" class="form-control" placeholder=""  aria-describedby="basic-addon1" autofocus>
+                                    </div>
+                                </form>
+                            </div>
+                        <hr>
+
+                        <div class="wrapper">
+                            <% if (Object.keys(lender).length != 0) {%>
+                                <% for (var i = 0; i < Object.keys(lender).length; i++) { %>
+                                    <div class="card" >
+                                        <% if (lender[i].boardgames === 'scrabble') {%>
+                                            <img class="card-img-top" src="/img/SC.png" alt="Card image cap" >
+                                        <% } %>
+
+                                        <% if (lender[i].boardgames === 'gog') {%>
+                                            <img class="card-img-top" src="/img/GOG.png" alt="Card image cap" >
+                                        <% } %>
+
+                                            <% if (lender[i].boardgames === 'chess') {%>
+                                                <img class="card-img-top" src="/img/chess.png" alt="Card image cap" >
+                                            <% } %>
+                                            <% if (lender[i].boardgames === 'snakeandlader') {%>
+                                                <img class="card-img-top" src="/img/SL.png" alt="Card image cap" >
+                                            <% } %>
+
+
+                                            <div class="card-body">
+                                                <ul class="list-unstyled">
+                                                    <li><b><%= lender[i].sname %></b></li>
+                                                    <li> Student #: <%= lender[i].IDnum %></li>
+                                                    <li> Course: <%= lender[i].course %></li>
+                                                    <li>BG ID: <%= lender[i].boardgamesbcode.toUpperCase() %> </li>
+                                                </ul>
+                                                <button  id="<%= lender[i].id %>"  onclick="lenderReturn(this.id,'<%=lender[i].boardgamesbcode  %>',null,null)" class="btn btn-primary btn-block">return</button>
+                                            </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

@@ -47,6 +47,10 @@ route.post('/boresv', patron.borres)
 
 route.post('/getlender', patron.getlender )
 route.post('/returnlender', patron.returnlender)
+route.post('/returnlender', patron.returnlenderv2)
+//lenderv2
+route.post('/lenderv2', patron.lenderv2)
+route.post('/lenderv2save', patron.lenderv2save )
 
 //room reservation accept
 route.post('/room', patron.approvedenyroom)

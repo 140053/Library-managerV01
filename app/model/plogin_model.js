@@ -234,7 +234,6 @@ Task.getPatronlogBYCourse = function (curdate,location, result){
 Task.getpatronbyIDTotaday = function (id, result){
     var dt = new Date();
     var datemonth2 = (dt.getFullYear()) +"-"+  (("0"+(dt.getMonth()+1)).slice(-2))  +"-"+ (("0"+dt.getDate()).slice(-2)) + '%'
-
     knexmain.select()
         .from('patronlog')
         .where('IDnum',id)
@@ -265,6 +264,9 @@ Task.ListPatronToday = function(result){
 
 
 Task.ingestLendingMater = function (data, result){
+    /*
+                                                                                                                                            {"sname":"kenneth Roman","idnum":"00-0000","course":"BSA-AN SCI","action":"borrow","boardorequip":"boardgames","boardgames":"scrabble","boardgamesbcode":"GM1"}
+    */
     var ches = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`boardorequip`,`boardgames`,`boardgamesbcode`)VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'"+ data.action +"', '"+ data.boardorequip +"','"+data.boardgames+"','"+data.boardgamesbcode+"')"
     var equip = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`boardorequip`,`eqipname`) VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'"+ data.action +"','"+ data.boardorequip +"', '"+ data.eqipname +"')"
     var room = "INSERT INTO `webopacwihs`.`lending_mater`(`sname`,`IDnum`,`course`,`action`,`rooms`,`dateforreserv`, `refrom`, `reto`, `people`) VALUES ('" + data.sname + "','" + data.idnum + "','"+ data.course +"' ,'"+ data.action +"', '"+ data.rooms +"','"+data.dateforreserv+"','"+data.refrom+"','"+data.reto +"','"+ data.people +"')"

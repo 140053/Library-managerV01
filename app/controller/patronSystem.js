@@ -205,8 +205,34 @@ controller.lender =  function (req, res){
                 alert: null
             })
         }
+}
+controller.lenderV2 =  function (req, res){
+    ploginModel.getlenderbycategory('board', function (err, result){
 
+        if (req.session.data  != null ){
+            var cred =  req.session.data;
+            res.render('pages/lenderv2',{
+                layout: 'layouts/lenderv2',
+                data: [],
+                LoggedU: cred[0].username,
+                auth: 0,
+                Status: null,
+                alert: null,
+                lender: result[0]
+            })
 
+        }else {
+            res.render('pages/lenderv2',{
+                layout: 'layouts/lenderv2',
+                data: [],
+                LoggedU: null,
+                auth: null,
+                Status: null,
+                alert: null,
+                lender: result[0]
+            })
+        }
+    })
 
 
 }
@@ -602,7 +628,6 @@ controller.getlender = function (req, res){
 
 controller.returnlender = function (req, res){
     var data = req.body;
-
     if(data.Barcode != ''){
         ploginModel.returnLenderbyCategory(data, function(err, result){
             res.redirect('/lender')
@@ -610,6 +635,56 @@ controller.returnlender = function (req, res){
     }else {
         res.send('lol')
     }
+}
+controller.returnlenderv2 = function (req, res){
+    var data = req.body;
+    if(data.Barcode != ''){
+        ploginModel.returnLenderbyCategory(data, function(err, result){
+            res.redirect('/lenderV2')
+        })
+    }else {
+        res.send('lol')
+    }
+}
+
+controller.lenderv2 = function (req, res){
+    var id = req.body.id;
+   // console.log(id)
+    ploginModel.getpatronbyIDTotaday(id, function (err, result){
+        if (req.session.data  != null ){
+            var cred =  req.session.data;
+            res.render('pages/lenderv2',{
+                layout: 'layouts/lenderv2',
+                data: result,
+                LoggedU: cred[0].username,
+                auth: 0,
+                Status: null,
+                alert: null,
+                lender: []
+            })
+
+        }else {
+            res.render('pages/lenderv2',{
+                layout: 'layouts/lenderv2',
+                data: result,
+                LoggedU: null,
+                auth: null,
+                Status: null,
+                alert: null,
+                lender: []
+            })
+        }
+
+    })
+
+}
+controller.lenderv2save = function (req, res){
+    var id = req.body;
+    ploginModel.ingestLendingMater(id, function (err, result){
+        console.log(result)
+       res.redirect('/lenderV2')
+    })
+
 
 }
 

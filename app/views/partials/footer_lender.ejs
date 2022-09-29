@@ -1,0 +1,74 @@
+
+
+
+  <script src="/assets/jquery/dist/jquery.js"></script>
+  <!--script src="/assets/node_modules/popper.js/dist/popper.js"></script-->
+
+
+  <script src="/assets/@popperjs/core/dist/umd/popper.js"></script>
+  <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="/js/lender.js"></script>
+
+
+
+
+
+  <%= JSON.stringify(data) %>
+  <%= Object.keys(data).length %>
+  <% if (Object.keys(data).length != 0){ %>
+    <script>
+
+      $(function() {
+        $('#lendermodal').modal('show');
+        $('.modal').on('shown.bs.modal', function() {
+          $(this).find('[autofocus]').focus();
+        });
+      });
+    </script>
+  <% } %>
+
+  <!-- Modal -->
+  <div class="modal fade " id="lendermodal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Borrow Window</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <% if (Object.keys(data).length != 0){ %>
+            <div class="card" >
+              <div class="card-header">
+                  <%= data[0].Name %>
+              </div>
+              <div class="mt-3 mb-3">
+                <form method="post" action="/api/lenderv2save">
+                  <input name="sname" type="hidden" value="<%= data[0].Name %>" >
+                  <input name="idnum" type="hidden" value="<%= data[0].IDnum %>" >
+                  <input name="course" type="hidden" value="<%= data[0].Degree_Course %>" >
+                  <input name="action" type="hidden" value="borrow" >
+                  <input name="boardorequip" type="hidden" value="boardgames" >
+                  <input name="boardgames" id="bgamestype" type="hidden"  >
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Board Games ID</span>
+                    </div>
+                    <input onkeyup="changeBgamesType()" name="boardgamesbcode"  id="dgid" type="text" class="form-control"  autofocus>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          <% } %>
+        </div>
+        <div class="modal-footer">
+          <a href="/lenderV2"  type="button" class="btn btn-secondary" >Close</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
