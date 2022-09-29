@@ -2,25 +2,32 @@ function Showlender(){
     $('#lendermodal').modal('show');
 }
 
-$('#dgid').on('keyup', function (){
-    var bal = $(this).val()
-    alert(bal)
-    /*
-    if ($(this).val().toUpperCase().match("GM")){
-        $('#bgamestype').val('gog')
+$('#idin').on('keyup', function (){
+    var bal = $('#idin').val()
+    if (bal.toUpperCase().match("GM")){
+        $('#typeid').val('bgame')
     }
-    if ($(this).val().toUpperCase().match("SL")){
-        $('#bgamestype').val('snakeandlader')
+    if (bal.toUpperCase().match("SL")){
+        $('#typeid').val('bgame')
     }
-    if ($(this).val().toUpperCase().match("CH")){
-        $('#bgamestype').val('chess')
+    if (bal.toUpperCase().match("CH")){
+        $('#typeid').val('bgame')
     }
-    if ($(this).val().toUpperCase().match("SC")){
-        $('#bgamestype').val('scrabble')
+    if (bal.toUpperCase().match("SC")){
+        $('#typeid').val('bgame')
+    }
+    if (bal.toUpperCase().match("-")){
+        $('#typeid').val('SID')
     }
 
-     */
+
+
 })
+
+function changeIdtype(){
+    //$('#typeid').val()
+
+}
 
 function changeBgamesType(){
     var bal = $('#dgid').val()
@@ -38,6 +45,8 @@ function changeBgamesType(){
     }
 
 }
+
+
 
 function lenderReturn(id,bgame, equip, rooom){
     alert('return')

@@ -208,7 +208,6 @@ controller.lender =  function (req, res){
 }
 controller.lenderV2 =  function (req, res){
     ploginModel.getlenderbycategory('board', function (err, result){
-
         if (req.session.data  != null ){
             var cred =  req.session.data;
             res.render('pages/lenderv2',{
@@ -647,35 +646,51 @@ controller.returnlenderv2 = function (req, res){
     }
 }
 
+
+
 controller.lenderv2 = function (req, res){
     var id = req.body.id;
+    var type = req.body.type;
+
+    if (type === 'SID'){
+        ploginModel.getpatronbyIDTotaday(id, function (err, result){
+            if (req.session.data  != null ){
+                var cred =  req.session.data;
+                res.render('pages/lenderv2',{
+                    layout: 'layouts/lenderv2',
+                    data: result,
+                    LoggedU: cred[0].username,
+                    auth: 0,
+                    Status: null,
+                    alert: null,
+                    lender: []
+                })
+
+            }else {
+                res.render('pages/lenderv2',{
+                    layout: 'layouts/lenderv2',
+                    data: result,
+                    LoggedU: null,
+                    auth: null,
+                    Status: null,
+                    alert: null,
+                    lender: []
+                })
+            }
+
+        })
+    }else if(type == 'bgame') {
+        ploginModel.returnLenderbyCategoryv2_1(req.body, function (err, res1){
+            res.redirect('/lenderV2')
+        })
+    }else {
+        res.redirect('/lenderV2')
+    }
+
+
+
    // console.log(id)
-    ploginModel.getpatronbyIDTotaday(id, function (err, result){
-        if (req.session.data  != null ){
-            var cred =  req.session.data;
-            res.render('pages/lenderv2',{
-                layout: 'layouts/lenderv2',
-                data: result,
-                LoggedU: cred[0].username,
-                auth: 0,
-                Status: null,
-                alert: null,
-                lender: []
-            })
 
-        }else {
-            res.render('pages/lenderv2',{
-                layout: 'layouts/lenderv2',
-                data: result,
-                LoggedU: null,
-                auth: null,
-                Status: null,
-                alert: null,
-                lender: []
-            })
-        }
-
-    })
 
 }
 controller.lenderv2save = function (req, res){

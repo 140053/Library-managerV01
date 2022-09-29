@@ -294,7 +294,7 @@ Task.ingestLendingMater = function (data, result){
 
 
 Task.getlenderbycategory = function (category, result){
-    var ches = "SELECT * FROM webopacwihs.lending_mater where boardorequip = 'boardgames' and status is null;"
+    var ches = "SELECT * FROM webopacwihs.lending_mater where boardorequip = 'boardgames' and status is null order by id desc;"
     var equip = "SELECT * FROM webopacwihs.lending_mater where boardorequip = 'equipment';"
     var room = "SELECT * FROM webopacwihs.lending_mater where action = 'reserve';"
     var sql ;
@@ -311,6 +311,18 @@ Task.getlenderbycategory = function (category, result){
 
 Task.returnLenderbyCategory = function (data, result) {
     var ches = "UPDATE webopacwihs.lending_mater SET status = 'return' Where id = '" + data.IDnum + "' and boardgamesbcode ='" + data.Barcode + "'";
+
+    if (data.Barcode != '') {
+        knexmain.raw(ches)
+            .then(function (resp) {
+                result(null, resp)
+            });
+    }
+}
+
+Task.returnLenderbyCategoryv2_1 = function (data, result) {
+
+    var ches = "UPDATE webopacwihs.lending_mater SET status = 'return' Where boardgamesbcode ='" + data.id + "' and  status is null";
 
     if (data.Barcode != '') {
         knexmain.raw(ches)
