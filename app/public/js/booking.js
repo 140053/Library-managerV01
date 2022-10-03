@@ -81,29 +81,16 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
 function AcceptReservation(id){
-    alert(id)
 
     $.post("/api/room",{
         id: id
     },function(data, status){
         console.log(status)
+        window.location.href ='/roomdashboard';
     })
 }
 

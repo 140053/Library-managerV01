@@ -397,7 +397,7 @@ Task.approvedeny_room = function (id, result){
 
     }
     Task.getAllRoomresAVR_ad = function (result){
-        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms', 'status ')
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'avr')
@@ -409,7 +409,7 @@ Task.approvedeny_room = function (id, result){
 
     }
     Task.getAllRoomresLecture = function (result){
-        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms', 'status' )
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'lecture')
