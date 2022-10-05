@@ -85,7 +85,6 @@ $(document).ready(function(){
 
 
 function AcceptReservation(id, status){
-    alert(status)
     $.post("/api/room",{
         id: id,
         status: status
