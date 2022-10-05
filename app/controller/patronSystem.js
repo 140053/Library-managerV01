@@ -262,7 +262,7 @@ controller.reservationlist = function (req, res){
     ploginModel.getAllRoomresDiscussion(function (err, result){
         ploginModel.getAllRoomresAVR(function (err, res1){
             ploginModel.getAllRoomresLecture(function (err, res2){
-                //console.log(result)
+                //console.log(res2)
                 if (req.session.data  != null ){
                     var cred =  req.session.data;
                     res.render('pages/room/reservation',{
@@ -297,7 +297,7 @@ controller.denyapprovereservation = function (req, res){
     ploginModel.getAllRoomresDiscussion_ad(function (err, result){
         ploginModel.getAllRoomresAVR_ad(function (err, res1){
             ploginModel.getAllRoomresLecture_ad(function (err, res2){
-                //console.log(result)
+                //console.log(res2)
                 if (req.session.data  != null ){
                     var cred =  req.session.data;
                     res.render('pages/room/dareservation',{
@@ -342,8 +342,6 @@ controller.roombooking = function(req, res){
 
 controller.roombookingPOST =function (req, res){
     var data = req.body
-
-
     //{"sname":"kenneth Roman","idnum":"00-0000","course":"BSA-AN SCI","rooms":"avr","dateforreserv":"2022-09-24","refrom":"16:00","reto":"17:00","people":"21"}
     ploginModel.SaveLenderRoom(data, function (err, result){
         res.redirect('/successbooking')
@@ -358,6 +356,15 @@ controller.successbooking = function (req, res){
         Status: null,
         alert: null
     })
+}
+
+controller.getrecordBooking = function(req, res){
+    var roomId = req.body.rid;
+
+    ploginModel.getRoomrecordByID(roomId, function (err, result){
+        res.send(result)
+    })
+
 }
 
 
@@ -706,9 +713,13 @@ controller.lenderv2save = function (req, res){
 // room approve
 controller.approvedenyroom = function (req, res){
     var id = req.body.id;
-    ploginModel.approvedeny_room(id, function (err, result){
+    var status = req.body.status
+   //console.log(status)
+   ploginModel.approvedeny_room_v2(id, status, function (err, result){
         res.redirect('/roomdashboard')
     })
+
+
 
 }
 

@@ -340,6 +340,14 @@ Task.approvedeny_room = function (id, result){
         });
 
 }
+Task.approvedeny_room_v2 = function (id,status, result){
+
+    knexmain.raw("UPDATE webopacwihs.lending_mater SET status = '"+ status +"' WHERE id = '"+ id +"'" )
+        .then(function (resp) {
+            result(null, resp)
+        });
+
+}
 
 
 
@@ -358,6 +366,16 @@ Task.approvedeny_room = function (id, result){
                     result(null, resp)
                 });
 
+    }
+
+    Task.getRoomrecordByID = function(id, result){
+    //id, dateforreserv, refrom, reto, sname, status
+
+        var sql = "SELECT *  FROM webopacwihs.lending_mater where action = 'reserve' and id = '" + id + "';";
+        knexmain.raw(sql)
+            .then(function(resp) {
+                result(null, resp[0])
+            });
     }
 
     Task.getAllRoomresDiscussion = function (result){
@@ -401,7 +419,6 @@ Task.approvedeny_room = function (id, result){
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'avr')
-
             .orderBy('dateforreserv', "desc")
             .then(function(resp) {
                 result(null, resp)
@@ -421,11 +438,10 @@ Task.approvedeny_room = function (id, result){
 
     }
     Task.getAllRoomresLecture_ad = function (result){
-        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' )
+        knexmain.select('id','dateforreserv', 'refrom', 'reto', 'sname', 'rooms' , 'status' )
             .from('lending_mater')
             .where('action', '=', 'reserve')
             .andWhere('rooms', 'lecture')
-            .andWhere('status', 'accept')
             .orderBy('dateforreserv', "desc")
             .then(function(resp) {
                 result(null, resp)

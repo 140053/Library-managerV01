@@ -84,13 +84,49 @@ $(document).ready(function(){
 });
 
 
-function AcceptReservation(id){
-
+function AcceptReservation(id, status){
+    alert(status)
     $.post("/api/room",{
-        id: id
+        id: id,
+        status: status
     },function(data, status){
         console.log(status)
         window.location.href ='/roomdashboard';
     })
+}
+
+function formatTime(timeString) {
+    const [hourString, minute] = timeString.split(":");
+    const hour = +hourString % 24;
+    return (hour % 12 || 12) + ":" + minute + (hour < 12 ? " AM" : " PM");
+}
+
+function infomodal(id, status){
+
+    $('#infomodal').modal('toggle');
+    if(id !==''){
+        $.post("/api/getroom",{
+            rid: id
+        }, function (data, status){
+            //console.log(data)
+            if(Object.keys(data).length != 0){
+                $('.roomname').text(data[0].rooms.toUpperCase());
+                $('.purpose').text(data[0].purpose)
+                $('.snameholder').text(data[0].sname);
+                $('.dateres').text(data[0].dateforreserv)
+                $('.timerec').text(formatTime(data[0].refrom) + ' - ' + formatTime(data[0].reto))
+                $('.idnum').text(data[0].IDnum)
+                $('.stpop').text(data[0].people)
+                $('.course').text(data[0].course)
+                if(data[0].status == 'accept'){
+                    var btn = ' <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\n' +
+                    '          \n' +
+                    '          <button type="button" class="btn btn-warning" onclick=AcceptReservation("'+data[0].id+'","false")>Cancel</button>'
+                    $('.btnaction').html(btn)
+                }
+            }
+        })
+    }
+
 }
 

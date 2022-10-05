@@ -54,6 +54,7 @@ route.post('/lenderv2save', patron.lenderv2save )
 
 //room reservation accept
 route.post('/room', patron.approvedenyroom)
+route.post('/getroom', patron.getrecordBooking)
 
 
 

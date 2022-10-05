@@ -56,20 +56,39 @@
                                 <%   const hour = +hourString % 24; %>
                                 <%   return (hour % 12 || 12) + ":" + minute + " " + (hour < 12 ? "AM" : "PM"); %>
                             <% } %>
+                                <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+
 
                                 <% if (Object.keys(rev).length != 0) {%>
                                     <% for (var i = 0; i < Object.keys(rev).length; i++) { %>
-
+                                        <% var datenun = new Date(); %>
+                                        <%var datenunyana =  datenun.getDate() %>
+                                        <% var newdatenow = ("0" + datenunyana).slice(-2); %>
                                         <% var datenunyan =  rev[i].dateforreserv.split("-") %>
-                                        <ul class="list-group ">
-                                            <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
-                                            <li class="list-group-item active"><%= monthNames[Number(datenunyan[1])-1] %>&nbsp;<%= datenunyan[2] %>,&nbsp;<%= datenunyan[0] %></li>
-                                            <li class="list-group-item ">
-                                                <%= formatTime(rev[i].refrom) %> - <%= formatTime(rev[i].reto) %>
-                                                <hr>
-                                                Requested By: <%= rev[i].sname%>
-                                            </li>
-                                        </ul>
+
+                                        <!--  test code   -->
+                                        <% var record = parseInt(datenunyan[1]-1) %>
+                                        <% var now =  datenun.getMonth()  %>
+                                        <% if (record >= now){ %>
+                                            <%  if (datenunyan[2] >= newdatenow ){  %>
+                                                <ul class="list-group ">
+
+                                                    <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                                        <%= monthNames[Number(datenunyan[1])-1] %>&nbsp;<%= datenunyan[2] %>,&nbsp;<%= datenunyan[0] %>
+
+                                                    </li>
+                                                    <li class="list-group-item ">
+                                                        <%= formatTime(rev[i].refrom) %> - <%= formatTime(rev[i].reto) %>
+                                                        <hr>
+                                                        Requested By: <%= rev[i].sname%>
+                                                    </li>
+                                                </ul>
+
+                                            <% } %>
+                                        <% } %>
+
+                                        <!--  test code   -->
+
                                     <% } %>
                                 <% } %>
 
@@ -92,17 +111,40 @@
                     <div class="wrapper mt-2 mb-2">
                         <% if (Object.keys(avr).length != 0) {%>
                             <% for (var i = 0; i < Object.keys(avr).length; i++) { %>
+                                <% var datenun = new Date(); %>
+                                <%var datenunyana =  datenun.getDate() %>
+                                <% var newdatenow = ("0" + datenunyana).slice(-2); %>
+                                <% var datenunyan =  avr[i].dateforreserv.split("-") %>
+                                <% var record = parseInt(datenunyan[1]-1) %>
+                                <% var now =  datenun.getMonth()  %>
+                                <% if (record >= now){ %>
+                                    <%  if (datenunyan[2] >= newdatenow ){  %>
 
-                                <% var datenunyanav =  avr[i].dateforreserv.split("-") %>
-                                <ul class="list-group ">
-                                    <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
-                                    <li class="list-group-item active"><%= monthNames[Number(datenunyanav[1])-1] %>&nbsp;<%= datenunyanav[2] %>,&nbsp;<%= datenunyanav[0] %></li>
-                                    <li class="list-group-item ">
-                                        <%= formatTime(avr[i].refrom) %> - <%= formatTime(avr[i].reto) %>
-                                        <hr>
-                                        Requested By: <%= avr[i].sname%>
-                                    </li>
-                                </ul>
+
+
+                                        <% var datenunyanav =  avr[i].dateforreserv.split("-") %>
+                                        <ul class="list-group ">
+                                            <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+
+                                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                                <%= monthNames[Number(datenunyanav[1])-1] %>&nbsp;<%= datenunyanav[2] %>,&nbsp;<%= datenunyanav[0] %>
+
+
+
+
+                                            </li>
+                                            <li class="list-group-item ">
+                                                <%= formatTime(avr[i].refrom) %> - <%= formatTime(avr[i].reto) %>
+                                                <hr>
+                                                Requested By: <%= avr[i].sname%>
+                                            </li>
+                                        </ul>
+
+
+                                    <% } %>
+                                <% } %>
+
+
                             <% } %>
                         <% } %>
 
