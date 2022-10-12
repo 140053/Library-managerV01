@@ -162,17 +162,29 @@
                     <div class="wrapper mt-2 mb-2">
                         <% if (Object.keys(lect).length != 0) {%>
                             <% for (var i = 0; i < Object.keys(lect).length; i++) { %>
+                                <% var datenun = new Date(); %>
+                                <%var datenunyana =  datenun.getDate() %>
+                                <% var newdatenow = ("0" + datenunyana).slice(-2); %>
+                                <% var datenunyan =  lect[i].dateforreserv.split("-") %>
+                                <% var record = parseInt(datenunyan[1]-1) %>
+                                <% var now =  datenun.getMonth()  %>
+                                <% if (record >= now){ %>
+                                    <%  if (datenunyan[2] >= newdatenow ){  %>
 
-                                <% var datenunyanlect =  lect[i].dateforreserv.split("-") %>
-                                <ul class="list-group ">
-                                    <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
-                                    <li class="list-group-item active"><%= monthNames[Number(datenunyanlect[1])-1] %>&nbsp;<%= datenunyanlect[2] %>,&nbsp;<%= datenunyanlect[0] %></li>
-                                    <li class="list-group-item ">
-                                        <%= formatTime(lect[i].refrom) %> - <%= formatTime(lect[i].reto) %>
-                                        <hr>
-                                        Requested By: <%= lect[i].sname%>
-                                    </li>
-                                </ul>
+                                        <% var datenunyanlect =  lect[i].dateforreserv.split("-") %>
+                                        <ul class="list-group ">
+                                            <% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+                                            <li class="list-group-item active"><%= monthNames[Number(datenunyanlect[1])-1] %>&nbsp;<%= datenunyanlect[2] %>,&nbsp;<%= datenunyanlect[0] %></li>
+                                            <li class="list-group-item ">
+                                                <%= formatTime(lect[i].refrom) %> - <%= formatTime(lect[i].reto) %>
+                                                <hr>
+                                                Requested By: <%= lect[i].sname%>
+                                            </li>
+                                        </ul>
+
+
+                                        <% } %>
+                                <% } %>
                             <% } %>
                         <% } %>
                     </div>
