@@ -1,5 +1,5 @@
 <div class="container-fluid bg-aqua-gradient ">
-
+    <button class="sreg_modal" ></button>
     <% if ( alert != null ){%>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Information</strong> <%= alert %>
@@ -15,7 +15,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">USER NOT FOUND</h5>
+                        <h1 style="color: red;" class="modal-title" id="exampleModalLabel">USER NOT FOUND</h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -25,13 +25,13 @@
                             <img class="card-img-top img-fluid" src="/img/notfound.jpg" alt="Card image cap" alt="Responsive image">
                             <div class="card-body">
 
-                                <p class="card-text">Sorry your Student Number is not found on our system if your are First Year or returnee you can register by clicking the register button below or inform the counter incharge Thank you!</p>
+                                <p class="card-text">Ask assistance to the Library incharge. Thank you</p>
 
                                 <ul class="list-group">
                                     <li id="countdown" class="list-group-item align-content-center"></li>
                                 </ul>
                                 &nbsp;
-                                <a class="btn btn-primary btn-block reg_modal">Register</a>
+                                <a class="btn btn-primary btn-block reg_modal" style="display: none;">Register</a>
                             </div>
                         </div>
                     </div>
@@ -392,7 +392,7 @@
 </div>
 
 
-<div class="modal fade sregisterBOX" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade registerBOX" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="container">
