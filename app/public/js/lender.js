@@ -43,6 +43,7 @@ function changeBgamesType(){
     if (bal.toUpperCase().match("SC")){
         $('#bgamestype').val('scrabble')
     }
+    
 
 }
 

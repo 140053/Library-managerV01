@@ -703,7 +703,7 @@ controller.lenderv2 = function (req, res){
 controller.lenderv2save = function (req, res){
     var id = req.body;
     ploginModel.ingestLendingMater(id, function (err, result){
-        console.log(result)
+        //console.log(result)
        res.redirect('/lenderV2')
     })
 
