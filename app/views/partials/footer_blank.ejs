@@ -50,6 +50,11 @@
   <%- locals.cjs %>
   
   <script scr="/js/custom.js" ></script>
+  <script>
+    $('.sreg_modal').on('click', function (){
+      $('.registerBOX').modal('show');
+    })
+  </script>
 
 <% if (Status == false) { %>
 
