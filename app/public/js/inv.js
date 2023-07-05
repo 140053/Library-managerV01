@@ -11,6 +11,14 @@ function setdateCustomSS(){
 
 }
 
+function setdateCustomBK(){
+    var date = $('.daterangeFieldBk').val();
+    //alert(date);
+    $('#book').val(date);
+    $('#select_date_book').modal('toggle');
+
+}
+
 
 function saveallIN_SS(table, daterange) {
     console.log(table + ' ' + daterange )

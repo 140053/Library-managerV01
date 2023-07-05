@@ -148,7 +148,7 @@ exports.SaveAllDataInTmp = async function(req,res,next){
         next();
     }else if(table == 'book'){
         console.log(table + ' in middlware' )
-        Book.save_to_main_table(table,function(err,result){
+        Book.save_to_main_table(table, newdate, function(err,result){
 
             //console.log(result);
             if(err == 'error'){
@@ -157,12 +157,12 @@ exports.SaveAllDataInTmp = async function(req,res,next){
 
                 Book.drop_table('book',function(err, res00 ){
                     console.log(err + res00);
-                    console.log('save successfully');
-                    next();
+                    console.log('save successfully');                   
                 })
                 
             }
         });
+        next();
         
         
     }else{

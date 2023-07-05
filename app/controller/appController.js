@@ -291,9 +291,7 @@ exports.ihs_serials = function(req,res){
 
 exports.saveToMain = function(req,res){
   var table = req.body  
-  console.log(table);
- 
-
+  console.log(table); 
   res.redirect('/ihs/');
 
 }
@@ -441,6 +439,7 @@ exports.api = function(req, res) {
 
       
     }else if (data.type == 'book'){
+      
       Book.check_if_exist_td('book',function(err,status){
         console.log(status); //  [ RowDataPacket { exist: 0 } ]
         if(status[0].exist == 1){

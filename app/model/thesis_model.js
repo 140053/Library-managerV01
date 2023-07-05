@@ -318,7 +318,7 @@ Task.save_to_main_table = async function( table,date, result){
         console.log('__________________________________________________ date is null__________________________________________________________________')
         query = "INSERT INTO ihutd ( title, author, call_number, barcode, abstract, kurso, reg_date ) SELECT  title, author, call_number, barcode, abstract, kurso, reg_date FROM thesis;"
     }
-// --------------------------- Working in this hahahaha
+// --------------------------- 
     try{
         sql.connection.query(query, function(err,res){
             console.log(err);

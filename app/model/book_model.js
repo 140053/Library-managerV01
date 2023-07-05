@@ -331,9 +331,28 @@ Task.CountonInTable =  function(table, result){
 
 
 
-Task.save_to_main_table = async function( table, result){
-    var query = "INSERT INTO ihubk (title, author, code1, call_number, katers, taon,  barcode, location,  reg_date ) SELECT title, author,code1, call_number,  katers, taon,  barcode, location,  reg_date FROM book;"
+Task.save_to_main_table = async function( table,date, result){
+    //date = { book: 'thesis', daterange: '2022-01-19' }
+    console.log('__________________________________________________' + date + '__________________________________________________________________')
+    var query = ''
+    if(date !== null){
+        if(date == ''){
+            console.log('__________________________________________________ date is null__________________________________________________________________')
+            query = "INSERT INTO ihubk (title, author, code1, call_number, katers, taon,  barcode, location,  reg_date ) SELECT title, author,code1, call_number,  katers, taon,  barcode, location,  reg_date FROM book;"
+        }else{
+            console.log('__________________________________________________ date is not null__________________________________________________________________')
+            query = "INSERT INTO ihubk (title, author, code1, call_number, katers, taon,  barcode, location,  reg_date ) SELECT title, author,code1, call_number,  katers, taon,  barcode, location, '" + date + " 10:00:00'   FROM book;"
+        }
+    }else if(date == ''){
+        console.log('__________________________________________________ date is null__________________________________________________________________')
+        query = "INSERT INTO ihubk (title, author, code1, call_number, katers, taon,  barcode, location,  reg_date ) SELECT title, author,code1, call_number,  katers, taon,  barcode, location,  reg_date FROM book;"
+    }else{
+        console.log('__________________________________________________ date is null__________________________________________________________________')
+        query = "INSERT INTO ihubk (title, author, code1, call_number, katers, taon,  barcode, location,  reg_date ) SELECT title, author,code1, call_number,  katers, taon,  barcode, location,  reg_date FROM book;"
+    }
 
+
+   
     try{
         sql.connection.query(query, function(err,res){
             //console.log(err);
